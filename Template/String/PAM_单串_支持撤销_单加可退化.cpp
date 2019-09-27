@@ -14,7 +14,7 @@ struct PAM{
 		}
 		last=next[cur][c],cnt[last]++; id[n]=last; if (!no[last]) no[last]=n; //...
 	}
-	inline void D() { if (!(--cnt[last])) next[pre[last]][s[n]]=0; last=id[--n]; }
+	inline void D() { if (p<=1) return; if (!(--cnt[last])) next[pre[last]][s[n]]=0,--p; last=id[--n]; }
 	inline void Insert(char s[],int op=0,int _n=0) { 
 		if (!_n) _n=strlen(s);  if (!op) rep(i,0,_n) I(s[i]); else per(i,0,_n) I(s[i]); 
 	}
