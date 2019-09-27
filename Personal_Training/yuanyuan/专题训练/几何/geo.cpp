@@ -60,6 +60,7 @@ db det(P a, P b) { return a.x * b.y - a.y * b.x; }
 db dot(P a, P b) { return a.x * b.x + a.y * b.y; }
 db det(P o, P a, P b) { return det(a - o, b - o); }
 db dot(P o, P a, P b) { return dot(a - o, b - o); }
+db rad(P p1, P p2) { return atan2l(det(p1, p2), dot(p1, p2)); }
 struct O {
 	P o; db r;
 	O() {}
@@ -115,6 +116,38 @@ P isLL(L l1, L l2) {
 	db s1 = det(l2.b - l2.a, l1.a - l2.a);
 	db s2 = -det(l2.b - l2.a, l1.b - l2.a);
 	return (l1.a * s2 + l1.b * s1) / (s1 + s2);
+}
+bool isCL(O a, L l, P &p1, P &p2) {
+	db x = dot(l.a - a.o, l.b - l.a);
+	db y = (l.b - l.a).len2();
+	db d = x * x - y * ((l.a - a.o).len2() - a.r * a.r);
+	if(sign(d) < 0) return 0;
+	d = max(d, 0.);
+	P p = l.a - ((l.b - l.a) * (x / y)), det = (l.b - l.a) * (sqrt(d) / y);
+	p1 = p - det, p2 = p + det; // dir : l.a -> l.b
+	return 1;
+}
+db areaCT(db r,P s,P t) { // 求圆与三角形交面积，需要除2
+	P p1, p2;
+	bool f = isCL(O(P(0, 0), r), L(s, t), p1, p2);
+	if(!f) return r * r * rad(s, t);
+	bool b1 = sign(s.len2() - r * r) == 1 , b2 = sign(t.len2() - r * r) == 1;
+	if(b1 && b2) {
+		if(sign(dot(s - p1, t - p1)) <= 0 && sign(dot(s - p2, t - p2) <= 0))
+			return r * r * (rad(s, p1) + rad(p2, t)) + det(p1, p2);
+		else return r * r * rad(s, t);
+	} else if(b1) return r * r * rad(s, p1) + det(p1, t);
+	else if(b2) return r * r * rad(p2, t) + det(s, p2);
+	return det(s, t);
+}
+db areaCPoly(O c, vector<P> p) { // 求圆与多边形交面积
+	int n = sz(p);
+	db ans = 0;
+	rep(i, 0, n) {
+		P u = p[i], v = p[(i + 1) % n];
+		ans += areaCT(c.r, u - c.o, v - c.o);
+	}
+	return fabs(ans) / 2;
 }
 // sqrt((a ^ 2 + b ^ 2 + c ^ 2 + 4 * sqrt(3) * area) / 2)
 // 如果有重点，大于 2 的直接用模拟退火法

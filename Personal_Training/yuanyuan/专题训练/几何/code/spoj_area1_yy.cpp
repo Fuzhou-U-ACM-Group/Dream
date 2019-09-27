@@ -203,20 +203,20 @@ P3 MinSphere(vector<P3> p) {
 }
 
 void solve() {
+	srand(time(0));
 	int a, b, c, r;
 	while(cin >> a >> b >> c >> r) {
 		if(!a) break;
-		P A(0, 0), B(c, 0), C(b, 0);
-		C = C.rot(acos(1. * (b * b + c * c - a * a) / 2 / b / c));
+		db x = (b * b + c * c - a * a) / 2. / c;
+		P A(0, 0), B(c, 0), C(x, sqrt(b * b - x * x));
 		vector<P> p; p.pb(A), p.pb(B), p.pb(C);
 		O o(A, r); db t = 100, ret = areaCPoly(o, p);
 		while(t > eps) {
-			for(int i = -1; i <= 1; i += 2) {
-				for(int j = -1; j <= 1; j += 2) {
-					O tmp = o; tmp.o.x += i * t, tmp.o.y += j * t;
-					db tt = areaCPoly(tmp, p);
-					if(ret < tt) ret = tt, o = tmp;//, dd(ret), tmp.o.print();
-				}
+			rep(i, 0, 60) {
+				db ang = rand() % 20000 / 10000.0 * pi;
+				O tmp = o; tmp.o.x += cos(ang) * t, tmp.o.y += sin(ang) * t;
+				db tt = areaCPoly(tmp, p);
+				if(ret < tt) ret = tt, o = tmp;
 			}
 			t *= 0.99;
 		}
