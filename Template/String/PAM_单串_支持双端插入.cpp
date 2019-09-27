@@ -14,7 +14,7 @@ struct PAM{
 		}
 		last[op]=next[cur][c],cnt[last[op]]++;
 		if (len[last[op]]==n[1]-n[0]+1) last[op^1]=last[op];
-		id[n[op]]=last[op],no[last[op]]=n[op]-(len[last[op]]-1)*op; //...
+		id[n[op]]=last[op]; if (op || no[last[op]]==inf) no[last[op]]=n[op]+(len[last[op]]-1)*!op; //...
 		sum_cnt+=dep[last[op]];
 	}
 	inline void Insert(char s[],int back=1,int op=0,int _n=0) { 
@@ -26,7 +26,7 @@ struct PAM{
 
 /*
 
-注： 1) 支持在线维护本质不同回文串个数 p-2 , 所有回文串个数 sum_cnt , 每个回文串出现的一次起点下标 ( 不保证最左最右 ) 
+注： 1) 支持在线维护本质不同回文串个数 p-2 , 所有回文串个数 sum_cnt , 每个回文串出现的最右终点下标 
 
      2) 注意 id[x] 是不准确的
 
