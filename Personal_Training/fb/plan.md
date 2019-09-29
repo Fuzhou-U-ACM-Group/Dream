@@ -981,9 +981,21 @@
 
 - [ ] min25筛法 2.00
 
-- [ ] dancing_links及其他搜索优化 1.00
+- [x] dancing_links及其他搜索优化 1.00
 
-  poj3074 poj 2676 poj3076 hdu 4069 hdu3909
+  O 1.http://poj.org/problem?id=3074
+
+  3*3数独
+
+  O 2.http://poj.org/problem?id=3076
+
+  4*4数独
+
+  O 3.http://poj.org/problem?id=2676
+
+  4.http://acm.hdu.edu.cn/showproblem.php?pid=4069
+
+  5.http://acm.hdu.edu.cn/showproblem.php?pid=3909
 
 - [ ] 长链剖分 1.00
 
@@ -1011,7 +1023,9 @@
 
   裸题，建最小生成树后转树上路径询问，倍增或树剖都可以
 
-- [ ] 类欧几里得算法 0.50
+- [x] 类欧几里得算法 0.50
+
+  O 1.https://www.luogu.org/problem/P5170
 
 - [ ] 线性代数 1.00
 
