@@ -248,7 +248,44 @@ Mat rotate(P3 s, db a) {
         0, 0, 0, 1};
     Mat r; rep(i, 0, 4) rep(j, 0, 4) r.a[i][j] = p[i][j]; return r;
 }
+Mat solve(int k) {
+    Mat res; res.set(); res.e();
+    string s;
+    while(cin >> s) {
+        if(s[0] == 't') {
+            db x, y, z; cin >> x >> y >> z;
+            res = translate(x, y, z) * res;
+        } else if(s[0] == 's') {
+            db x, y, z; cin >> x >> y >> z;
+            res = scale(x, y, z) * res;
+        } else if(s[0] == 'e') {
+            return kpow(res, k);
+        } else if(s[1] == 'o') {
+            P3 s; db a; s.read(); cin >> a;
+            res = rotate(s, a / 180 * pi) * res;
+        } else {
+            int t; cin >> t;
+            res = solve(t) * res;
+        }
+    }
+}
 void solve() {
+    int n; 
+    while(cin >> n) {
+        if(!n) break;
+        Mat res = solve(1);
+        rep(i, 0, n) {
+            db p[4], q[3];
+            rep(o, 0, 3) cin >> p[o]; p[3] = 1;
+            rep(o, 0, 3) {
+                q[o] = 0;
+                rep(j, 0, 4) q[o] += res.a[o][j] * p[j];
+                if(sign(q[o]) == 0) q[o] = 0;
+                cout << q[o] << " \n"[o == 2];
+            }
+        }
+        cout << endl;
+    }
 }
 
 int main() {
