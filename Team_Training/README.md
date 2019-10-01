@@ -39,7 +39,7 @@
 | 2019/9/7 [2019ICPC徐州网络赛](https://www.jisuanke.com/contest/3005?view=challengesteam2139@xuzhou2019.icpc5GubAJWq) **[done]** |  14  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challengesteam347@shenyang2019.icpcENqNqySQ) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
 | 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) **[done]** |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  Ø   |  O   |  Ø   |  O   |      |
-|                2019/10/1                 |  22  |  .   |  .   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |      |      |
+|                2019/10/1                 |  22  |  .   |  .   |  Ø   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
