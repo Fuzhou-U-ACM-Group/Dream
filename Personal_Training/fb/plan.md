@@ -907,28 +907,158 @@
   28.http://codeforces.com/problemset/problem/863/F
 
 
-- [ ] simpson积分法 0.50
-- [ ] 2-sat 2.00
+- [x] simpson积分法 0.50
+
+  O 1.http://acm.hdu.edu.cn/showproblem.php?pid=1724
+
+- [x] 最小割树 0.50
+
+  O 1.https://www.luogu.org/problem/P3329
+
+  O 2.https://www.luogu.org/problem/P4123
+
+  O 3.https://www.luogu.org/problem/P4897
+
+  ​	模板题，主要就是最小割只有n-1种，以及可以通过递归建出一个特殊的最小割树，有两点间最小割为树上路径最小值的性质	
+
+- [x] 2-sat 2.00
+
+  O 1.http://www.lydsy.com/JudgeOnline/problem.php?id=1997
+
+  ​	判断一个环上连一些边能不能平面嵌入，每条边有可以在内部和外部两种，处理出之间的限制看2-sat有没有解即可
+
+  O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=2199
+
+  ​	2-sat有两种解法，一种是缩点后求任意解，另一种是直接暴力dfs，可以确定字典序最小解，一个元素是不是必选之类的问题。
+
+  O 3.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
+
+  O 4.http://poj.org/problem?id=3683
+
+  O 5.http://poj.org/problem?id=3207
+
+  O 6.http://www.lydsy.com/JudgeOnline/problem.php?id=4945
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=4078
+
+  ​	把图中点分成两个集合，使两个集合内的最大距离相加最小，枚举大的集合限制，有奇偶环优化，即不行的边不能构成基环，以及构成偶环的最小边不会是限制，用并查集维护，判断方案是否可行用2-sat。
+
+  O 8.http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435 B
+
+  首先建到达关系的图，缩完点后发现一个物品会被取到至少要访问到横线或竖线中一个，就是在新的DAG途中的两个点，题目转化为固定起点，判断在DAG中是否存在路径可以经过所有限制中至少一个，用2-sat建图求解。然后这个对普通应该图也是可行的，只是复杂度是O(n^2)的。
+
+  9.http://codeforces.com/problemset/problem/780/D
+
+  裸题
+
+  10.http://codeforces.com/problemset/problem/776/D
+
+  裸题
+
+  O 11.http://codeforces.com/problemset/problem/587/D
+
+  一堆变量至多选一个的这种特殊限制可以用前后缀优化来实现
+
+  12.http://codeforces.com/problemset/problem/568/C
+
+  13.http://codeforces.com/problemset/problem/538/H
+
+  14.http://codeforces.com/problemset/problem/538/H
+
+  15.http://codeforces.com/problemset/problem/228/E
+
+  16.http://codeforces.com/problemset/problem/27/D
+
+  17.http://codeforces.com/problemset/problem/193/A
+
+  O 18.https://arc069.contest.atcoder.jp/tasks/arc069_d
+
+  二分后线段树优化建图，再用tarjan判断是否可行
+
+  O 19.http://codeforces.com/problemset/problem/1215/F
+
+  每个变量上有区间，需要确定$f$, 使选的变量区间都包含$f$，通过类似前后缀优化的思想，引入额外变量$m_i$表示选了这个变量就会有$f >= i$ ,即可优化限制数量。
+
 - [ ] min25筛法 2.00
-- [ ] dancing_links及其他搜索优化 1.00
+
+- [x] dancing_links及其他搜索优化 1.00
+
+  O 1.http://poj.org/problem?id=3074
+
+  3*3数独
+
+  O 2.http://poj.org/problem?id=3076
+
+  4*4数独
+
+  O 3.http://poj.org/problem?id=2676
+
+  4.http://acm.hdu.edu.cn/showproblem.php?pid=4069
+
+  5.http://acm.hdu.edu.cn/showproblem.php?pid=3909
+
 - [ ] 长链剖分 1.00
+
 - [ ] 线段树模拟费用流 1.00
+
 - [ ] 最小树形图 1.00
+
 - [ ] 容斥原理以及各种反演 1.00
-- [ ] 稳定婚姻系统 0.50
-- [ ] 支配树 1.00
-- [ ] 瓶颈路 0.50
-- [ ] 类欧几里得算法 0.50
+
+- [x] 稳定婚姻系统 0.50
+
+  1.http://acm.hdu.edu.cn/showproblem.php?pid=1435
+
+  O 2.http://poj.org/problem?id=3487
+
+- [x] 支配树 1.00
+
+  1.https://www.luogu.org/problem/P2597
+
+  ​	多建一个超级源，求支配树上size
+
+- [x] 瓶颈路 0.50
+
+  1.https://www.lydsy.com/JudgeOnline/problem.php?id=3732
+
+  裸题，建最小生成树后转树上路径询问，倍增或树剖都可以
+
+- [x] 类欧几里得算法 0.50
+
+  O 1.https://www.luogu.org/problem/P5170
+
 - [ ] 线性代数 1.00
-- [ ] 最优比率生成树/最优比率环/01规划 0.50
+
+- [x] 最优比率生成树/最优比率环/01规划 0.50
+
+  O 1.http://poj.org/problem?id=2976
+
+  ​	2.http://poj.org/problem?id=2728
+
+  O 3.http://poj.org/problem?id=3621
+
+  ​		二分以后就转成有向图负环判断
+
 - [x] 高维偏序问题 1.00
+
 - [ ] 普通dp及其优化 4.00
+
 - [x] 图论 4.00
+
 - [ ] 差分约束 1.00
+
 - [ ] kd-tree 1.00
+
 - [x] 线性规划及其对偶 0.50
+
 - [ ] 度限制最小生成树 1.00
-- [ ] 连分数 0.50
+
+- [x] 连分数 0.50
+
+  1.http://acm.hdu.edu.cn/showproblem.php?pid=4180
+
 - [ ] 整体二分 1.00
+
 - [ ] 构造 1.00
+
 - [ ] 二分图匹配 2.00

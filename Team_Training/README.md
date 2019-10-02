@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -11,30 +11,44 @@
 | 2019/6/9 [2019广东江苏省赛](https://cn.vjudge.net/contest/305967#overview) |      |  Ø   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  .   |  O   |  O   |      |
 | 2019/6/25 [XIX Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433) **[done]** |  99  |  O   |  !   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  Ø   |  !   |      |
 | 2019/6/29 [XIX Open Cup GP of Peterhof ](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010439) **[done]** |  35  |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |
-| 2019/6/30 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) **[done]** |  47  |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |
+| 2019/6/30 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) **[done]** |  47  |  O   |  c   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |
 | 2019/7/18 [2019-nowcoder-multi-1](https://ac.nowcoder.com/acm/contest/881#question) **[done]** |  3   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |  O   |  O   |      |      |      |
 | 2019/7/22 [2019-hdu-multi-1](http://acm.hdu.edu.cn/contests/contest_show.php?cid=848) |  21  |  Ø   |  Ø   |  Ø   |  O   |  O   |  Ø   |  Ø   |  .   |  O   |  Ø   |  O   |  O   |  O   |
 | 2019/7/25 [2019-nowcoder-multi-3](https://ac.nowcoder.com/acm/contest/883#question) **[done]** |  11  |  Ø   |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/7/29 [2019-hdu-multi-3](http://acm.hdu.edu.cn/contests/contest_show.php?cid=850) **[done]** |  17  |  Ø   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  O   |  Ø   |  O   |      |      |
-| 2019/7/31 [2019-hdu-multi-4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  .   |  .   |  !   |  .   |  .   |  O   |  O   |  !   |  Ø   |      |      |      |
+| 2019/7/31 [2019-hdu-multi-4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  Ø   |  Ø   |  .   |  Ø   |  Ø   |  O   |  O   |  .   |  Ø   |      |      |      |
 | 2019/8/1 [2019-nowcoder-multi-5](https://ac.nowcoder.com/acm/contest/885#question) **[done]** |  4   |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
-| 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
-| 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |      |      |      |
-| 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  .   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |      |
-| 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  .   |      |      |
-| 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) |  5   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |      |      |      |
-| 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) |  29  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
-| 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915) |  13  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
-| 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  Ø   |  .   |  Ø   |  O   |  O   |  X   |  .   |  O   |      |      |      |      |
-| 2019/8/14 [2019-nowcoder-multi-10](https://ac.nowcoder.com/acm/contest/890#question) |  11  |  O   |  O   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |      |
-| 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  .   |  Ø   |  O   |  O   |  O   |      |      |
-| 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) |  30  |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  Ø   |  .   |  O   |      |
+| 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) **[done]** |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
+| 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  Ø   |  X   |  O   |  O   |  O   |  O   |  X   |  .   |  Ø   |      |      |      |
+| 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  Ø   |  O   |  .   |  O   |  O   |  O   |  Ø   |  O   |  .   |  O   |  O   |  O   |      |
+| 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  .   |      |      |
+| 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) **[done]** |  5   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
+| 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) **[done]** |  29  |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |
+| 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915_19aug25_smx3pukt1h) |  13  |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
+| 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  Ø   |  .   |  Ø   |  O   |  O   |  X   |  !   |  O   |      |      |      |      |
+| 2019/8/14 [2019-nowcoder-multi-10](https://ac.nowcoder.com/acm/contest/890#question) **[done]** |  11  |  O   |  O   |  X   |  O   |  O   |  O   |  O   |  O   |  X   |  O   |      |      |      |
+| 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) **[done]** |  26  |  O   |  !   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |      |      |
+| 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) **[done]** |  30  |  !   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |  !   |  Ø   |  !   |  O   |      |
 | 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
+<<<<<<< HEAD
 | 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  .   |  Ø   |  O   |      |      |
 | 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |  .   |      |      |      |
 | 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) |  32  |  O   |  O   |  .   |  Ø   |  O   |  O   |  .   |  O   |  O   |  O   |      |      |      |
 |        2019/8/23 [2019CCPC网络赛]()         |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |      |      |
 | 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challenges  team343@yinchuan2019.icpc Fn89RbzX) |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  .   |
+=======
+| 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) **[done]** |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  X   |  Ø   |  O   |      |      |
+| 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  Ø   |  .   |  O   |  Ø   |  O   |  .   |  .   |  Ø   |      |      |      |
+| 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) **[done]** |  32  |  O   |  O   |  X   |  Ø   |  O   |  O   |  X   |  O   |  O   |  O   |      |      |      |
+| 2019/8/23 [2019CCPC网络赛](http://acm.hdu.edu.cn/userloginex.php?cid=869team0566172321) **[done]** |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  X   |  X   |      |      |
+| 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challengesteam343@yinchuan2019.icpcFn89RbzX)**[done]** |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |
+| 2019/9/1 [2019ICPC南京网络赛](https://www.jisuanke.com/contest/3004?view=challengesteam323@nanjing2019.icpcP89EMWMP) **[done]** |  9   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |      |      |      |      |
+| 2019/9/7 [2019ICPC徐州网络赛](https://www.jisuanke.com/contest/3005?view=challengesteam2139@xuzhou2019.icpc5GubAJWq) **[done]** |  14  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
+| 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challengesteam347@shenyang2019.icpcENqNqySQ) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
+| 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) **[done]** |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  Ø   |  O   |  Ø   |  O   |      |
+| 2019/10/1 [Petrozavodsk Winter-2017. Xiaoxu Guo Contest 5](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=1492) |  22  |  Ø   |  Ø   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
+| 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  Ø   |  .   |  O   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
+>>>>>>> 0c917bd6b5e1c0b28d404fe3acdf737f9616fcd6
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
