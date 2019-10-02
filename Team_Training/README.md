@@ -40,7 +40,7 @@
 | 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challengesteam347@shenyang2019.icpcENqNqySQ) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
 | 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) **[done]** |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  Ø   |  O   |  Ø   |  O   |      |
 | 2019/10/1 [Petrozavodsk Winter-2017. Xiaoxu Guo Contest 5](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=1492) |  22  |  Ø   |  Ø   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
-| 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  .   |  .   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |      |      |      |
+| 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  Ø   |  .   |  O   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
