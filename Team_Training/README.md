@@ -30,6 +30,13 @@
 | 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) **[done]** |  26  |  O   |  !   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |      |      |
 | 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) **[done]** |  30  |  !   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |  !   |  Ø   |  !   |  O   |      |
 | 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
+<<<<<<< HEAD
+| 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  .   |  Ø   |  O   |      |      |
+| 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |  .   |      |      |      |
+| 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) |  32  |  O   |  O   |  .   |  Ø   |  O   |  O   |  .   |  O   |  O   |  O   |      |      |      |
+|        2019/8/23 [2019CCPC网络赛]()         |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |      |      |
+| 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challenges  team343@yinchuan2019.icpc Fn89RbzX) |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  .   |
+=======
 | 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) **[done]** |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  X   |  Ø   |  O   |      |      |
 | 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  Ø   |  .   |  O   |  Ø   |  O   |  .   |  .   |  Ø   |      |      |      |
 | 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) **[done]** |  32  |  O   |  O   |  X   |  Ø   |  O   |  O   |  X   |  O   |  O   |  O   |      |      |      |
@@ -41,6 +48,7 @@
 | 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) **[done]** |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  Ø   |  O   |  Ø   |  O   |      |
 | 2019/10/1 [Petrozavodsk Winter-2017. Xiaoxu Guo Contest 5](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=1492) |  22  |  Ø   |  Ø   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
 | 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  Ø   |  .   |  O   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
+>>>>>>> 0c917bd6b5e1c0b28d404fe3acdf737f9616fcd6
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
