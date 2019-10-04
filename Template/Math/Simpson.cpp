@@ -8,7 +8,7 @@ namespace Simpson {
 		db ab = (a + b) / 2, bc = (b + c) / 2;
 		db fab = F(ab), fbc = F(bc);
 		db L = simpson(fa, fab, fb, a, b), R = simpson(fb, fbc, fc, b, c);
-		if (fabs(L + R - A) <= 15 * eps) return L + R + (L + R - A) / 15.0;
+		if (fabs(L + R - A) <= 15 * esp) return L + R + (L + R - A) / 15.0;
 		return asr(a, ab, b, esp / 2, L, fa, fab, fb) + asr(b, bc, c, esp / 2, R, fb, fbc, fc);
 	} 
 	//f(a, c)
