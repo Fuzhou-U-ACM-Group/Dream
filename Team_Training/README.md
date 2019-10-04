@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -41,6 +41,8 @@
 | 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) **[done]** |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  Ø   |  O   |  Ø   |  O   |      |
 | 2019/10/1 [Petrozavodsk Winter-2017. Xiaoxu Guo Contest 5](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=1492) |  22  |  Ø   |  Ø   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
 | 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  Ø   |  .   |  O   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
+| 2019/10/3 [ Petrozavodsk Winter-2019. 300iq Contest 1]( <http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001531) |  29  |  .   |  O   |  O   |  .   |  O   |  O   |  .   |  .   |  .   |  .   |  .   |      |      |
+| 2019/10/4 [2019CCPC秦皇岛](https://vjudge.net/contest/331552#overview) |  7   |  O   |  .   |  .   |  O   |  Ø   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
