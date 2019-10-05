@@ -1,7 +1,7 @@
 /*
 * [0,L) , N-1 is virtual , 0 is rt
 * init!!
-* addation: end[] end[c]|=end[fail[c]]
+* addition: end[] end[c] |= end[fail[c]]
 */
 struct Trie{
     static const int N = 101010 , M = 26;
