@@ -13,7 +13,7 @@ struct data { // 距离 起点 当前点 当前扩展过的边编号
 };
 
 // 连通图的话 k <= n * (n - 1) 
-// 复杂度最坏应该是O( min(nmlogn, k^2logk) ) 正常应该是O(klogk + nlogn) 
+// 复杂度最坏应该是 O( min(nmlogn, k^2logk) ) 正常应该是 O(klogk + nlogn) 
 ll solve(int n, vector<pii> g[], int k) { 
 	priority_queue<data> pq; 
     set<pii> vis;
