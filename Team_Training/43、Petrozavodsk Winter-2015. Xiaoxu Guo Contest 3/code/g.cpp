@@ -20,7 +20,7 @@ typedef vector<int> vi;
 const int N = 1010;
 
 int n, m;
-int a[N], b[N];//, c[N], sa[N];
+int a[N], b[N], p[N];
 ll ans;
 
 inline int F(int i) {
@@ -56,33 +56,63 @@ bool cmp(int i, int j) {
 	int t = (y > n ? -1 : (y == a[F(y)]));
 	return o < t;
 }
-/*
+
 bool cmp2(int i, int j) {
-	return cmp(a[i], a[j]);
-}*/
+	return b[i] > b[j];
+}
+
+struct Node {
+	int i, len;
+	Node() {}
+	Node(int i) : i(i) { len = n - i + 1; }
+	bool operator < (const Node &c) const {
+		return cmp(i, c.i) > 0;
+	}
+};
 
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	cin >> n >> m;
-	rep(i, 1, m + 1) cin >> a[i], b[i] = c[i] = a[i] - a[i - 1] - 1;
+	rep(i, 1, m + 1) cin >> a[i], b[i] = a[i] - a[i - 1] - 1, p[i] = i;
 	b[m + 1] = n - a[m];
 	a[m + 1] = n + 1;
 
-	sort(c + 1, c + 1 + m);
-	reverse(c + 1, c + 1 + m);
-	c[m + 1] = -1;
+	sort(p + 1, p + 1 + m, cmp2);
 
-//	rep(i, 1, m + 1) sa[i] = i;
-//	sort(sa + 1, sa + 1 + m, cmp2);
-
-/*
-	Log[0] = -1; for(int i = 1; i <= m; ++i) Log[i] = Log[i - 1] + (i == (i & (-i)));
-	for(int i = 1; i <= m; ++i) p[0][i] = lcp();
-*/
 	ans = b[m + 1];
+	set<Node> st;
+	ll sum = 0;
+	bool flag = 0;
 	rep(i, 1, m + 1) {
-		int k = c[i] - c[i + 1];
+		int k = b[p[i]];
+		if(i < m) k -= b[p[i + 1]];
+		else k -= -1;
+		if(i == 1) {
+			st.insert(Node(a[p[i]]));
+		} else {
+			auto pos = st.lower_bound(Node(a[p[i]]));
+			if(pos == st.end()) {
+				--pos;
+				sum += n - a[p[i]] + 1 - lcp(a[p[i]], pos -> i);
+			} else if(pos == st.begin()) {
+				sum += pos -> len - lcp(pos -> i, a[p[i]]);
+			} else {
+				sum += pos -> len - lcp(pos -> i, a[p[i]]);
+				auto tt = pos; --pos;
+				sum += n - a[p[i]] + 1 - lcp(pos -> i, a[p[i]]);
+				sum -= tt -> len - lcp(pos -> i, tt -> i);
+			}
+			st.insert(Node(a[p[i]]));
+		}
+		if(!k) continue;
+		int t = n - (st.begin() -> i) + 1;
+		ans += k * (t + sum);
+		if(!flag) {
+			flag = 1;
+			ans -= t;
+			ans += t + b[p[i]] - lcp(st.begin() -> i - b[p[i]], a[m] + 1);
+		}
 	}
 	cout << ans << endl;
 	return 0;

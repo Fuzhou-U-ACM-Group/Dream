@@ -167,22 +167,16 @@ P fermat(vector<P> p) {
         P q2 = (p[0] - p[1]).rot(pi / 3) + p[1];
         return isLL(L(q1, p[1]), L(q2, p[2]));
     }
+	db Rand = [&] () { return rand() % 10000 / 5000 * pi; }
     P ans(0, 0); rep(i, 0, n) ans = ans + p[i]; ans = ans / n;
     db len = 0; rep(i, 0, n) len += (ans - p[i]).len();
-    db t = 100; // modify
+    db t = 10000; // modify
     while(t > eps) {
-        bool f = 1;
-        while(f) {
-            f = 0;
-            for(int i = -1; i <= 1; i += 2) {
-                for(int j = -1; j <= 1; j += 2) {
-                    P np(ans.x + i * t, ans.y + j * t);
-                    db k = 0; rep(i, 0, n) k += (np - p[i]).len();
-                    if(sign(len - k) > 0) ans = np, len = k, f = 1;
-                }
-            }
-        }
-        t *= 0.5;
+      db ang = Rand();
+      P np(ans.x + t * sin(ang), ans.y + t * cos(ang));
+      db k = 0; rep(i, 0, n) k += (np - p[i]).len();
+      if(sign(len - k) > 0) ans = np, len = k;
+      t *= 0.999;
     }
     return ans;
 }
