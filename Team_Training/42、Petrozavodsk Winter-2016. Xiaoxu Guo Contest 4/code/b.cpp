@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 #define fi first
@@ -18,56 +19,38 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 
 const int N = 2020;
-
-vector<pii> g[N];
-int n, m, k, u, v, w;
-bool vis[N][N];
+bitset<N> g[N];
+int n, m, dis[N], k, u, v, w, l, r, q[N];
 ll ans;
-struct Data {
-	int w; int st, last, id;
-	Data(int w, int st, int last, int id) : w(w), st(st), last(last), id(id) {}
-	bool operator < (const Data &c) const {
-		return w > c.w;
-	}
-};
-
-void solve(int n, vector<pii> g[], int k) {
-	priority_queue<Data> pq;
-	rep(i, 1, n + 1) {
-		if(sz(g[i])) pq.push(Data(g[i][0].fi, i, i, 0));
-		vis[i][i] = 1;
-	}
-	while(!pq.empty()) {
-		Data u = pq.top(); pq.pop();
-		int v = g[u.last][u.id].se;
-		if(!vis[u.st][v]) {
-			vis[u.st][v] = 1;
-			k--; ans += u.w * u.w;  if(k == 0) return;
-			if(sz(g[v]) && u.w + g[v][0].fi <= n) pq.push(Data(u.w + g[v][0].fi, u.st, v, 0));
-		} 
-		if(u.id + 1 < sz(g[u.last])) {
-			int w = u.w - g[u.last][u.id].fi + g[u.last][u.id + 1].fi;
-			if(w <= n) pq.push(Data(u.w - g[u.last][u.id].fi + g[u.last][u.id + 1].fi, u.st, u.last, u.id + 1));
+void bfs(int s) {
+	l = r = 0;
+	rep(i, 1, n+1) dis[i] = n; dis[s] = 0; 
+	q[r++] = s; bitset<N> vis;
+	vis.set();
+	vis.reset(s-1);
+	while (l < r) {
+		int u = q[l]; l++;
+		bitset<N> ok = vis & g[u];
+		for (int i = ok._Find_first(); i < sz(ok); i = ok._Find_next(i)) {
+			dis[i+1] = dis[u] + 1;
+			vis.reset(i);
+			q[r++] = i+1;
 		}
 	}
+	rep(i, 1, n+1) ans += dis[i] * dis[i];
 }
 string s;
-int cnt, cnt2, tmp[N], tmp2[N], x;
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	cin >> n;
 	rep(i, 1, n+1) {
-		cnt = cnt2 = 0;
 		cin >> s;
 		rep(j, 0, n) {
-			if (s[j] == '1') tmp[cnt++] = j+1;else tmp2[cnt2++] = j+1;
+			if (s[j] == '1') g[i].set(j); 
 		}
-		g[i].resize(n);
-		rep(j, 0, cnt) g[i][j] = mp(1, tmp[j]);
-		rep(j, 0, cnt2) g[i][j+cnt] = mp(n, tmp2[j]);
 	}
-	solve(n, g, n * n - n);
+	rep(i, 1, n+1) bfs(i);
 	cout << ans << endl;
 	return 0;
 }
