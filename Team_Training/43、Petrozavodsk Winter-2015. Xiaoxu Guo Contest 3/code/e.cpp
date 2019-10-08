@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 #define fi first
@@ -20,7 +21,7 @@ typedef vector<int> vi;
 const int N = 11;
 const db eps = 1e-8;
 
-int n = 6;
+int n = 3;
 
 int sign(db x) {
 	return (x > eps) - (x < -eps);
@@ -50,9 +51,9 @@ int main() {
 	vector<P> p(n);
 	while(cin >> p[0].x >> p[0].y) {
 		cin >> p[1].x >> p[1].y;
-		p[2] = p[1];
-		cin >> p[3].x >> p[3].y;
-		p[4] = p[5] = p[3];
+		//p[2] = p[1];
+		cin >> p[2].x >> p[2].y;
+		/*p[4] = p[5] = p[3];
 		P ans(0, 0); rep(i, 0, n) ans = ans + p[i]; ans = ans / n;
 		db len = 0; rep(i, 0, n) len += (ans - p[i]).len();
 		db t = 100;
@@ -69,11 +70,12 @@ int main() {
 				}
 			}
 			t *= 0.5;
-		}
+		}*/
 		cout << setiosflags(ios::fixed);
 		cout << setprecision(7);
 		db res = 0;
-		rep(i, 0, n) res += (ans - p[i]).len();
+		P ans = p[2];
+		rep(i, 0, n) res += (ans - p[i]).len() * (i+1);
 		cout << res << endl;
 	}
 	return 0;
