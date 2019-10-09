@@ -4,7 +4,7 @@ namespace GaussDB{
 	int free[N], fnum, k, col, p; // 一组合法自由变元 
 	const db eps = 1e-14;
 	
-	void genx() {
+	void genx(int var) {
 		int pre = var; fnum = 0;
 		per(i, 0, k) {
 			rep(j, 0, var) if (fabs(a[i][j]) > eps) { p = j; break; }
@@ -33,7 +33,7 @@ namespace GaussDB{
 		}
 		rep(i, k, equ) if (fabs(a[i][var]) > eps) return -1;//无解
 		if(k < var){
-			// genx();
+			// genx(var);
 			return var - k;//自由变元个数
 		}
 		per(i, 0, var) {
