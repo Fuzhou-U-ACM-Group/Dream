@@ -22,7 +22,7 @@ const int N = 77, P = 1e9 + 7, MT = 2e6 + 6;
 int n, m, T, k = 200;
 string g[N];
 vi cx[MT];
-int ans[N], tmp[N], in[N], sum[N];
+int tmp[202], in[N], sum[N], f[N][202];
 
 inline int add(int a, int b) {
   if ((a += b) >= P) a -= P;
@@ -44,18 +44,23 @@ int kpow(int a, int b) {
 
 struct Mat {
   int a[N][N];
-  void init() {
+  inline void init() {
     rep(i, 0, n) rep(j, 0, n) a[i][j] = 0;
   }
-  void e() {
+  inline void e() {
     rep(i, 0, n) a[i][i] = 1;
   }
-  void set() {
+  inline void set() {
     rep(i, 0, n) rep(j, 0, n) a[i][j] = mul(g[j][i] - '0', in[sum[j]]);
   }
   Mat operator * (const Mat &c) const {
     Mat res; res.init(); 
     rep(i, 0, n) rep(k, 0, n) if(a[i][k]) rep(j, 0, n) res.a[i][j] = add(res.a[i][j], mul(a[i][k], c.a[k][j]));
+    return res;
+  }
+  vi operator * (const vi &c) const {
+    vi res(n);
+    rep(i, 0, n) rep(j, 0, n) res[i] = add(res[i], mul(a[i][j], c[j]));
     return res;
   }
 }a[202];
@@ -65,7 +70,6 @@ int main() {
   std::cin.tie(0);
   cin >> n >> m >> T;
   rep(i, 0, n + 1) in[i] = kpow(i, P - 2);
-  de(in[2]);
   rep(i, 0, n) {
     cin >> g[i];
     rep(j, 0, n) sum[i] += g[i][j] - '0';
@@ -74,28 +78,40 @@ int main() {
     int t, v; cin >> t >> v;
     cx[t].pb(v - 1);
   }
-  a[0].init(); a[0].e();
-  a[1].set();
+  a[0].init(); a[0].e(); a[1].set();
   rep(i, 2, k + 1) a[i] = a[i - 1] * a[1];
-  int pre = -1;
+  rep(i, 0, n) {
+    vi ans(n); ans[i] = 1;
+    rep(j, 1, k + 1) ans = a[1] * ans, f[i][j] = ans.back();
+  }
+  int pre = -1; vi ans(n);
+  ll res = 0;
   rep(i, 1, T + 1) if(sz(cx[i]) || i == T) {
     if(pre != -1) {
       int t = i - pre;
-      Mat ma = a[0];
-      while(t >= k) ma = ma * a[k], t -= k;
-      if(t) ma = ma * a[t];
-      rep(j, 0, n) {
-      	tmp[j] = 0;
-      	rep(c, 0, n) tmp[j] = add(tmp[j], mul(ma.a[j][c], ans[c]));
+      while(t >= k) {
+      	rep(j, 1, k + 1) tmp[j] = 0;
+      	rep(i, 0, n) if(ans[i]) rep(j, 1, k + (t - k > 0)) {
+      	  tmp[j] += mul(ans[i], f[i][j]);
+      	  if(tmp[j] >= P) tmp[j] -= P;
+	}
+      	rep(j, 1, k + (t - k > 0)) res ^= tmp[j];
+      	ans = a[k] * ans, t -= k;
       }
-      rep(j, 0, n) ans[j] = tmp[j];
+      if(t) {
+      	rep(j, 1, t) tmp[j] = 0;
+      	rep(i, 0, n) if(ans[i]) rep(j, 1, t) {
+      	  tmp[j] += mul(ans[i], f[i][j]);
+      	  if(tmp[j] >= P) tmp[j] -= P;
+	}
+      	rep(j, 1, t) res ^= tmp[j];
+      	ans = a[t] * ans;
+      }
     }
     for(auto v : cx[i]) ans[v] = add(ans[v], 1);
-    de(i); rep(j, 0, n) dd(j), de(ans[j]);
+    res ^= ans.back();
     pre = i;
   }
-  ll res = 0;
-  rep(i, 0, n) res ^= ans[i];
   cout << res << endl;
   return 0;
 }

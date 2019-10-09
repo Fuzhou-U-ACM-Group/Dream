@@ -6,7 +6,7 @@ namespace GaussInt{
 	int mul(int a, int b) {return 1ll * a * b % P;}
 	int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 	
-	void genx() {
+	void genx(int var) {
 		int pre = var; fnum = 0;
 		per(i, 0, k) {
 			rep(j, 0, var) if (a[i][j]) { p = j; break; }
@@ -35,7 +35,7 @@ namespace GaussInt{
 		}
 		rep(i, k, equ) if (a[i][var]) return -1;//无解
 		if(k < var){
-			//genx();
+			//genx(var);
 			return var - k;//自由变元个数
 		}
 		per(i, 0, var) {

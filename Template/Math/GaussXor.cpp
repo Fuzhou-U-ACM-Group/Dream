@@ -7,7 +7,7 @@ namespace Gauss{
 	int p, col, k; // k 为增广矩阵的秩
 	int free[N], fnum; //一组合法自由变元（多解枚举自由变元可以使用）
 	//返回值为 -1 表示无解，为 0 是唯一解，否则返回自由变元个数
-	void genx(int msk) {
+	void genx(int msk, var) {
 		rep(i, 0, fnum) x[free[i]] = (msk >> i) & 1;
 		per(i, 0, k) {
 			rep(j, 0, var) if(a[i][j]) { p = j; break; }	
@@ -30,9 +30,7 @@ namespace Gauss{
 		rep(i, col, var) free[fnum++] = i;
 		rep(i, k, equ) if (a[i][var]) return -1;
 		if(k < var) {
-			// genx();
-			/*
-			
+			// genx(0, var);
 			return var - k;//自由变元个数
 		} 
 		//唯一解，回代
