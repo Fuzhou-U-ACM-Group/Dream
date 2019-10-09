@@ -49,36 +49,23 @@ struct blossom {
 	int pred[N], b[N], s, t, newb;
 	bool inq[N], inb[N], inp[N];
 
-	void init(int _n) {
-		n = _n;
-		rep(i, 0, n) g[i].clear();
-	}
+	void init(int _n) { n = _n; rep(i, 0, n) g[i].clear(); }
 
-	void link(int u, int v) {
-		g[u].pb(v);
-		g[v].pb(u);
-	}
+	void link(int u, int v) { g[u].pb(v); g[v].pb(u); }
 
-	void push(int u) {
-		q[R++] = u;
-		inq[u] = 1;
-	}
+	void push(int u) { q[R++] = u; inq[u] = 1; }
 
-	int pop() {
-		return q[L++];
-	}
+	int pop() { return q[L++]; }
 
 	int LCA(int u,int v) {
 		rep(i, 0, n) inp[i]=0;
 		while(1) {
-			u = b[u];
-			inp[u] = 1;
+			inp[u = b[u]] = 1;
 			if (u == s) break;
 			u = pred[match[u]];
 		}
 		while(1) {
-			v = b[v];
-			if (inp[v]) break;
+			if (inp[v = b[v]]) break;
 			v = pred[match[v]];
 		}
 		return v;
@@ -110,8 +97,7 @@ struct blossom {
 	bool Find(int u) {
 		bool found = 0;
 		rep(i, 0, n) pred[i] = -1, b[i] = i, inq[i] = 0;
-		s = u, t=-1;
-		L = R = 0;
+		s = u, t = -1, L = R = 0;
 		push(s);
 		while(L < R) {
 			int u = pop();
@@ -132,10 +118,8 @@ struct blossom {
 	void AugmentPath() {
 		int u = t, v, w;
 		while(u >= 0) {
-			v = pred[u];
-			w = match[v];
-			match[v] = u;
-			match[u] = v;
+			v = pred[u], w = match[v];
+			match[v] = u, match[u] = v;
 			u = w;
 		}
 	}
