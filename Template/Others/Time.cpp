@@ -1,0 +1,1 @@
+clock_t st = clock(); CLOCKS_PER_SEC;

@@ -1,6 +1,4 @@
 // [0,n)
-// 实现不同功能请谨慎复用
-// 求下标最好用 pair 存
 struct ST{
 	static const int N = 101010;
 	int a[20][N], lg[N];

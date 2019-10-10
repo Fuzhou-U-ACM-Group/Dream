@@ -1,18 +1,13 @@
 struct StoerWagner{
-	static const int N = 305;
-	static const int INF = 0x3f3f3f3f;;
-	int n;
-	int g[N][N], val[N];
+	static const int N = 305, INF = 0x3f3f3f3f;
+	int n, g[N][N], val[N];
 	bool vis[N], use[N];
 	void init(int _n) {
 		n = _n;
 		fill_n(use + 1, n, 0);
 		rep(i, 1, n+1) fill_n(g[i] + 1, n, 0);
 	}
-	void add_edge(int u, int v, int w) {
-		g[u][v] += w;
-		g[v][u] += w;
-	}
+	void add_edge(int u, int v, int w) { g[u][v] += w; g[v][u] += w; }
 	void merge(int u, int v) {
 		rep(i, 1, n+1) {
 			g[v][i] += g[u][i];
@@ -43,4 +38,3 @@ struct StoerWagner{
 		return res;
 	}
 } SW;
-

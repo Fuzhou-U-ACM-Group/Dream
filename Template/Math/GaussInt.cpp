@@ -5,7 +5,7 @@ namespace GaussInt{
 	int add(int a, int b) {if ((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
 	int mul(int a, int b) {return 1ll * a * b % P;}
 	int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
-	
+
 	void genx(int var) {
 		int pre = var; fnum = 0;
 		per(i, 0, k) {
@@ -20,7 +20,7 @@ namespace GaussInt{
 		}
 		rep(j, 0, pre) free[fnum++] = j;
 	}
-	
+
 	int Gauss(int equ, int var){
 		for(k = col = 0; k < equ && col < var; ++k, ++col){
 			p = k; rep(i, k, equ) if (a[i][col]) {p = i; break;}

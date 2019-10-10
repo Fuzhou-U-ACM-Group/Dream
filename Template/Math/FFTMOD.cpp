@@ -1,8 +1,6 @@
 const db PI = acos(-1);
 const int M = 1 << 18 << 1;
-int na, nb;
-int a[M], b[M]; 
-
+int na, nb, a[M], b[M]; 
 struct vir{
 	db r, i;
 	vir(db r = 0.0, db i = 0.0) : r(r), i(i){}
@@ -12,12 +10,10 @@ struct vir{
 	inline vir operator !() const {return vir(r, -i);}
 	void print() {printf("%lf %lf\n", r, i);}
 };
-
 struct FFTMOD{
 	static const int M = 1 << 18 << 1;
 	int N, L, MASK;
 	vir w[M], A[M], B[M], C[M], D[M];
-
 	void FFT(vir p[], int n) {
 		for (int i = 1, j = 0; i < n - 1; ++i) {
 			for (int s = n; j ^= s >>= 1, ~j & s;);
@@ -34,7 +30,6 @@ struct FFTMOD{
 			}
 		}
 	}
-
 	void doit(int *a, int *b, int na, int nb){
 		for (N = 1; N < na + nb - 1; N <<= 1);
 		rep(i, 0, na) a[i] = (a[i] % P + P) % P; rep(i, na, N) a[i] = 0;
@@ -47,30 +42,24 @@ struct FFTMOD{
 		}
 		mul(a);
 	}
-
 	void mul(int *a) {
 		FFT(A, N), FFT(B, N);
 		rep(i, 0, N) {
 			int j = (N - i) % N;
 			vir da = (A[i] - !A[j]) * vir(0, -0.5),
-				db = (A[i] + !A[j]) * vir(0.5, 0),
-				dc = (B[i] - !B[j]) * vir(0, -0.5),
-				dd = (B[i] + !B[j]) * vir(0.5, 0);
+					db = (A[i] + !A[j]) * vir(0.5, 0),
+					dc = (B[i] - !B[j]) * vir(0, -0.5),
+					dd = (B[i] + !B[j]) * vir(0.5, 0);
 			C[j] = da * dd + da * dc * vir(0, 1);
 			D[j] = db * dd + db * dc * vir(0, 1);
 		}
 		FFT(C, N), FFT(D, N);
 		rep(i, 0, N) {
 			ll  da = (ll)(C[i].i / N + 0.5) % P,
-				db = (ll)(C[i].r / N + 0.5) % P,
-				dc = (ll)(D[i].i / N + 0.5) % P,
-				dd = (ll)(D[i].r / N + 0.5) % P;
+					db = (ll)(C[i].r / N + 0.5) % P,
+					dc = (ll)(D[i].i / N + 0.5) % P,
+					dd = (ll)(D[i].r / N + 0.5) % P;
 			a[i] = ((dd << (L * 2)) + ((db + dc) << L) + da) % P;
 		}
 	}
 } fft;
-
-
-
-
-

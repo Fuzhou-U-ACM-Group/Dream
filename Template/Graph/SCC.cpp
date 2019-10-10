@@ -6,10 +6,8 @@ namespace SCC{
         dfn[c]=low[c]=++cc;
         st[_st++]=c;
         for(auto t:g[c])
-            if(!dfn[t])
-                dfs(t,g),low[c]=min(low[c],low[t]);
-            else if(!id[t])
-                low[c] =min(low[c],dfn[t]);
+            if(!dfn[t]) dfs(t,g),low[c]=min(low[c],low[t]);
+            else if(!id[t]) low[c] =min(low[c],dfn[t]);
         if(low[c]==dfn[c]){
             ++_;
             do{id[st[--_st]]=_;}while(st[_st]!=c);

@@ -1,19 +1,15 @@
-// 要视图的情况使用spfa, dijstra, 多源bfs 
-const int N = 11, M = 10;
-const int inf = 0x3f3f3f3f;
+// 要视图的情况使用 spfa, dijstra, 多源 bfs 
+const int N = 11, M = 10, inf = 0x3f3f3f3f;
 int n, m, k, a[N][N], st[N][N], dp[1 << M][N][N], S, ans;
 bool use[N][N], vis[1 << M][N][N];
 int dx[] = {1, -1, 0, 0};
 int dy[] = {0, 0, 1, -1};
 queue<pii> q;
-
 struct node {
 	int x, y, msk; 
 	node(int x = 0, int y = 0, int msk = 0):x(x), y(y), msk(msk){}
 } now;
-
 pair<node, node> pre[1 << M][N][N];
-
 void spfa(int msk) {
 	while (!q.empty()) {
 		pii u = q.front(); q.pop();
@@ -33,7 +29,6 @@ void spfa(int msk) {
 		}
 	}
 }
-
 void dfs(node now) {
 	pair<node, node> t = pre[now.msk][now.x][now.y];
 	node t1 = t.fi, t2 = t.se;
@@ -42,7 +37,6 @@ void dfs(node now) {
 	dfs(t1);
 	if (t2.msk) dfs(t2);
 }
-
 int SteinerTree(int n, int m) {
 	memset(dp, 0x3f, sizeof(dp));
 	rep(i, 1, n+1) rep(j, 1, m+1) {

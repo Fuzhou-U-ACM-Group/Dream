@@ -1,4 +1,4 @@
-// l(a->b ÄæÊ±Õë·½Ïò ) 
+// l: a->b é€†æ—¶é’ˆæ–¹å‘  
 void convexCut(vector<P> &p, L l) {
 	vector<P> q;
 	rep(i, 0, sz(p)) {

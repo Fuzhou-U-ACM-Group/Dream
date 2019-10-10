@@ -1,9 +1,6 @@
-/*
- * 这里是覆盖次数大于 1 次的 
- */
+// 这里是覆盖次数大于 1 次的 
+// 这份代码没 down 函数，感觉有问题
 struct Seg {
-#define ls rt << 1
-#define rs ls | 1
 	static const int N = ::N << 2;
 	int la[N], len[2][N];
 	void up(int rt, int l, int r) {

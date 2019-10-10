@@ -22,7 +22,6 @@ vector<int> duval(char s[]){
   }
   return ret;
 }
-
 /*
 cbaabc
 0 1 2 6
@@ -40,7 +39,6 @@ void lyndon_generate(int n, int m) {
     for (x = n; s[x - 1] == z; --x);
   }
 }
-
 /*
 3 2
 a

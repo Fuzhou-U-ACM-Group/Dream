@@ -1,19 +1,13 @@
-// need init
-// 1. use id
-// 2. init mi/nd as max/min val
+// init
 struct Node {
     ll k, b;
     Node() : k(0), b(0) {}
     Node(ll k, ll b) : k(k), b(b) {}
-    ll getf(int x) const {
-        return k * x + b;
-    }
+    ll getf(int x) const { return k * x + b; }
 };
 struct Seg {
-#define ls rt << 1
-#define rs ls | 1
     static const int N = ::N << 2;
-    Node nd[N], mi[N];
+    Node nd[N], mi[N]; // nd: max val; mi: min val;
     void _upd(Node k, int l, int r, int rt) {
         int mid = l + r >> 1;
         if(k.getf(v[mid]) > nd[rt].getf(v[mid])) swap(k, nd[rt]);

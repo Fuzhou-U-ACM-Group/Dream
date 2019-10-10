@@ -29,7 +29,5 @@ struct Palindromic_Tree {
 		last = ne[cur][c];
 		cnt[last]++;
 	}
-	void build() {
-		for(int i = p - 1; ~i; --i) cnt[fail[i]] += cnt[i];
-	}
+	void build() { for(int i = p - 1; ~i; --i) cnt[fail[i]] += cnt[i]; }
 }pam;

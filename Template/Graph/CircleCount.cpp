@@ -2,17 +2,16 @@ struct circle4 {
 	static const int N = 1e5 + 7;
 	int n, m, u, v, x, y;
 	bool vis[N];
-	ll f[N][5], du[N], D[N], cnt4[N], cnt3[N], cntl[N], t, ans; // cnt3,4中为包含i号点的三,四元环数量 
+	// cnt3,4 中为包含 i 号点的三 , 四元环数量 
+	ll f[N][5], du[N], D[N], cnt4[N], cnt3[N], cntl[N], t, ans; 
 	priority_queue<pii> q;
 	vi w[N], gg[N], d2, d1;
 	set<int> g[N];
-
 	void dfs(int u, int d, int fa) {
 		if (d == 2) { d2.pb(u); w[u].pb(fa); return; }
 		if (d == 1) d1.pb(u), vis[u] = 1;
 		for (auto v : g[u]) if (v != fa) dfs(v, d+1, u);
 	}
-	
 	void solve(int n, vi gg[]) {
 		rep(i, 1, n+1) {
 			D[i] = du[i] = sz(gg[i]); cnt3[i] = cnt4[i] = 0;
@@ -45,15 +44,15 @@ struct circle4 {
 			}
 		}
 		//以第一次产生重复位置分类计数 
-		rep(i, 1, n+1) { // 计算边数为4的链数 
+		rep(i, 1, n+1) { // 计算边数为 4 的链数 
 			ans = f[i][4];
-			//第一次重复为第4步
+			//第一次重复为第 4 步
 			ans -= cnt4[i] * 2; ll ans3 = f[i][3] - D[i] * D[i] - 2 * cnt3[i]; 
-			for (auto v : gg[i]) ans3 -= D[v] - 1; ans -= ans3; // 边数为3的链数 
+			for (auto v : gg[i]) ans3 -= D[v] - 1; ans -= ans3; // 边数为 3 的链数 
 			for (auto v : gg[i]) ans -= 2 * cnt3[v]; ans += 4 * cnt3[i]; 
-			//第一次重复为第3步
+			//第一次重复为第 3 步
 			ans -= 2 * cnt3[i] * D[i]; for (auto v : gg[i]) ans -= (D[v] - 1) * D[v]; 
-			//第一次重复为第2步 
+			//第一次重复为第 2 步 
 			ans -= D[i] * f[i][2]; 
 			cntl[i] = ans;
 		}

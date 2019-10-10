@@ -1,10 +1,7 @@
-/*
- * 带修改莫队：块大小 N^(2/3) 按照 l 所在块， r 所在块， time 排序 
- */
+// 不带修改莫队
+// 带修改莫队：块大小 N^(2/3) 按照 l 所在块， r 所在块， time 排序 
 namespace MoOnTree {
-
 	const int N = ::N, SZ = sqrt(N), M = 17;
-
 	int cd; // starts from 1
 	int dep[N], pre[N][M], st[N], ed[N], dfn[N << 1], B[N << 1], cnt[N];
 	struct Node {
@@ -16,7 +13,6 @@ namespace MoOnTree {
 		}
 	};
 	vector<Node> nds;
-
 	void dfs(int u, int fa, vi g[]) {
 		dep[u] = dep[fa] + 1;
 		pre[u][0] = fa;
@@ -35,8 +31,7 @@ namespace MoOnTree {
 	void adde(int u, int v, int id) {
 		if(st[u] > st[v]) swap(u, v);
 		int f = lca(u, v);
-		if(f == u) {
-			nds.pb(Node(id, st[u], st[v]));
+		if(f == u) { nds.pb(Node(id, st[u], st[v]));
 		} else {
 			int l = ed[u], r = st[v];
 			if(l > r) swap(l, r);
@@ -44,10 +39,8 @@ namespace MoOnTree {
 		}
 	}
 	// p is index in tree
-	void add(int p) {
-	}
-	void sub(int p) {
-	}
+	void add(int p) { }
+	void sub(int p) { }
 	void upd(int p, int c) {
 		p = dfn[p];
 		cnt[p] += c;

@@ -3,16 +3,13 @@ ll kpow(ll a, ll b, ll P) {
 	for (; b; b >>= 1, a = a * a % P) if (b & 1) r = r * a % P;
 	return r;
 }
-
 void ex_gcd(ll a, ll b, ll &x, ll &y) {
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
-
 inline ll Inv(ll a, ll P) {
 	ll x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
-
 struct BSGS {
 	map<ll, int> M;
 	ll bsgs(ll x, ll z, ll P) {
@@ -34,7 +31,6 @@ struct BSGS {
 		}
 		z = z * Inv(w, P) % P, ans = bsgs(x, z, P);
 		return ans + (ans != -1) * c;
-
 	}
 };
 
@@ -43,9 +39,7 @@ typedef pair<ll, ll> pll;
 struct Euler {
 	vll P, A; ll phi, g, phi_phi; BSGS T;
 	inline bool check_g(ll g, ll p) {
-		rep(i, 0, sz(P))
-			if (kpow(g, P[i], p) == 1)
-				return 0;
+		rep(i, 0, sz(P)) if (kpow(g, P[i], p) == 1) return 0;
 		return 1;
 	}
 	inline void factor(ll m) {
@@ -108,5 +102,4 @@ struct Euler {
 		return ret;
 	}
 };
-
 // 注 : 返回所有 [0,p) 中的非负整数解

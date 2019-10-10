@@ -45,10 +45,6 @@ struct FastIO {
         while (x || !n) s[n++] = '0' + x % 10, x /= 10;
         while (n--) wchar(s[n]);
     }
-    inline void wstring(const char *s) {
-        while (*s) wchar(*s++);
-    }
-    ~FastIO() {
-        if (wpos) fwrite(wbuf, 1, wpos, stdout), wpos = 0;
-    }
+    inline void wstring(const char *s) { while (*s) wchar(*s++); }
+    ~FastIO() { if (wpos) fwrite(wbuf, 1, wpos, stdout), wpos = 0; }
 } io;

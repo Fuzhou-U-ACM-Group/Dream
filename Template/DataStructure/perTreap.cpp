@@ -5,7 +5,7 @@ struct Node { int val, cnt, sz, ls, rs; ll r, sum; bool rev; };
 struct fhqTreap {
 	static const int N = 3e7;
 	int rt[::N], L; Node nd[N];
-	void init() { L = 0; srand(time(0)); }
+	void init() { fill_n(rt, L + 1, 0); L = 0; srand(time(0)); }
 	ll Rand() { return ((rand() * 1ll << 32) ^ (rand() * 1ll << 16) ^ rand()); }
 	int newnode(int c) {
 		nd[++L].r = Rand();
@@ -14,10 +14,7 @@ struct fhqTreap {
 		nd[L].ls = nd[L].rs = nd[L].rev = 0;
 		return L;
 	}
-	int newcopy(int x) {
-		nd[++L] = nd[x];
-		return L;
-	}
+	int newcopy(int x) { nd[++L] = nd[x]; return L; }
 	void up(int x) {
 		if(!x) return ;
 		int ls = nd[x].ls, rs = nd[x].rs;
@@ -29,9 +26,7 @@ struct fhqTreap {
 		x = newcopy(x);
 		nd[x].rev ^= 1, swap(nd[x].ls, nd[x].rs);
 	}
-	void down(int x) {
-		if(nd[x].rev) gao(nd[x].ls), gao(nd[x].rs), nd[x].rev = 0;
-	}
+	void down(int x) { if(nd[x].rev) gao(nd[x].ls), gao(nd[x].rs), nd[x].rev = 0; }
 	// u -> (<= c) (> c)
 	void splitc(int u, int c, int &x, int &y) {
 		if(u) {
@@ -39,9 +34,7 @@ struct fhqTreap {
 			if(nd[u].val <= c) x = u, splitc(nd[u].rs, c, nd[u].rs, y);
 			else y = u, splitc(nd[u].ls, c, x, nd[u].ls);
 			up(u);
-		} else {
-			x = y = 0;
-		}
+		} else x = y = 0;
 	}
 	// u -> (1 ~ k) (k+1 ~ L)
 	// !!!: nd[].cnt == 1
@@ -52,9 +45,7 @@ struct fhqTreap {
 			if(sz < k) x = u, splitk(nd[u].rs, k - sz - 1, nd[u].rs, y);
 			else y = u, splitk(nd[u].ls, k, x, nd[u].ls);
 			up(u);
-		} else {
-			x = y = 0;
-		}
+		} else x = y = 0;
 	}
 	// sometimes do not need to newcopy
 	int merge(int x, int y) {

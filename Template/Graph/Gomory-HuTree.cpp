@@ -1,5 +1,4 @@
 Dinic<int> G;
-
 struct GHT{
 	static const int N = 1e5 + 100, M = 17; // (1 << M) > n
 	int id[N], tmp[N], n, f[N][M], h[N][M], dep[N];
@@ -22,7 +21,6 @@ struct GHT{
 		solve(l, cl - 1);
 		solve(cl, r);
 	}
-	
 	void dfs(int u, int fa) {
 		dep[u] = dep[fa] + 1;
 		for (auto v : g[u]) if (v.fi != fa) {
@@ -34,10 +32,8 @@ struct GHT{
 			dfs(v.fi, u);
 		}
 	}
-	
 	void build() { solve(1, n); dfs(1, 0); }
-	
-	int get(int u, int v) { // ◊¢“‚ long long 
+	int get(int u, int v) { // Ê≥®ÊÑè long long 
 		int res = pw(30);
 		if (dep[u] < dep[v]) swap(u, v);
 		per(i, 0, M) if (dep[f[u][i]] >= dep[v]) res = min(res, h[u][i]), u = f[u][i]; 
@@ -45,5 +41,4 @@ struct GHT{
 		if (u != v) res = min(res, min(h[u][0], h[v][0]));
 		return res;
 	}
-	
 } tr;

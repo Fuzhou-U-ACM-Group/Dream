@@ -1,5 +1,5 @@
 // 凸包都是顺时针给出
-// 【凸包直径】 点-点
+// 【凸包直径】 点 - 点
 T diameter(vector<P> ps) {
 	n = sz(ps); T ans = 0;
 	if(n <= 1) return 0;
@@ -12,8 +12,8 @@ T diameter(vector<P> ps) {
 	}
 	return ans;
 }
-// 【凸包宽度】 点-边
-// 【凸包间的最大距离】 点-点
+// 【凸包宽度】 点 - 边
+// 【凸包间的最大距离】 点 - 点
 // 【凸包间的最小距离】
 T solve(P p[], int n, P q[], int m) {
 	int o = 0, t = 0; T ans = inf;

@@ -1,3 +1,6 @@
+/*
+ * 注：高维硬币游戏
+ */
 namespace Nim {
 	int nimPow(int x, int y) {
 		if (x < 2) return x && y; int a = 0;
@@ -15,9 +18,3 @@ namespace Nim {
 		return (m*(c1^c2)) ^ c3^nimPow(m / 2, c1);
 	}
 }
-
-/*
-
-注：高维硬币游戏
-
-*/

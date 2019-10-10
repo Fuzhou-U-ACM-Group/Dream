@@ -4,8 +4,9 @@ struct Simplex {
 	int n, m, B[M], N[M];
 	db v, ans[M], b[M], c[M], A[M][M]; // 全幺模矩阵可以改整数 
 	/* n - variables, m - equations
-	*maxf(x)=cx
-	*s.t.Ax<=b,x>=0 */
+	 * maxf(x)=cx
+	 * s.t.Ax<=b,x>=0 
+	 */
 	void init(int _n, int _m) {
 		n = _n, m = _m, v = 0;
 		rep(i, 1, n + 1) N[i] = i;
@@ -48,7 +49,7 @@ struct Simplex {
 				if (tmp == DINF) return DINF; // 无界 
 				if (delt < tmp * c[j]) l = r, e = j, delt = tmp * c[j]; 
 				break; 
-				//贪心取最大 如果矩阵为全幺模或0很多可以加上break 因为转轴代价可能较小 
+				// 贪心取最大 如果矩阵为全幺模或 0 很多可以加上 break 因为转轴代价可能较小 
 			}
 			if (e == -1) break; // 找到最优解 
 			pivot(l, e); 

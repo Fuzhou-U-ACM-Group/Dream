@@ -1,7 +1,7 @@
-/**
-* Ensure that str[n] is the unique lexicographically smallest character in str.
-* time complexity: O(n)
-*/
+/*
+ * Ensure that str[n] is the unique lexicographically smallest character in str.
+ * time complexity: O(n)
+ */
 namespace SA {
 	const static int N = 100000 + 10;
 	int sa[N], rk[N], ht[N], s[N << 1], t[N << 1], p[N], cnt[N], cur[N];
@@ -51,35 +51,5 @@ namespace SA {
 			while (i + h < n && j + h < n && s[i + h] == s[j + h]) h++;
 			if (ht[rk[i]] = h) h--;
 		}
-	}
-};
-// 出现 i 次的子串有 c[i] 个
-namespace S {
-	int top;
-	int sta[N << 1], cnt[N << 1];
-	ll c[N];
-	inline int gao(int k) {
-		int cc = 0;
-		while (top && sta[top] > k) {
-			cc += cnt[top];
-			cnt[top] = 0;
-			c[cc] += sta[top] - max(k, sta[top - 1]);
-			--top;
-		}
-		return cc;
-	}
-	inline void push(int x, int y) {
-		if (!top || sta[top] != x) sta[++top] = x;
-		cnt[top] += y;
-	}
-	inline void build(int n) {
-		top = 0;
-		fill_n(c + 1, n, 0);
-		rep(i, 1, n + 1) {
-			int lcp = SA::ht[i], cc = gao(lcp);
-			push(lcp, cc);
-			push(n - SA::sa[i], 1);
-		}
-		gao(0);
 	}
 };

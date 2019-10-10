@@ -11,9 +11,7 @@ namespace ET {
 			if(rt == -1 || max(sz[g.to[rt]], Sz - sz[g.to[rt]]) > max(sz[v], Sz - sz[v])) rt = i;
 		}
 	}
-	void init(int n) {
-		fill_n(vis, n << 1, 0);
-	}
+	void init(int n) { fill_n(vis, n << 1, 0); }
 	int dfs(int u) {
 		int I = 0; dfssz(u, 0, 0, I);
 		if(sz[u] == n) { T.init(n); }

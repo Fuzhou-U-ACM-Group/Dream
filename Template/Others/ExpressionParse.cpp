@@ -1,11 +1,13 @@
-// ��Ԫ���� ���� 
+// 二元运算 左结合 
 vector<char> rpn, ch, sta;
+// 定义运算符优先级
 int pri(char ch) {
 	if(ch == '(') return 0;
 	// ...
 	return -1;
 }
 char solve(string s) {
+	// 中缀转后缀
 	rpn.clear(); ch.clear();
 	rep(i, 0, sz(s)) {
 		char c = s[i];
@@ -19,6 +21,7 @@ char solve(string s) {
 		} else { rpn.pb(c); }
 	}
 	reverse(all(ch)); rpn.insert(rpn.end(), all(ch));
+	// 后缀表达式计算
 	sta.clear();
 	rep(i, 0, sz(rpn)) {
 		char u = rpn[i];

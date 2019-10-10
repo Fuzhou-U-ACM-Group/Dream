@@ -5,7 +5,6 @@ const db eps = 1e-9, inf = 1e16;
 db dis[N], w;
 bool vis[N], tree[M];
 int n, m, S, T, fa[N], st[N], top, u, v;
-
 struct Graph{
 	int h[N], ne[M], to[M], e;
 	db w[M];
@@ -13,7 +12,6 @@ struct Graph{
 		ne[++e] = h[u], h[u] = e, to[e] = v, w[e] = val;
 	}
 } g, rg;
-
 void Dij(){
 	rep(i, 1, n+1) dis[i] = inf;
 	priority_queue<pair<db, int> > pq;
@@ -30,8 +28,6 @@ void Dij(){
 		}
 	}
 }
-
-
 void dfs(int u){
 	st[++top] = u; vis[u] = 1;
 	for (int i = rg.h[u]; i; i = rg.ne[i]) {
@@ -42,27 +38,22 @@ void dfs(int u){
 		}
 	}
 }
-
 int rt[N];
-
 namespace LT{
-	int ls[M*B], rs[M*B], ht[M*B], id[M*B];
+	int ls[M*B], rs[M*B], ht[M*B], id[M*B], tot;
 	db val[M*B];
-	int tot;
 	inline int newnode(db _val, int _id, int _dis = 0){
 		int p = ++tot;
 		val[p] = _val, id[p]=_id, ht[p] = _dis;
 		ls[p] = rs[p] = 0;
 		return p;
 	}
-	
 	inline int _copy(int ori){
 		int p = ++tot;
 		val[p] = val[ori], id[p] = id[ori], ht[p] = ht[ori];
 		ls[p] = ls[ori], rs[p] = rs[ori];
 		return p;
 	}
-	
 	inline int merge(int a, int b){
 		if(!a || !b) return a|b;
 		if(val[a] > val[b]) swap(a, b);
@@ -72,12 +63,8 @@ namespace LT{
 		ht[now] = ht[rs[now]] + 1;
 		return now;
 	}
-	
-	inline void ins(int &rt, db val, int id){
-		rt = merge(rt, newnode(val, id));
-	}
+	inline void ins(int &rt, db val, int id){ rt = merge(rt, newnode(val, id)); }
 }
-
 void build_heap(){
 	rep(j, 1, top+1) {
 		int u = st[j];
@@ -88,11 +75,8 @@ void build_heap(){
 		}
 	}
 }
-
 typedef pair<db, int> pdi;
-
 db E;
-
 inline int calc_K(){
 	int ans = 1; E -= dis[S];
 	priority_queue<pdi, vector<pdi>, greater<pdi> > pq;
@@ -108,7 +92,6 @@ inline int calc_K(){
 	}
 	return ans;
 }
-
 int main(){
 	ios::sync_with_stdio(0);
 	cin.tie(0);

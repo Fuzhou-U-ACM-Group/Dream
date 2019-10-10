@@ -3,13 +3,10 @@ ll kpow(ll x, ll k, ll p) {
 	for (; k; k >>= 1, x = x*x%p) if (k & 1) ret = ret*x%p;
 	return ret;
 }
-
 struct Euler {
 	vector<ll> P, A; ll phi, g;
 	inline bool check_g(ll g, ll p) {
-		rep(i, 0, sz(P))
-			if (kpow(g, P[i], p) == 1)
-				return 0;
+		rep(i, 0, sz(P)) if (kpow(g, P[i], p) == 1) return 0;
 		return 1;
 	}
 	inline void factor(ll m) {

@@ -1,8 +1,8 @@
 /*
-* [0,L) , N-1 is virtual , 0 is rt
-* init!!
-* addition: end[] end[c] |= end[fail[c]]
-*/
+ * [0,L) , N-1 is virtual , 0 is rt
+ * init!!
+ * addition: end[] end[c] |= end[fail[c]]
+ */
 struct Trie{
     static const int N = 101010 , M = 26;
     int ne[N][M] , fail[N] , fa[N] , rt , L;

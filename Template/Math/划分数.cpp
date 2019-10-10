@@ -1,8 +1,6 @@
 const int N = 1e6 + 5, P = 998244353;
 int n, f[N], fv[N];
-
 inline int add(int a, int b) { if((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
-
 void init(int n) {
 	f[0] = f[1] = 1;
 	int m = sqrt(n) + 1;

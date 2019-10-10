@@ -27,12 +27,10 @@ struct ZKW{
     U flow;V mincost;
     bool modlable(){
         V Min = inf;
-        rep(c,0,n) if(v[c])
-            for(int k=h[c];~k;k=ne[k]){
-                int t=to[k];
-                if(!v[t] && cap[k] > 0)
-                    Min = min(Min , dis[t] + cost[k] - dis[c]);
-            }
+        rep(c,0,n) if(v[c]) for(int k=h[c];~k;k=ne[k]){
+			int t=to[k];
+			if(!v[t] && cap[k] > 0) Min = min(Min , dis[t] + cost[k] - dis[c]);
+		}
         if(Min == inf) return false;
         rep(i,0,n) if(v[i]) dis[i] += Min;
         return true;

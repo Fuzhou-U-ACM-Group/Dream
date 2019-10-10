@@ -23,9 +23,7 @@ struct fhqTreap {
 		if(!x) return ;
 		nd[x].rev ^= 1, swap(nd[x].ls, nd[x].rs);
 	}
-	void down(int x) {
-		if(nd[x].rev) gao(nd[x].ls), gao(nd[x].rs), nd[x].rev = 0;
-	}
+	void down(int x) { if(nd[x].rev) gao(nd[x].ls), gao(nd[x].rs), nd[x].rev = 0; }
 	// u -> (<= c) (> c)
 	void splitc(int u, int c, int &x, int &y) {
 		if(u) {
@@ -33,9 +31,7 @@ struct fhqTreap {
 			if(nd[u].val <= c) x = u, splitc(nd[u].rs, c, nd[u].rs, y);
 			else y = u, splitc(nd[u].ls, c, x, nd[u].ls);
 			up(u);
-		} else {
-			x = y = 0;
-		}
+		} else x = y = 0;
 	}
 	// u -> (1 ~ k) (k+1 ~ L)
 	// !!!: nd[].cnt == 1
@@ -46,9 +42,7 @@ struct fhqTreap {
 			if(sz < k) x = u, splitk(nd[u].rs, k - sz - 1, nd[u].rs, y);
 			else y = u, splitk(nd[u].ls, k, x, nd[u].ls);
 			up(u);
-		} else {
-			x = y = 0;
-		}
+		} else x = y = 0;
 	}
 	int merge(int x, int y) {
 		if(x && y) {

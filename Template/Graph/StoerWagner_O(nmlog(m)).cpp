@@ -1,9 +1,7 @@
 struct StoerWagner{
-	static const int N = 3005, M = 100005 * 2, INF = 0x3f3f3f3f;;
-	int head[N], val[N], e, n;
-	int to[M], ne[M], data[M];
+	static const int N = 3005, M = 100005 * 2, INF = 0x3f3f3f3f;
+	int head[N], val[N], e, n, to[M], ne[M], data[M], fa[N], link[N];
 	bool vis[N];
-	int fa[N], link[N];
 	void init(int _n) {
 		n = _n;
 		fill_n(head + 1, n, -1);
@@ -15,9 +13,7 @@ struct StoerWagner{
 		to[e] = v; data[e] = w; ne[e] = head[u]; head[u] = e++;
 		to[e] = u; data[e] = w; ne[e] = head[v]; head[v] = e++;
 	}
-	int findset(int u) { 
-		return u == fa[u] ? u : fa[u] = findset(fa[u]);
-	}
+	int findset(int u) { return u == fa[u] ? u : fa[u] = findset(fa[u]); }
 	void merge(int u, int v) {
 		int p = u;
 		while (~link[p]) p = link[p];
@@ -37,9 +33,7 @@ struct StoerWagner{
 					if (!vis[v]) q.push(mp(val[v] += data[p], v));
 				}
 			}
-			while (!q.empty() && (vis[q.top().se] || val[q.top().se] != q.top().fi)) {
-				q.pop();
-			}
+			while (!q.empty() && (vis[q.top().se] || val[q.top().se] != q.top().fi)) q.pop();
 			if (q.empty()) return 0;
 			t = q.top().se; q.pop();
 		}

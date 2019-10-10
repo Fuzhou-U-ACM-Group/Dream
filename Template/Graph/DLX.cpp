@@ -1,12 +1,8 @@
 struct DLX{
 #define FOR(i, ne, t) for(int i = ne[t]; i != t; i = ne[i])
-	static const int N = 2e4 + 8;
-	static const int D = 4, len = 16;
-	int n, m, tim, ansd;
-	int row[N], col[N], s[N], ans[N];
-	int l[N], r[N], u[N], d[N];
-	pair<pii, int> pos[N];
-	string ss[100];
+	static const int N = 2e4 + 8, D = 4, len = 16;
+	int n, m, tim, ansd, row[N], col[N], s[N], ans[N], l[N], r[N], u[N], d[N];
+	pair<pii, int> pos[N]; string ss[100];
 	void init(int _m) {
 		m = _m;
 		rep(i, 0, m+1) l[i] = i-1, r[i] = i+1, u[i] = d[i] = i;
@@ -25,16 +21,12 @@ struct DLX{
 		if (sz(tmp)) l[first] = tim-1, r[tim-1] = first;
 	}
 	inline void remove(int c) {
-		l[r[c]] = l[c];
-		r[l[c]] = r[c];
-		FOR(i, d, c)
-			FOR(j, r, i) u[d[j]] = u[j], d[u[j]] = d[j], --s[col[j]];
+		l[r[c]] = l[c]; r[l[c]] = r[c];
+		FOR(i, d, c) FOR(j, r, i) u[d[j]] = u[j], d[u[j]] = d[j], --s[col[j]];
 	}
 	inline void restore(int c) {
-		FOR(i, u, c)
-			FOR(j, l, i) u[d[j]] = j, d[u[j]] = j, ++s[col[j]];
-		 l[r[c]] = c;
-		 r[l[c]] = c;
+		FOR(i, u, c) FOR(j, l, i) u[d[j]] = j, d[u[j]] = j, ++s[col[j]];
+		l[r[c]] = c; r[l[c]] = c;
 	}
 	bool dance(int dep) {
 		if (!r[0]) return ansd = dep, 1;
@@ -47,8 +39,7 @@ struct DLX{
 			if (dance(dep+1)) return 1;
 			FOR(j, l, i) restore(col[j]);
 		}
-		restore(c);
-		return 0;
+		restore(c); return 0;
 	}
 	vi tmp;
 	void ins(int x, int y, int c) {
@@ -60,7 +51,6 @@ struct DLX{
 		tmp[3] = (len * len * 3 + p);
 		add(n, tmp);
 	} 
-	
 	void work() {
 		tmp.resize(4);
 		while (cin >> ss[1]) {

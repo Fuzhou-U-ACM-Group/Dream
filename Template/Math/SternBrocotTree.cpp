@@ -12,12 +12,8 @@ namespace SBT {
 	inline bool in(const V &a, const V &b, const V &c) {
 		return 0 <= cmp(c, a) && cmp(c, b) < 0;
 	}
-	pii operator+(const pii &a, const pii &b) {
-		return mp(a.fi + b.fi, a.se + b.se);
-	}
-	pii operator*(const pii &a, U x) {
-		return mp(a.fi * x, a.se * x);
-	}
+	pii operator+(const pii &a, const pii &b) { return mp(a.fi + b.fi, a.se + b.se); }
+	pii operator*(const pii &a, U x) { return mp(a.fi * x, a.se * x); }
 	bool search(V v, U MAXB, pii &lo, pii &hi, int f) {
 		V x;
 		U l = 0, r = f > 0 ? (hi.se ? (MAXB - lo.se) / hi.se : INF) : 

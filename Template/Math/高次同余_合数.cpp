@@ -3,16 +3,13 @@ ll kpow(ll a, ll b, ll P) {
 	for (; b; b >>= 1, a = a * a % P) if (b & 1) r = r * a % P;
 	return r;
 }
-
 void ex_gcd(ll a, ll b, ll &x, ll &y) {
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
-
 inline ll Inv(ll a, ll P) {
 	ll x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
-
 struct BSGS {
 	map<ll, int> M;
 	ll bsgs(ll x, ll z, ll P) {
@@ -34,10 +31,8 @@ struct BSGS {
 		}
 		z = z * Inv(w, P) % P, ans = bsgs(x, z, P);
 		return ans + (ans != -1) * c;
-
 	}
 };
-
 struct CRT {
 	ll M, R; static const int N = 55;
 	ll a[N], mod[N];
@@ -71,9 +66,7 @@ typedef pair<ll, ll> pll;
 struct Euler {
 	vll P, A, _P, _A; ll phi, g, phi_phi; BSGS T;
 	inline bool check_g(ll g, ll p) {
-		rep(i, 0, sz(P))
-			if (kpow(g, P[i], p) == 1)
-				return 0;
+		rep(i, 0, sz(P)) if (kpow(g, P[i], p) == 1) return 0;
 		return 1;
 	}
 	inline void factor(ll m, vll &P, vll &A) {
@@ -148,12 +141,15 @@ struct Euler {
 		assert(p > 0); norm(b, p);
 		if (p == 1) return mp(0, 1);
 		factor(p, _P, _A); int tot = sz(_P); ll ret = 1, ans; pll tmp[32];
-		rep(i, 0, tot) tmp[i + 1] = solve_high(a, b, _P[i], _A[i]),
-			crt.a[i + 1] = tmp[i + 1].fi, crt.mod[i + 1] = get_pow(_P[i], _A[i]), ret *= tmp[i + 1].se;
+		rep(i, 0, tot) {
+			tmp[i + 1] = solve_high(a, b, _P[i], _A[i]),
+			crt.a[i + 1] = tmp[i + 1].fi, 
+			crt.mod[i + 1] = get_pow(_P[i], _A[i]), 
+			ret *= tmp[i + 1].se;
+		}
 		if (!ret) return mp(-1, 0);
 		ans = crt.solve(tot);
 		return mp(ans, ret);
 	}
 };
-
 // 注: 返回 pair( 最小非负解 , [0,p) 中解的个数 )

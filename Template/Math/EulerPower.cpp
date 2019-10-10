@@ -1,6 +1,5 @@
-﻿// a[l] ^ a[l+1] ^ a[l+2] ... ^ a[r] % mod 注意结果要再模mod 
+﻿// a[l] ^ a[l+1] ^ a[l+2] ... ^ a[r] % mod 注意结果要再模 mod 
 map<int, int> M; 
-
 int phi(int n) {
 	if (M.count(n)) return M[n];
 	int r = n, nn = n;
@@ -12,7 +11,6 @@ int phi(int n) {
 	M[nn] = r;
 	return r;
 }
-
 ll Euler_qpow(ll a, ll b, ll mod) {
 	ll res = 1; bool ok = (b > 0 && a >= mod);
 	while (b) {
@@ -28,7 +26,6 @@ ll Euler_qpow(ll a, ll b, ll mod) {
 	}
 	return res + mod * ok;
 }
-
 ll work(int l, int r, int mod) {
 	if (mod == 1) return 1;
 	if (l == r) return a[l];

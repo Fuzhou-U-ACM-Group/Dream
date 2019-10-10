@@ -1,19 +1,14 @@
 /*
  * [0,L] , 0 is virtual , 1 is rt , init!!
  * [l[par[s]] + 1, l[s]] 
- * 好像暴力向上跳的复杂度是对的。
  */ 
 struct SAM {
 	static const int N = ::N << 1, M = 26;
-	int par[N], l[N], ne[N][M];
-	int rt, last, L;
+	int par[N], l[N], ne[N][M], rt, last, L;
 	void add(int c) {
 		int p = last;
 		/* ex
-		if(ne[p][c] && l[ne[p][c]] == l[p] + 1) {
-			last = ne[p][c];
-			return ;
-		}
+		if(ne[p][c] && l[ne[p][c]] == l[p] + 1) { last = ne[p][c]; return ; }
 		*/
 		int np = ++L;
 		fill(ne[np], ne[np] + M, 0);
