@@ -5,7 +5,6 @@ bitset<N> a[N];
 int n; string s;
 ll ans, b[9], f[N], g[N], d[N];
 ll c[9] = {24, 48, 2, 12, 6, 12, 36, 12, 24};
-
 int main(){
     rep(i, 1, N) f[i] = i * (i-1) / 2, g[i] = i * (i-1) * (i-2) / 6;
     while (cin >> n){
@@ -38,4 +37,3 @@ int main(){
     }
     return 0;
 }
-

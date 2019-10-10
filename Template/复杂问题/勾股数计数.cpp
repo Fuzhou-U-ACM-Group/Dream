@@ -1,8 +1,7 @@
 const int N = 34000;
 int mu[N], p[N], tot = 0, Sqr, n;
 bool vis[N];
-int w1[N * 2], w2[N * 2], id1[N * 2], id2[N * 2], t1;// ×¢Òâ longlong
-
+int w1[N * 2], w2[N * 2], id1[N * 2], id2[N * 2], t1;// æ³¨æ„ longlong
 void init(){
     mu[1] = 1;
     rep(i, 2, N) {
@@ -15,9 +14,7 @@ void init(){
         }
     }
 }
-
 int id(int x) { return x <= Sqr ? id1[x] : id2[n / x];}
-
 ll h1(int n){
     ll ans = 0;
     for(int l = 1, r; l<=n; l = r + 1){
@@ -26,7 +23,6 @@ ll h1(int n){
     }
     return ans;
 }
-
 ll h2(int n){
     ll ans = 0;
     for(int l = 1, r; l <= n; l = r + 1){
@@ -35,7 +31,6 @@ ll h2(int n){
     }
     return ans;
 }
-
 ll solve(int _n) {
 	n = _n;
 	Sqr = sqrt(n); t1 = 0;
@@ -55,15 +50,11 @@ ll solve(int _n) {
     }
     return ans / 2;
 }
-
 int T, nn;
-
 int main() {
 	FI(a);
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	//cout << setiosflags(ios::fixed);
-	//cout << setprecision(2);
 	init();
 	cin >> T;
 	rep(cas, 0, T) {
@@ -72,5 +63,3 @@ int main() {
 	} 
 	return 0;
 }
-
-

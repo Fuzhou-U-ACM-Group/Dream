@@ -1,4 +1,3 @@
-#include<cstdio>
 #define N 200010
 const int inf = ~0U >> 1;
 struct tag {

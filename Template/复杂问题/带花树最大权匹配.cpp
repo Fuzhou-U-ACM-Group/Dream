@@ -1,9 +1,7 @@
-#include<bits/stdc++.h>
-using namespace std;
-//from vfleaking
-//ÇóµÄÊÇÔÚÈ¨×î´óÇé¿öÏÂµÄÆ¥Åä È¨Öµ´óÓÅÏÈ Ó¦¸ÃÒªÊÇÕıÊı 
-//id :  1 .. n
-//time : Ó¦¸ÃÒ²ÊÇO(n^3) 
+// from vfleaking
+// æ±‚çš„æ˜¯åœ¨æƒæœ€å¤§æƒ…å†µä¸‹çš„åŒ¹é… æƒå€¼å¤§ä¼˜å…ˆ åº”è¯¥è¦æ˜¯æ­£æ•° 
+// id :  1 .. n
+// time : åº”è¯¥ä¹Ÿæ˜¯ O(n^3) 
 #define INF INT_MAX
 #define MAXN 600
 struct edge{
@@ -40,7 +38,7 @@ inline void set_st(int x,int b){
 }
 inline int get_pr(int b,int xr){
     int pr=find(flower[b].begin(),flower[b].end(),xr)-flower[b].begin();
-    if(pr%2==1){//¼ì²éËûÔÚÇ°Ò»²ãÍ¼ÊÇÆæµã»¹ÊÇÅ¼µã 
+    if(pr%2==1){ // æ£€æŸ¥ä»–åœ¨å‰ä¸€å±‚å›¾æ˜¯å¥‡ç‚¹è¿˜æ˜¯å¶ç‚¹ 
         reverse(flower[b].begin()+1,flower[b].end());
         return (int)flower[b].size()-pr;
     }else return pr;
@@ -69,7 +67,7 @@ inline int get_lca(int u,int v){
     for(++t;u||v;swap(u,v)){
         if(u==0)continue;
         if(vis[u]==t)return u;
-        vis[u]=t;//ÕâÖÖ·½·¨¿ÉÒÔ²»ÓÃÇå¿ÕvÊı×é
+        vis[u]=t; // è¿™ç§æ–¹æ³•å¯ä»¥ä¸ç”¨æ¸…ç©º v æ•°ç»„
         u=st[match[u]];
         if(u)u=st[pa[u]];
     }

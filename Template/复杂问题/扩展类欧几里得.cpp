@@ -1,4 +1,5 @@
-namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \right \rfloor} ^ {k_2}
+//\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \right \rfloor} ^ {k_2}
+namespace _lo { 
 	static const int K = 10, P = 998244353; // e1+e2 <= K
 	int inv[K + 2], C[K + 2][K + 2], B[K + 1]; // ²®Å¬ÀûÊý
 	int cof[K + 1][K + 1], tmp[K + 1][K + 1], k;
@@ -9,7 +10,6 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 		if ((a %= b) < 0) a += b, --res;
 		return res;
 	}
-
 	void init() {
 		inv[1] = 1; rep(i, 2, K+2) inv[i] = mul(P - P / i, inv[P % i]);
 		rep(i, 0, K+2) {
@@ -22,7 +22,6 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 			B[i] = (1 + mul(P - sum, inv[i + 1])) % P;
 		}
 	}
-
 	inline void calc(int x, bool o) {
 		rep(i, 0, k) memcpy(tmp[i]+1, cof[i]+1, 4 * (k - i));
 		for (int i = 1, u = x; i <= k; ++i, u = mul(u, x))
@@ -31,7 +30,6 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 				rep(r, 0, k-s+1) add(cof[r + o * i][s - i], mul(v, tmp[r][s]));
 			}
 	}
-
 	int run(int n, int a, int b, int c, int k1, int k2) {
 		k = k1 + k2;
 		int res = 0, sign = 1;
@@ -53,24 +51,21 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 			add(res, mul(sign, cur));
 			if (!a) break;
 			rep(i, 0, k) memset(tmp[i], 0, 4 * (k - i));
-			rep(s, 1, k+1)
-				rep(i, 1, s+1) {
-					int u = mul(C[s][i], i & 1 ? 1 : P - 1);
-					rep(r, 0, k-s+1) add(tmp[r][s - i], mul(u, cof[r][s]));
-				}
+			rep(s, 1, k+1) rep(i, 1, s+1) {
+				int u = mul(C[s][i], i & 1 ? 1 : P - 1);
+				rep(r, 0, k-s+1) add(tmp[r][s - i], mul(u, cof[r][s]));
+			}
 			rep(i, 0, k) memset(cof[i]+1, 0, 4 * (k - i));
-			rep(r, 0, k)
-				rep(i, 0, r+1) {
-					int u = mul(C[r+1][i], mul(B[i], inv[r+1]));
-					rep(s, 0, k-r) add(cof[s][r + 1 - i], mul(u, tmp[r][s]));
-				}
+			rep(r, 0, k) rep(i, 0, r+1) {
+				int u = mul(C[r+1][i], mul(B[i], inv[r+1]));
+				rep(s, 0, k-r) add(cof[s][r + 1 - i], mul(u, tmp[r][s]));
+			}
 			n = l; swap(a, c);
 			b = -b - 1; sign = P - sign;
 		}
 		return res;
 	}
 }
-
 
 // f = \sum\limits_{i=0}^{n}\lfloor \frac{ai+b}{c} \rfloor
 // g = \sum\limits_{i=0}^{n}{\lfloor \frac{ai+b}{c} \rfloor}^2
