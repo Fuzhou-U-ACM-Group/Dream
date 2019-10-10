@@ -14,7 +14,7 @@
 
   O 5.https://www.lydsy.com/JudgeOnline/problem.php?id=4006
 
-  ​	只要一些点对之间联通，做完斯坦纳树后再dp一遍 
+  ​	只要一些点对之间联通，做完斯坦纳树后再dp一遍,最好的写法应该是枚举状态子集并判断这个状态是否合法。 
 
   O 6.https://codeforces.com/problemset/problem/152/E
 
@@ -30,7 +30,7 @@
 
   O 9.http://acm.hdu.edu.cn/showproblem.php?pid=3311
 
-  ​	点边都有代价，联通快中的点只要有一个付出代价就行，建超级源的技巧 ，向所有点连边权为点权的边
+  ​	点边都有代价，联通块中的点只要有一个付出代价就行，建超级源的技巧 ，向所有点连边权为点权的边
 
   O 10.http://acm.hdu.edu.cn/showproblem.php?pid=4085
 
