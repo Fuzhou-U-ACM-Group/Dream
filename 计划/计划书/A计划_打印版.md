@@ -1,4 +1,6 @@
-【3】扩展欧几里得/费马小定理/欧拉定理/逆元/筛法/卢卡斯定理
+[TOC]
+
+### 【3】扩展欧几里得/费马小定理/欧拉定理/逆元/筛法/卢卡斯定理
 
 一次同余方程$ax=b\pmod{p}$，有解条件：$gcd(a,p)|b$
 
@@ -6,7 +8,7 @@
 
 故得到特解：$x_0=a'^{-1}b'\pmod{p'}$，显然通解$x\pmod{p}$有$gcd(a,p)$种
 
-【8】群论基础与$Polya$计数法定理，$bunside$引理
+### 【8】群论基础与$Polya$计数法定理，$bunside$引理
 
 - 群作用
 
@@ -66,8 +68,8 @@
 
   - 基础
     -  **![[公式]](https://www.zhihu.com/equation?tex=A) 为被染色块构成的集合， ![[公式]](https://www.zhihu.com/equation?tex=C) 为所有颜色构成的集合**， ![[公式]](https://www.zhihu.com/equation?tex=%7CA%7C%3Dn%2C%7CC%7C%3Dm) ，那么任意一个**映射 ![[公式]](https://www.zhihu.com/equation?tex=f%3AA%5Crightarrow+C)** 都代表了一个染色方案，被称为一个**染色函数**。 ![[公式]](https://www.zhihu.com/equation?tex=C%5EA) 即表示所有的染色函数 ![[公式]](https://www.zhihu.com/equation?tex=f) 构成的集合。 ![[公式]](https://www.zhihu.com/equation?tex=G) 为 ![[公式]](https://www.zhihu.com/equation?tex=A) **上的一个置换群**，包含了染色块之间“对称关系”的含义。**![[公式]](https://www.zhihu.com/equation?tex=X) 是所有染色函数组成的集合而不再是不同染色方案的集合**。
-    - 定义![[公式]](https://www.zhihu.com/equation?tex=G) 作用在 ![[公式]](https://www.zhihu.com/equation?tex=C%5EA) 上的**群作用**： ![[公式]](https://www.zhihu.com/equation?tex=g%5Bf%5D%3Dfg%5E%7B-1%7D)
-    - **对称意义下的不同染色方案数仍旧等于这个群作用中的不同轨道的个数**
+    -  定义![[公式]](https://www.zhihu.com/equation?tex=G) 作用在 ![[公式]](https://www.zhihu.com/equation?tex=C%5EA) 上的**群作用**： ![[公式]](https://www.zhihu.com/equation?tex=g%5Bf%5D%3Dfg%5E%7B-1%7D)
+    -  **对称意义下的不同染色方案数仍旧等于这个群作用中的不同轨道的个数**
   - 核心
     - 考虑$g$为一个置换，考虑其包含的一个轮换，其中涉及到的元素，必须被染成相同的颜色
     - 因此在置换$g$作用下保持不变的方案有：$m^{k(g)}$，$k(g)$为其轮换个数
@@ -133,7 +135,7 @@
       - 最后一步用到了斯特林数的行生成函数，这是一个上升阶乘幂
 
 
-【9】离散对数与原根
+### 【9】离散对数与原根
 
 [在线求原根](http://www.bluetulip.org/2014/programs/primitive.html?inputbox=6&resultbox=3+has+1+primitive+roots%2C+and+they+are+and+2.) [维基百科：原根](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)
 
@@ -206,7 +208,7 @@
   - 注意在数学上$0^0=1$，故同余方程$a^x=b\pmod{p}$，当$a=b=0$时，注意最小非负整数解$x_0=[p==1]\oplus1$
 
 
-【33】$Kummer$定理
+### 【33】$Kummer$定理
 
 - $Legendre's \space formula$
   - $\nu_{p}(n !)=\sum_{i=1}^{\infty}\left\lfloor\frac{n}{p^{i}}\right\rfloor=\frac{n-s_{p}(n)}{p-1}$
@@ -214,9 +216,9 @@
 - $Multinomial \space coefficient \space  generalization \space for \space  Kummer$
   - $\nu_{p}\left(\left(\begin{array}{c}{n} \\ {m_{1}, \ldots, m_{k}}\end{array}\right)\right)=\frac{1}{p-1}\left(\sum_{i=1}^{k} S_{p}\left(m_{i}\right)-S_{p}(n)\right)$
   - 其中$S_p(x)$表示$x$在$p$进制下的数位之和
-  
 
-【58】代数：$(min,+)$卷积/最值反演/$min-max$容斥
+
+### 【58】代数：$(min,+)$卷积/最值反演/$min-max$容斥
 
 注意为叙述方便，以下公式中，$\subset$类似符号常常表示非空包含；
 
@@ -310,8 +312,7 @@ $$
   - 与类$lucas$数列结合，求$lcm(f(S))$，因为该数列$f$满足$gcd$分配率，处理出$f$之后，莫比乌斯反演得到$h$，利用集合$S$构造下标$bool$数组$S$，对其做莫比乌斯变换，得到约数偏序集$G$，求$G$中所有元素$h$函数值之积
 
 
-
-【59】几何：$Szemerédi–Trotter \space theorem$
+### 【59】几何：$Szemerédi–Trotter \space theorem$
 
 定理内容：
 
@@ -322,8 +323,7 @@ $$
 O(n^{2/3}*m^{2/3}+n+m)
 $$
 
-
-【60】几何：三维叉积的应用
+### 【60】几何：三维叉积的应用
 
 求过两点的直线方程一般形式，判断两直线关系，并且求交点坐标
 
@@ -357,15 +357,13 @@ y = (a_1c_0 – a_0c_1)/D\\
 D = a_0b_1 – a_1b_0， (D为0时，表示两直线平行)\\
 $$
 
-
-【66】组合：一个经典的组合问题转化结论
+### 【66】组合：一个经典的组合问题转化结论
 
 对于前$n$个正整数构成的集合，求所有$k$元子集元素乘积之和（$1..n$中$kk$乘积之和）
 
 答案：$ans=S[n+1][n-k+1]$,$S$表示第一类斯特林数
 
-
-【80】组合：$gcd$卷积与$lcm$卷积
+### 【80】组合：$gcd$卷积与$lcm$卷积
 
 卷积是一种比较耗费计算资源的基础数学运算，在数学上我们处理卷积的一般方法都是通过各种变换或者转化，使得问题转化为比较容易计算的计算类型(比如序列点积)，想方设法加速计算的效率，当然这需要卷积本身具有一定的数学性质。
 
@@ -457,8 +455,7 @@ $$
 
 更多信息可以参见模板和配套的$md$说明文件
 
-
-【85】组合：k进制fwt/高维广义快速离散傅里叶变换fft
+### 【85】组合：k进制fwt/高维广义快速离散傅里叶变换fft
 
 **本质**：有穷高维循环卷积$fft$，循环周期为$k$
 
@@ -626,7 +623,7 @@ $$
 
 
 
-【91】代数：暴力多项式取模$m^2logn$，用于特征多项式法解$k$阶常系数线性齐次递推数列(k>=1000)
+### 【91】代数：暴力多项式取模$m^2logn$，用于特征多项式法解$k$阶常系数线性齐次递推数列(k>=1000)
 
 蕴含着：Cayley–Hamilton theorem
 
@@ -717,8 +714,8 @@ $$
 
 令$C_i$表示多项式$x^i$对特征多项式$G$取模，令$C=\sum_{i=0}^nC_i=(\sum_{i=0}^nx^i)\%G$，类似于快速幂的递归算法可以求解$C$，结果仍然是$\overrightarrow{C}\cdot\overrightarrow{X}$
 
+### 【93】概率论：全期望公式
 
-【93】概率论：全期望公式
 $$
 E(E(X|Y))=E(X) \\
 注意：E(X|Y)是个随机变量，概率分布：以P(Y=y)概率取到E(X|Y=y)
@@ -727,7 +724,7 @@ $$
 
 
 
-【94】组合：超平面切平面的规律
+### 【94】组合：超平面切平面的规律
 
 经典问题：$n$个$k-1$维超平面最多可以将$k$维空间分割成多少个空间区域
 $$
@@ -759,7 +756,7 @@ $$
 
 
 
-【95】代数/拓扑：全序关系、偏序关系与偏序集
+### 【95】代数/拓扑：全序关系、偏序关系与偏序集
 
 全序关系$\le$满足：完全性，即$\forall x,y \in S,x \le y || y \le x$
 
@@ -792,8 +789,7 @@ $$
 - $n$元整数集$(k-k)gcd$的$lcm$等于$((n-k+1)-(n-k+1))lcm$的$gcd$
 
 
-
-【100】数论/密码学：RSA公钥体系
+### 【100】数论/密码学：RSA公钥体系
 
 公钥加密，私钥解密，$RSA$可靠性取决于大数因式分解的困难性
 
@@ -807,9 +803,7 @@ $(n,e)$为公钥，$(p,q,d)$为私钥，明文为$M$，密文为$C$
 
 解密算法：$M=C^d \pmod{n}$
 
-
-
-【101】数论/密码学：$ElGamal$密码
+### 【101】数论/密码学：$ElGamal$密码
 
 其可靠性取决于大数离散对数的困难程度
 
@@ -827,8 +821,7 @@ $C_2=My^k \pmod{p}$
 
 解密算法：$M=C_2C_1^{-d} \pmod{p}$
 
-
-【106】数论：$Vantieghems theorem$
+### 【106】数论：$Vantieghems theorem$
 
 $n$是质数当且仅当：
 $$
@@ -843,7 +836,7 @@ $$
 
 
 
-【118】组合/代数：杨氏矩阵/杨表(Young tableaux) [维基百科：杨表](https://en.wikipedia.org/wiki/Young_tableau)
+### 【118】组合/代数：杨氏矩阵/杨表(Young tableaux) [维基百科：杨表](https://en.wikipedia.org/wiki/Young_tableau)
 
 - 定义
   - **形状**：$N$的一个不严格降序拆分称为形状，$\lambda=(\lambda_1,\lambda_2,\lambda_3,...,\lambda_m)$，$\lambda_i \ge \lambda_{i+1}$，$\lambda \vdash N$
@@ -855,99 +848,99 @@ $$
   - **斜杨图/表**：$\lambda/\mu$，$\lambda_i \ge \mu_i$，第$i$行在$[\mu_i+1,\lambda_i]$列填数字
     - 标准/半标准：参见上面
   - **边角**：一个格子为边角，其下面和右边的格子不存在
-  
+
 - 杨表与排列
   - 行插入算法$S \gets x$
-    
+
     - 所移动的格子看上去一定是向不严格的左下方移动
-    
+
       ![杨表_行插入](\pic\数学\杨表_行插入.PNG)
-    
+
   - 列插入算法$x \to S$
-    
+
     - 与行插入对称
-    
+
       ![杨表_列插入](\pic\数学\杨表_列插入.PNG)
-    
+
   - 边角删除算法
-    
+
     - 与行插入互为逆操作
-    
+
       ![杨表_边角删除](\pic\数学\杨表_边角删除.PNG)
-    
+
   - 记录表：一个排列$X$进行行插入得到杨表$P_X$，同时可以得到记录表$Q_X$，只需要每次在将元素$x_i$插入时，杨表增加新元素的位置，放入下标$i$；记录表$Q_X$与$P_X$同规模
-  
+
     ![杨表_记录表](\pic\数学\杨表_记录表.PNG)
-  
+
   - 一一对应：[Robinson–Schensted correspondence](https://en.wikipedia.org/wiki/Robinson%E2%80%93Schensted_correspondence)
-  
+
     - 长度为$n$的排列与**一对形状相同的标准杨表**一一对应
     - 令$f_{\lambda}$表示形状为$\lambda$的标准杨表的数量，则$\sum_{\lambda \vdash n}f_{\lambda}^2=n!$
-  
+
   - 排列插入算法的性质
-  
+
     - 行列交换律：$(x \to S) \gets y=x \to (S \gets y)$，这表明相邻两个对行列的插入操作(一个对行，一个对列)是可交换的
     - 行列相对独立性：一个插入操作序列，可以调整为先完成行操作，再做列操作，每种相对顺序不变
     - 翻转特性：$X^R$表示排列的左右翻转，则$P_X=(P_{X^R})^T$，这表明排列行插入等价于倒序列插入，注意只对杨表成立，对记录表**不**成立
     - 相反数特性：排列倒序行插入得到的杨图(形状)等价于原排列***相反数序列***行插入得到的杨图，注意不是杨表相同
-  
+
 - 杨表与对称矩阵
-  
+
   - 普通非负整数矩阵
-  
+
     - 矩阵$A$拆成序列对$X$：其中$(i,j)$这个数对出现$A[i][j]$次，数对按照$pair$排序，即构成$(first,second)$序列对
-  
+
     - $X^{-1}$：只要把每个数对两维交换，重新排序，得到新的序列对
-  
+
     - $P_X$表示将$X$第二行(即第二维，或者$second$序列)插入构造的杨表，$Q_X$表示在$P_X$构造过程中，将$first$序列视为下标构造的记录表
-  
+
     - 性质关系：$(P_X,Q_X)=(Q_{X^{-1}},P_{X^{-1}})$
-  
+
       ![性质关系](\pic\数学\杨图1.PNG)
-  
+
   - 对称矩阵
-  
+
     - 一些定义：矩阵$M_{W \times H}$，行和$r_i$，列和$c_j$，$X_M$为其所构序列对，$P_M=P_{X_M}$，同理定义$Q_M$，$X_M^{-1}=X_{M^T}$
     - 一一对应：$M$和一对半标准杨表$P_M$和$Q_M$一一对应，$P_M$中$i$出现$c_i$次，$Q_M$中$i$出现$r_i$次；特别的，$M$为对称矩阵，与半标准杨表$P_M$一一对应，$P_M$中$i$出现$r_i$次，且$X_M^{-1}=X_M$，$P_M=Q_M$
     - 对称矩阵$M$的迹$tr(M)=\sum_{i=1}^nM_{ii}$等于$P_M$中长度为奇数的列数
-  
+
   - 对合排列(*involution permutation*)
-  
+
     - 定义：对合排列$X=X^{-1}$，即$X$的圈结构中，圈长非$1$即$2$；对应着每行每列只有一个$1$的$01$矩阵
     - 性质：其自环个数等于其所对应的标准杨表中奇数长度的列的个数
     - 对合数：$a_0=a_1=1,a_n=(n-1)a_{n-2}+a_{n-1}$
-  
+
 - 杨表与最长上升/下降子序列
 
   - 基本结论：$X$为一个排列
-    
+
     - $P_X$第一行长度为$len(LIS_X)$，第一列长度为$len(LDS_X)$
-    
+
   - 最长$k-LIS$子序列
-  
+
     - 定义：长度不超过$k$的$LIS$子序列为$k-LIS$子序列
     - 结论：排列$X$的最长$k-LIS$子序列长度等于杨表$P_X$的前$k$列长度之和
     - 例题：$CTSC2017$最长上升子序列，询问$Q$次排列前缀的最长$k-LIS$子序列长度($k$变化)；只维护杨表前$\sqrt{n}$行和$\sqrt{n}$列，前$\sqrt{n}$行，通过插入相反数序列维护杨图；复杂度$O(n\sqrt{n}logn)$
-  
+
   - $LIS$计数
-  
+
     - 结论
-  
+
       - 长度为$n$的$LIS$长度为$\alpha$，且$LDS$长度为$\beta$的排列个数为：
         $$
         \large num(n,\alpha,\beta)=\sum_{行数为\beta,列数为\alpha,\lambda \vdash n} f_{\lambda}^2
         $$
-  
+
       - 权值范围为$[1,n]$，各权值数量分布为$\mu$，即：$\sum_{i=1}^n\mu[i]=n$；令$g_{\lambda/\mu}$表示形状为$\lambda$且权值分布为$\mu$的**半标准**杨表数量；则这样的长度为$n$的序列中，最长**非严格**上升子序列长度为$\alpha$且最长**严格**下降子序列长度为$\beta$的序列数量为：
         $$
         \large num(n,\alpha,\beta)=\sum_{行数为\beta,列数为\alpha,\lambda \vdash n,\mu}g_{\lambda/\mu}f_{\lambda}
         $$
-  
+
     - 例题：$BJWC2018$最长上升子序列
-  
+
       - 题目：长度为$n$的随机排列$X$，求$E(len(LIS_X)$
       - 分析：枚举$n$的所有降序拆分$\lambda$，用钩子公式$O(n^2)$计算$f_{\lambda}$，复杂度$O(n^2p(n))$，可轻松做到$n \le 63$
-  
+
 - 杨表与钩子公式
 
   - 钩子函数：$h_{\lambda}(i,j)$表示在形状为$\lambda$的杨图中$(i,j)$右侧和下侧以及自己所确定的一块钩子区域的格子数量
@@ -1026,38 +1019,38 @@ $$
         ![杨表_不交路径1](\pic\数学\杨表_不交路径1.PNG)
 
       - 权值$\in [1,n]$且$m$行($n=\sum_{i=1}^m\lambda_i$)的半标准斜杨表$\lambda/\mu$与$A=\{(\mu_i-i,1)\},B=\{(\lambda_i-i,n)\},i \in [1,m]$的$m$条不交路径元组一一对应(图表右移了两格)
-      
+
         ![杨表_不交路径2](\pic\数学\杨表_不交路径2.PNG)
-    
+
   - 行列式公式
-  
+
     - 标准斜杨表数量公式
       $$
       f_{\lambda / \mu}=\left(\sum_{i} \lambda_{i}-\mu_{i}\right) !\left|\frac{1}{\left(\lambda_{i}-i-\mu_{j}+j\right) !}\right|_{i, j=1}^{|\lambda|}
       $$
-  
+
       - 注：负数的阶乘倒数定义为$0$
-  
+
     - 标准杨表数量公式
       $$
       f_{\lambda}=\left.\left(\sum_{i} \lambda_{i}\right) !\left|\frac{1}{\left(\lambda_{i}+j-i\right) !}\right|\right|_{i, j=1} ^{|\lambda|}
       $$
-  
+
     - 欧拉数：长度为$2n$的波形排列计数
       $$
       (2 n) ! \operatorname{det}\left(\frac{1}{(2 j-2 i+2) !}\right)_{i, j=1}^{n}
       $$
-  
+
       - 思路：构造一个斜杨表$(2n-i+2)/(2n-i),i \in [1,m]$，填好数之后从下而上，从左向右取数构造排列
-  
+
   -  [Hankel 矩阵](https://en.wikipedia.org/wiki/Hankel_matrix)
-  
+
     - 定义：$Hankel$矩阵每条副对角线值相等，由序列$a$生成的矩阵如下：
       $$
       A=\left[\begin{array}{ccccc}{a_{0}} & {a_{1}} & {a_{2}} & {\dots} & {\dots} & {a_{n-1}} \\ {a_{1}} & {a_{2}} & {} & {} & {} & {\vdots} \\ {a_{2}} & {} & {} & {} & {} & {\vdots} \\ {\vdots} & {} & {} & {} &  {} &{a_{2 n-4}} \\ 
       {\vdots} & {} & {} & {} & {a_{2 n-4}} & {a_{2 n-3}} \\ {a_{n-1}} & {\cdots} & {\cdots} & {a_{2 n-4}} & {a_{2 n-3}} & {a_{2 n-2}}\end{array}\right]
       $$
-  
+
     - $Hankel$变换：由$b$序列变换为$h$序列
       $$
       h_{n}=\operatorname{det}\left(b_{i+j-2}\right)_{1 \leq i, j \leq n+1} \\
@@ -1065,44 +1058,44 @@ $$
       则有：\operatorname{det}\left(b_{i+j-2}\right)_{1 \leq i, j \leq n+1}=\operatorname{det}\left(c_{i+j-2}\right)_{1 \leq i, j \leq n+1} \\
       即h在原序列二项式变换下，保持不变
       $$
-  
+
     - 相关定理
-  
+
       - $$
         \operatorname{det}\left(\left(X_{i}+A_{n-1}\right) \cdots\left(X_{i}+A_{j+1}\right)\left(X_{i}+B_{j}\right) \cdots\left(X_{i}+B_{1}\right)\right)_{i, j=0}^{n-1}\\
         =\prod_{0 \leq i<j \leq n-1}\left(X_{i}-X_{j}\right) \prod_{1 \leq i \leq j \leq n-1}\left(B_{i}-A_{j}\right)
         $$
-  
+
       - $$
         \operatorname{det}\left(C_{\alpha_{i}+j}\right)_{i, j=0}^{n-1}=\prod_{0 \leq i<j \leq n-1}\left(\alpha_{j}-\alpha_{i}\right) \prod_{i=0}^{n-1} \frac{(i+n) !\left(2 \alpha_{i}\right) !}{(2 i) ! \alpha_{i} !\left(\alpha_{i}+n\right) !}
         $$
-  
+
   - $k-Dyck \space Path$
-  
+
     - $Dyck \space Path$是说一条从$(0,0)$到$(2n,0)$的一条路径，每次横坐标增加$1$，纵坐标增加$1$或$-1$，且不越过$x$轴
-    
+
     - $k-Dyck \space Path$是说有$k$条这样的路径，第一条不越过$x$轴，第$i$条不越过即不低于第$i-1$条路径
-    
+
     - 一一对应：列数不超过$2k$的，元素$\in [1,n]$内的且**每行长度为偶数**的**半标准杨表**和长度均为$2n+2$的$k-Dyck \space Path$构成一一对应；若将其旋转一下，可转化为从$(0,0)$到$(n+1,n+1)$的$k$条路径，每次只可以向右向上走一步，不能越过上一条路径，第一条不低于$y=x$
-    
+
     - 计数公式
       $$
       \large b_{n,k}=\prod_{1 \le i \le j \le n} \frac{2k+i+j}{i+j}
       $$
-    
+
     - 下三角矩阵的$LDS$
-    
+
       - 下三角矩阵$M$的$LDS$定义为权值和最大的路径，可选一个起点，然后每次走向右上方的某个格子，或者同行的右侧的某个格子，注意不要求权值递增
-    
+
       - $LDS(M) \le k$的下三角矩阵$M$与$k-Dyck \space Path$一一对应
-    
+
       - 元素$\in[1,n]$，每行长度为偶数，半标准杨表和$n \times n$的对称矩阵$M'$一一对应，杨表列数$=LDS(M')$
-    
+
       - 元素$\in[1,n]$，列数$\le k$半标准杨表与$n \times n$元素$\in[0,k]$满足每行每列均非严格递增的**对称矩阵**数量相等
         $$
         \large a_{n,k}=\prod_{1 \le i \le j \le n} \frac{k+i+j-1}{i+j-1}
         $$
-  
+
 - 半标准杨表计数
 
   - 元素$\in[1,n]$，半标准杨表$ \lambda = (\lambda_1,\cdots,\lambda_m),n=\sum_{i=1}^m\lambda_i$的计数公式
@@ -1145,7 +1138,9 @@ $$
 
 
 
-【122】博弈论：基础知识梳理
+
+
+### 【122】博弈论：基础知识梳理
 
 - $NP$状态定理
 
@@ -1315,7 +1310,6 @@ $$
     &\{\omega|\omega+1\}=\omega+\frac{1}{2}\\
     \end{aligned}\\
     $$
-    
 
 - 纳什均衡理论
 
@@ -1380,13 +1374,11 @@ $$
   - 结论：由于是一种$Every$游戏，故单一游戏需要满足：能够胜利的尽可能慢的胜利，不能胜利尽可能快的输掉；令$round(x,y)$表示单一的马在$(x,y)$时最快的步数，结论为：$round(x,y)-\lfloor\frac{x}{2}\rfloor-\lfloor\frac{y}{2}\rfloor$有规律(除了左下角$4 \times 4$和最外围一圈，可以$dp$)。
 
 
-
-【124】代数：奇数双阶乘对$2^p$分块模数列的性质
+### 【124】代数：奇数双阶乘对$2^p$分块模数列的性质
 
 函数$f(n)=1\times 3 \times 5 \times \cdots \times n$，其中$n$为奇数，则令$b_n=f(2^n) \% 2^p$。则$b_{kn}=b_k^n$对$k \ge \frac{p+1}{3}$恒成立。若已知$b_k=B$，则$f(n)=B^{\lfloor n/2^k \rfloor}*\prod_{k \in [\lfloor n/2^k \rfloor\times 2^k +1,n] 且 odd(k)}k$，复杂度$O(2^k)$。
 
-
-【125】代数：关于下降阶乘幂的多项式间的运算
+### 【125】代数：关于下降阶乘幂的多项式间的运算
 
 - 两个下降阶乘幂多项式的乘法
 
@@ -1405,7 +1397,7 @@ $$
   - 我们已知$A(x)$，即可从$F(x)$中取出点值序列，$G(x)$类似，点值序列直接点乘，构成指数型生成函数$F_{ret}(x)$，再利用上述公式逆向求得$A_{ret}(x)=e^{-x}F_{ret}(x)$，取出系数即可
 
 
-【126】图论：图有关的定理
+### 【126】图论：图有关的定理
 
 - $Petersen's$   $theorem$
   - $3-$正则无桥边的无向图，必存在完美匹配(此图不可能有奇数个点)
