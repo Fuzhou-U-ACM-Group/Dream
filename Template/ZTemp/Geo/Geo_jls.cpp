@@ -1,13 +1,3 @@
-#define mp make_pair
-#define fi first
-#define se second
-#define pb push_back
-typedef double db;
-const db eps=1e-6;
-const db pi=acos(-1);
-int sign(db k){
-    if (k>eps) return 1; else if (k<-eps) return -1; return 0;
-}
 int cmp(db k1,db k2){return sign(k1-k2);}
 int inmid(db k1,db k2,db k3){return sign(k1-k3)*sign(k2-k3)<=0;}// k3 在 [k1,k2] 内 
 struct point{
