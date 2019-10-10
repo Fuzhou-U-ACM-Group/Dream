@@ -66,6 +66,12 @@ struct NTT{
 	}
 } ntt;
 
+//f[i] = f[i-1] \cdot (i-1) + \sum_{j=2}^{n-2}{f[j] \cdot f[n-j] \cdot (j-1)}
+
+//f[L, mid] * g[L, mid] -> [mid+1, R]
+//f[L, mid] * g[L, min(L - 1, R - l)] -> [mid+1, R]
+//f[1, min(L - 1, R - L)] * g[L, mid] -> [mid+1, R]
+
 
 void solve(int l, int r) {
 	if (l == r) {
