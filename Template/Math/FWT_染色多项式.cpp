@@ -1,6 +1,6 @@
 template<class T>
 struct Poly{
-	static const int N = 30, P = 1e9+7;
+	static const int N = 30, P = 1e9 + 7;
 	T a1[N], b1[N], c[N];
 	T add(T a, T b) {a = (a + b) % P; return a < 0 ? a + P : a;}
 	T mul(T a, T b) {a = 1ll * a * b % P; return a < 0 ? a + P : a;}
@@ -25,79 +25,77 @@ struct Poly{
 	}
 };
 
-const int P = 1e9 + 7, M = 15;
-inline int mul(int x, int y) { return (ll)x*y%P; }
-inline int add(int x, int y) { return (x += y) >= P ? x - P : x; }
+const int P = 1e9 + 7, M = 20;  int L;
 
-template <int L>
-struct Num {
-	array<int, L> a;
+inline int mul(int x, int y) { return (ll)x * y % P; }
+inline int add(int x, int y) { if ((x += y) >= P) x -= P; return x < 0 ? x + P : x; }
+
+struct vec {
+	int a[M];
 	inline int& operator [] (int x) { return a[x]; }
 	inline int operator [] (int x) const { return a[x]; }
-	inline void clear() { a.fill(0); }
-	inline void operator += (const Num &b) {
-		rep(i, 0, L) a[i] = add(a[i], b[i]);
-	}
-	inline void operator -= (const Num &b) {
-		rep(i, 0, L) a[i] = add(a[i], P - b[i]);
-	}
-	inline friend Num operator * (const Num &a, const Num &b) {
-		Num<L> c; c.clear();
+	inline void clear() { fill_n(a, L, 0); }
+	inline void operator += (const vec &b) { rep(i, 0, L) a[i] = add(a[i], b[i]); }
+	inline void operator -= (const vec &b) { rep(i, 0, L) a[i] = add(a[i], -b[i]); }
+	inline vec operator *= (const vec &b) {
+		vec c; c.clear();
 		rep(i, 0, L) if (a[i])
 			for (int j = 0; i + j < L; ++j) if (b[j])
 				c[i + j] = add(c[i + j], mul(a[i], b[j]));
-		return c;
+		return *this = c;
 	}
 };
 
-template <class V>
-struct Calculator {
-	V aa[1 << M], bb[1 << M];
-	void fwt(V a[], int len, int o = 1) {  // o=-1 UFWT
+struct Cal {
+	vec a[1 << M], b[1 << M];
+	void fwt(vec a[], int len, int o = 1) {  // o=-1 UFWT
 		for (int k = 0; 1 << k < len; ++k)
 			rep(i, 0, len) if (~i >> k & 1) {
 			int j = i ^ (1 << k);
-			(o == 1) ? a[j] += a[i] : a[j] -= a[i];
+			o == 1 ? a[j] += a[i] : a[j] -= a[i];
 		}
 	}
-	int get(V a[], int len, int s) {
-	    int ret=0,k=__builtin_popcount(s);
-	    rep(t,0,s+1) if ((t&s)==t)
-	        if (__builtin_parity(s^t)) ret=add(ret,P-a[t][k]); else ret=add(ret,a[t][k]);
-        return ret;
-    }
-	void pow(V a[], int len, int k, V c[], int ret[]) {
-		fwt(a, len),ret[0]=0;
-		rep(i, 0, len) c[i] = a[i];
-		ret[1]=get(c,len,len-1);
-		rep(j, 2, k + 1) {
-		    rep(i,0,len) c[i] = c[i] * a[i];
-		    ret[j]=get(c,len,len-1);
+	void pow(int mask[], int len, int k, int ret[]) {
+		L = k + 1;
+		rep(i, 0, len) a[i].clear(), a[i][__builtin_popcount(i)] = mask[i]; 
+		fwt(a, len), ret[0] = 0;
+		rep(j, 1, k + 1) {
+		    if (j == 1) rep(i, 0, len) b[i] = a[i];
+		    else rep(i, 0, len) b[i] *= a[i];
+		    int &t = ret[j] = 0;
+		    rep(i, 0, len) if (__builtin_parity((len - 1) ^ i)) 
+				t = add(t, -b[i][k]);else t = add(t, b[i][k]);
         }
-	}
-	void In(int A[], int len, V a[]) {
-		rep(i, 0, len) a[i].clear(), a[i][__builtin_popcount(i)] = A[i];
-	}
-	void Pow(int A[], int len, int k, int C[]) {
-		In(A, len, aa), pow(aa, len, k, bb, C);
-	}
-	void ModP(int a[], int len) {
-		rep(i, 0, len) a[i] = add(a[i], P);
 	}
 };
 
-Calculator<Num<M + 1>> T;
-Poly<int> PP; int X[30],Y[30];
-void Solve(int a[],int n,int mask[],int color[],int ret[]) {
-    mask[0]=1; int L=1<<M;
-    rep(s,1,L) {
-        int t=s&-s,k=__builtin_ctz(t);
-        mask[s]=(mask[s^t] && !(s&a[k]));
+Cal T;
+Poly<int> PP; 
+
+const int N = 50;
+int a[N], mask[1 << M], col[N], ret[N], n, m, u, v, X[N], Y[N];
+
+void solve(int a[], int n) {
+    mask[0] = 1; int L = 1 << n;
+    rep(i, 1, L) {
+        int t = i & -i, k = __builtin_ctz(t);
+        mask[i] = mask[i ^ t] & !(i & a[k]);
     }
-    T.Pow(mask,L,n,color);
-    rep(i,0,n+1) X[i]=i,Y[i]=color[i];
-    PP.solve(n,X,Y,ret);
+    T.pow(mask, L, n, col);
+    rep(i, 0, n+1) X[i] = i, Y[i] = col[i];
+    PP.solve(n, X, Y, ret);
 }
+
+int main() {
+	cin >> n >> m;
+	rep(i, 0, m) {
+		cin >> u >> v;
+		a[u] |= pw(v);
+		a[v] |= pw(u);
+	}
+	solve(a, n);
+	return 0;
+} 
 
 /*
 
