@@ -42,7 +42,7 @@
 | 2019/10/1 [Petrozavodsk Winter-2017. Xiaoxu Guo Contest 5](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=1492) |  22  |  Ø   |  Ø   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  .   |  .   |  Ø   |      |      |
 | 2019/10/2 [Petrozavodsk Summer-2016. Warsaw U Contest, XVI Open Cup Onsite](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001486) |  38  |  O   |  Ø   |  .   |  O   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/10/3 [ Petrozavodsk Winter-2019. 300iq Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001531) |  29  |  Ø   |  O   |  O   |  .   |  O   |  O   |  .   |  .   |  .   |  .   |  Ø   |      |      |
-| 2019/10/4 [2019CCPC秦皇岛](https://vjudge.net/contest/331552#overview) |  7   |  O   |  .   |  .   |  O   |  Ø   |  O   |  .   |  .   |  O   |  O   |  O   |  .   |      |
+| 2019/10/4 [2019CCPC秦皇岛](https://vjudge.net/contest/331552#overview) |  7   |  O   |  .   |  .   |  O   |  Ø   |  O   |  Ø   |  .   |  O   |  O   |  O   |  .   |      |
 | 2019/10/5 [Petrozavodsk Winter-2016. Xiaoxu Guo Contest 4](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001477) |  41  |  Ø   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |      |      |      |
 | 2019/10/6 [Petrozavodsk Winter-2015. Xiaoxu Guo Contest 3](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001451) |  27  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |      |
 |   2019/10/15 [2019CCPC哈尔滨]() **[现场]**    |  6   |  O   |  O   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |      |
