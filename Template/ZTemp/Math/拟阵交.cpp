@@ -1,149 +1,111 @@
-#include<bits/stdc++.h>
-#define MAXN 65
-#define MAXM 6005
-#define INF 1000000000
-#define MOD 1000000007
-#define F first
-#define S second
-using namespace std;
-typedef long long ll;
-typedef pair<int,int> P;
-int color[MAXM];
-ll val[MAXM];
-int n,m,tot,tot2;
-struct LinearMatroid{
-    ll basis[62];
-    void clear() { memset(basis,0,sizeof(basis));}
+const int N = 5005;
+
+int col[N];
+ll val[N], x;
+int n, m, tot, tot2, k;
+
+struct LM { // 线性拟阵 
+    ll base[63];
+    LM() { memset(base, 0, sizeof(base)); }
     void add(ll x) {
-        for(int j=60;j>=0;j--) {
-            if(!(x&(1LL<<j))) continue;
-            if(!basis[j]) {
-                basis[j]=x;
-                return;
-            }
-            else x^=basis[j];
-        }
+        per(j, 0, 63) if ((x >> j) & 1){
+            if(!base[j]) {
+                base[j] = x;
+                break;
+            } else x ^= base[j];
+        	if (!x) break;
+		}
     }
     bool test(ll x) {
-        for(int j=60;j>=0;j--) {
-            if(!(x&(1LL<<j))) continue;
-            if(!basis[j]) return true; else x^=basis[j];
-        }
-        return false;
+        per(j, 0, 63) if ((x >> j) & 1){
+            if(!base[j]) return 1; else x ^= base[j];
+        	if (!x) break;
+		}
+        return 0;
     }
 };
 
-struct ColorfulMatroid {
+struct CM { // 高维均匀拟阵 
     int cnt[125];
-    void clear() { memset(cnt,0,sizeof(cnt)); }
+    CM() { memset(cnt,0,sizeof(cnt)); }
     void add(int x) { cnt[x]++; }
-    bool test(int x) { return (cnt[x]==0); }
+    bool test(int x) { return cnt[x] == 0; }
 };
 
-template <typename MT1, typename MT2>
-struct MatroidIntersection {
+template <class MT1, class MT2>
+struct MI {
     int n;
-    MatroidIntersection(int _n):n(_n){}
-    int pre[MAXM],id[MAXM];
-    bool vis[MAXM],sink[MAXM],has[MAXM];
-    queue<int> que;
-    void clear_all() {
-        memset(vis,false,sizeof(vis));
-        memset(sink,false,sizeof(sink));
-        memset(pre,0,sizeof(pre));
-        while(que.size()) que.pop();
+    MI(int n) : n(n) {}
+    int pre[N], id[N];
+    bool vis[N], sink[N], has[N];
+    queue<int> q;
+    void clear() {
+    	rep(i, 1, n+1) vis[i] = sink[i] = pre[i] = 0;
+        while (!q.empty()) q.pop();
     }
-    vector<int> getcur() {
-        vector<int> ret;
-        for(int i=1;i<=n;i++) if(has[i]) ret.push_back(i);
+    vi getcur() {
+        vi ret;
+        rep(i, 1, n+1) if (has[i]) ret.pb(i), id[i] = sz(ret) - 1;
         return ret;
     }
-    void enqueue(int v,int p) {
-        vis[v]=true; pre[v]=p;
-        que.push(v);
+    void push(int v, int p) {
+        vis[v] = 1, pre[v] = p, q.push(v);
     }
-    vector<int> run() {
+    vi run() {
         MT1 mt1;  MT2 mt2;
-        memset(has,false,sizeof(has));
-        while(true) {
-            vector<int> cur=getcur();
-            int cnt=0;
-            for(int i=1;i<=n;i++) if(has[i]) id[i]=cnt++;
-            MT1 allmt1; MT2 allmt2; allmt1.clear(); allmt2.clear();
-            vector<MT1> vmt1(cur.size()); vector<MT2> vmt2(cur.size());
-            for(auto &x:vmt1) x.clear(); for(auto &x:vmt2) x.clear();
-            clear_all();
-            for(auto x:cur) allmt1.add(val[x]),allmt2.add(color[x]);
-            for(int i=0;i<(int)cur.size();i++)
-                for(int j=0;j<(int)cur.size();j++) {
-                    if(i==j) continue;
+        memset(has, 0, sizeof(has));
+        while(1) {
+            vi cur = getcur(); clear();
+            MT1 mt1; MT2 mt2; 
+            for(auto x : cur) mt1.add(val[x]), mt2.add(col[x]);
+            rep(i, 1, n+1) if (!has[i]) {
+                if(mt1.test(val[i])) push(i, 0); // X1;
+                if(mt2.test(col[i])) sink[i] = 1; // X2;
+            }
+            bool ok = 0;
+            rep(i, 1, n+1) if (sink[i] && vis[i]) { has[i] ^= 1; ok = 1; break;}
+            if (ok) continue;
+            
+            vector<MT1> vmt1(sz(cur)); vector<MT2> vmt2(sz(cur));
+            rep(i, 0, sz(cur))
+            	rep(j, 0, sz(cur)) if (i != j) {
                     vmt1[i].add(val[cur[j]]);
-                    vmt2[i].add(color[cur[j]]);
+                    vmt2[i].add(col[cur[j]]);
                 }
-            for(int i=1;i<=n;i++) {
-                if(has[i]) continue;
-                if(allmt1.test(val[i])) {que.push(i); vis[i]=true;}
-            }
-            for(int i=1;i<=n;i++) {
-                if(has[i]) continue;
-                if(allmt2.test(color[i])) sink[i]=true;
-            }
-            int last=-1;
-            while(que.size()) {
-                int v=que.front(); que.pop();
-                if(sink[v]) {last=v; break;}
-                for(int i=1;i<=n;i++) {
-                    if(vis[i]) continue;
-                    if(has[i]==has[v]) continue;
-                    if(has[v]) {
-                        if(vmt1[id[v]].test(val[i])) enqueue(i,v);
+            
+            int t = -1;
+            while(!q.empty()) {
+                int u = q.front(); q.pop();
+                if (sink[u]) { t = u; break;}
+                rep(v, 1, n+1) if (!vis[v] && has[u] != has[v]){
+                    if(has[u]) {
+                        if(vmt1[id[u]].test(val[v])) push(v, u);
                     }
                     else {
-                        if(vmt2[id[i]].test(color[v])) enqueue(i,v);
+                        if(vmt2[id[v]].test(col[u])) push(v, u);
                     }
                 }
             }
-            if(last==-1) return cur;
-            while(last) {
-                has[last]^=1;
-                last=pre[last];
-            }
+            if (t == -1) return cur;
+            while (t) has[t] ^= 1, t = pre[t]; 
         }
     }
 };
+
 //Pick Your Own Nim
 //In real cases, Linear Matroid Need Optimization to Pass
+
 int main() {
-    scanf("%d",&n);
-    for(int i=0;i<n;i++) {
-        ll x;
-        scanf("%lld",&x);
-        val[++tot]=x; color[tot]=++tot2;
+    cin >> n;
+    rep(i, 0, n) cin >> x, val[++tot] = x, col[tot] = ++tot2;
+    cin >> m;
+    rep(i, 0, m) {
+        cin >> k; tot2++;
+        rep(j, 0, k) cin >> x, val[++tot] = x, col[tot] = tot2;
     }
-    scanf("%d",&m);
-    for(int i=0;i<m;i++) {
-        int k;
-        scanf("%d",&k);
-        tot2++;
-        for(int j=0;j<k;j++) {
-            ll x;
-            scanf("%lld",&x);
-            val[++tot]=x; color[tot]=tot2;
-        }
-    }
-    MatroidIntersection<LinearMatroid,ColorfulMatroid> matint(tot);
-    vector<int> res=matint.run();
-    if(res.size()<n+m) {puts("-1"); return 0;}
-    else {
-        vector<ll> ans;
-        int last=n;
-        for(auto x:res) {
-            if(color[x]>last) {
-                ans.push_back(val[x]);
-                last=color[x];
-            }
-        }
-        for(auto x:ans) printf("%lld\n",x);
-    }
+    MI<LM, CM> matint(tot);
+    vi res = matint.run();
+    if (sz(res) < n + m)  cout << -1 << endl;
+    else for(auto x : res) if (col[x] > n) cout << val[x] << endl;
     return 0;
 }
