@@ -46,7 +46,8 @@
 | 2019/10/5 [Petrozavodsk Winter-2016. Xiaoxu Guo Contest 4](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001477) |  41  |  Ø   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |      |      |      |
 | 2019/10/6 [Petrozavodsk Winter-2015. Xiaoxu Guo Contest 3](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001451) |  27  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |      |
 |   2019/10/15 [2019CCPC哈尔滨]() **[现场]**    |  6   |  O   |  O   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |      |
-|    2019/10/21 [2019CCPC厦门]() **[现场]**    |  3   |  O   |  .   |  .   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |      |
+|    2019/10/20 [2019CCPC厦门]() **[现场]**    |  3   |  O   |  .   |  .   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |      |
+| 2019/10/22 [2019-hdu-multi-10](https://vjudge.net/contest/336966#overview) |  3   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
