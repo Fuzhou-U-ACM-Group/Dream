@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -20,7 +20,7 @@
 | 2019/8/1 [2019-nowcoder-multi-5](https://ac.nowcoder.com/acm/contest/885#question) **[done]** |  4   |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) **[done]** |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
 | 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  Ø   |  X   |  O   |  O   |  O   |  O   |  X   |  .   |  Ø   |      |      |      |
-| 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  Ø   |  O   |  .   |  O   |  O   |  O   |  Ø   |  O   |  .   |  O   |  O   |  O   |      |
+| 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  Ø   |  O   |  .   |  O   |  O   |  O   |      |
 | 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  .   |      |      |
 | 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) **[done]** |  5   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
 | 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) **[done]** |  29  |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |
@@ -45,8 +45,8 @@
 | 2019/10/4 [2019CCPC秦皇岛](https://vjudge.net/contest/331552#overview) |  7   |  O   |  .   |  .   |  O   |  Ø   |  O   |  Ø   |  .   |  O   |  O   |  O   |  .   |      |
 | 2019/10/5 [Petrozavodsk Winter-2016. Xiaoxu Guo Contest 4](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001477) |  41  |  Ø   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |      |      |      |
 | 2019/10/6 [Petrozavodsk Winter-2015. Xiaoxu Guo Contest 3](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001451) |  27  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |      |
-|   2019/10/15 [2019CCPC哈尔滨]() **[现场]**    |  6   |  O   |  O   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |      |
-|    2019/10/20 [2019CCPC厦门]() **[现场]**    |  3   |  O   |  .   |  .   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |      |
+|           2019/10/15 [2019CCPC哈尔滨]() **[现场]**           |  6   |  O   |  O   |  .   |  .   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |      |
+|            2019/10/20 [2019CCPC厦门]() **[现场]**            |  3   |  O   |  .   |  .   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |      |
 | 2019/10/22 [2019-hdu-multi-10](https://vjudge.net/contest/336966#overview) |  3   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
