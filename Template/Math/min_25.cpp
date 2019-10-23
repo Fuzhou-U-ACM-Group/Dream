@@ -1,5 +1,6 @@
 struct Min_25{ 
-	// F(i) 要拆成多个完全积性函数的和 
+	// F(i) 要拆成多个完全积性函数的和
+	// 或者 F(i) 的质数位置前缀和能通过埃氏筛法 dp 求出 ，如求模 4 余 1 的质数个数
 	static const int N = 1e6 + 7;
 	int Sqr, m, p[N], id1[N], id2[N], tot, cntp;
 	ll g[N], sp[N], h[N], n, w[N];
@@ -26,6 +27,8 @@ struct Min_25{
     	p[++cntp] = INT_MAX;
 	}
 	
+	// S[x][y] 表示 [2, x] 中最小质因子大于等于 p[y] 的 F(i) 的和
+	
 	ll S(ll x, int y){
     	if(x <= 1 || p[y] > x) return 0;
     	int k = (x <= Sqr ? id1[x] : id2[n/x]);
@@ -39,6 +42,8 @@ struct Min_25{
 		}
     	return  ret;
 	}
+	
+	// g[i] 表示 [2, w[i]] 中质数位置 f(i) 的和
 	
 	ll solve(ll _n) {
 		n = _n;if (n == 0) return 0;
