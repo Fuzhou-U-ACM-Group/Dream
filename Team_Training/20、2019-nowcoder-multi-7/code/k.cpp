@@ -22,38 +22,13 @@ int T, n;
 struct Min_25{
 	static const int N = 1e6 + 8;
 	int Sqr, m, p[N], id1[N], id2[N], tot, cntp;
-	ll g[N], sp1[N], sp2[N], sp3[N], h[N], n, w[N];
+	ll g[N], sp1[N], sp2[N][2], h[N][2], n, w[N];
 	bool isp[N];
-
-	ll f1(int p) {return p % 4;}
 	
-	ll f2(int p) {return 1;} 
-
-	ll f3(int p) { if (p % 4 == 1) return 4;else return 1;}
+	int calc1(int n) { return n - 1; }
 
 	ll F(int p, int e) {if (p % 4 == 1) return e * 3 + 1; else return 1;}
 	
-	ll calc1(ll n) {
-		ll x = (n - 1) / 4 + 1;
-		ll y = (n - 2) / 4 + 1;
-		ll z = (n - 3) / 4 + 1;
-		ll tmp = 0;
-		if (n >= 1) tmp += x;
-		if (n >= 2) tmp += y * 2;
-		if (n >= 3) tmp += z * 3;
-		return tmp - 1;
-		return x + 2 * y + 3 * z - 1;
-	}
-
-	ll calc2(ll n) {
-		return n - 1;
-	}
-
-	ll calc3(ll n) {
-		ll x = (n - 1) / 4 + 1;
-		return n + 3 * x - 4;
-	}
-
 	void prime(int n) {
 		cntp = 0; isp[1] = 1;
 		rep(i, 2, n+1) {
@@ -64,9 +39,9 @@ struct Min_25{
 			}
 		}
 		rep(i, 1, cntp+1) {
-			sp1[i] = sp1[i-1] + f1(p[i]);
-			sp2[i] = sp2[i-1] + f2(p[i]);
-			sp3[i] = sp3[i-1] + f3(p[i]);
+			sp1[i] = sp1[i-1] + 1;
+			sp2[i][0] = sp2[i-1][0] + (p[i] % 4 == 1);
+			sp2[i][1] = sp2[i-1][1] + (p[i] % 4 == 3);
 		}
 		p[++cntp] = INT_MAX;
 	}
@@ -74,7 +49,7 @@ struct Min_25{
 	ll S(ll x, int y) {
 		if (x <= 1 || p[y] > x) return 0;
 		int k = (x <= Sqr ? id1[x] : id2[n / x]);
-		ll ret = 6 * (h[k] + 1) - 2 * g[k] + (g[k] - h[k] - 1) / 2 - sp3[y-1]; 
+		ll ret = g[k] + h[k][0] * 3 - sp1[y-1] - sp2[y-1][0] * 3; 
 		for (int i = y; i <= tot && 1ll * p[i] * p[i] <= x; i ++) {
 			ll t1 = p[i], t2 = 1ll * p[i] * p[i];
 			for (int e = 1; t2 <= x; e++, t1 = t2, t2 *= p[i]) {
@@ -88,35 +63,29 @@ struct Min_25{
 	ll solve(ll _n) {
 		n = _n; if (n == 0) return 0;
 		m = 0; Sqr = sqrt(n);
-		ll ans = 0, tmp = 0;
-		rep(j, 1, _n+1) {
-			ll t = 1, n = j;
-			rep(i, 1, cntp + 1) if (n % p[i] == 0) {
-				int cnt = 0;
-				while (n % p[i] == 0) n /= p[i], cnt++;
-				if (p[i] % 4 == 1)  t = t * (3 * cnt + 1);
-			}
-			ans += t;
-		}
-		//de(ans);
-		//
-		//de(calc1(10));
 		tot = upper_bound(p + 1, p + cntp + 1, Sqr) - (p + 1);
 		for (ll i = 1, j; i <= n; i = j + 1) {
 			j = n / (n / i);
 			w[++m] = n / i;
 			g[m] = calc1(w[m]);
-			h[m] = calc2(w[m]);
+			h[m][0] = (w[m] - 1) / 4;
+			h[m][1] = w[m] >= 3 ? (w[m] - 3) / 4 + 1 : 0;
 			w[m] <= Sqr ? id1[w[m]] = m : id2[j] = m;
 		}
 		rep(j, 1, tot+1) 
 			for (int i = 1; i <= m && 1ll * p[j] * p[j] <= w[i]; i++) {
 				ll t = w[i] / p[j];
 				int k = t <= Sqr ? id1[t] : id2[n / t];
-				g[i] -= f1(p[j]) * (g[k] - sp1[j - 1]);
-				h[i] -= f2(p[j]) * (h[k] - sp2[j - 1]);
+				g[i] -= (g[k] - sp1[j - 1]);
+				if (p[j] % 4 == 1) {
+					h[i][0] -= (h[k][0] - sp2[j - 1][0]);
+					h[i][1] -= (h[k][1] - sp2[j - 1][1]);
+				}
+				if (p[j] % 4 == 3) {
+					h[i][0] -= (h[k][1] - sp2[j - 1][1]);
+					h[i][1] -= (h[k][0] - sp2[j - 1][0]);
+				}
 			}
-			dd(w[1]), de(g[1]);
 		return S(n, 1) + 1;
 	}
 

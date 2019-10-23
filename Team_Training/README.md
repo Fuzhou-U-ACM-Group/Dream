@@ -21,7 +21,7 @@
 | 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) **[done]** |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
 | 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  Ø   |  X   |  O   |  O   |  O   |  O   |  X   |  .   |  Ø   |      |      |      |
 | 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  Ø   |  O   |  .   |  O   |  O   |  O   |      |
-| 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  .   |      |      |
+| 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  Ø   |      |      |
 | 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) **[done]** |  5   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
 | 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) **[done]** |  29  |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |
 | 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915_19aug25_smx3pukt1h) |  13  |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
