@@ -1,8 +1,10 @@
 struct SegGraph {
-	static const int N = :: N << 3;
-	int id[N][2], p[N], tim;
-	vector<pii> g[N];
-	void init() { rep(i, 0, tim) g[i].clear(); tim = 0; }
+#define ls (rt << 1)
+#define rs (ls | 1)
+	static const int N = :: N << 2, M = N + Q;
+	int id[N][2], p[::N], tim;
+	vector<pii> g[M];
+	void init() { rep(i, 0, tim+1) g[i].clear(); tim = 0; }
 	void liu(int u, int v, int w) { g[u].pb(mp(v, w)); }
 	void build(int l, int r, int rt) {
 		int *t = id[rt], *fa = id[rt / 2], mid = l + r >> 1;
@@ -24,7 +26,7 @@ struct SegGraph {
 	// [l1, r1] -> [l2, r2] weight = w 
 	void link(int l1, int r1, int l2, int r2, int w, int n) { 
 		++tim;
-		link(1, n, 1, l1, r1, w, 0);
-		link(1, n, 1, l2, r2, w, 1);
+		link(1, n, 1, l2, r2, 0, 0);
+		link(1, n, 1, l1, r1, w, 1);
 	}
 } G;
