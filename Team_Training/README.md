@@ -51,7 +51,8 @@
 | 2019/10/23 [Petrozavodsk Summer-2015. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001464) |  46  |  .   |  .   |  O   |  O   |  O   |  .   |  .   |  .   |  .   |  O   |      |      |      |      |
 |                 2019/10/24 [2019ICPC银川]()                  |  2   |  .   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |
 |            2019/10/27 [2019ICPC南京]() **[现场]**            |  39  |  O   |  O   |  O   |  .   |  .   |  Ø   |  .   |  .   |  Ø   |  O   |  O   |      |      |      |
-| 2019/10/29 [2015ICPC沈阳](https://vjudge.net/contest/338917#overview) |  3   |  .   |  O   |  .   |  O   |  O   |  O   |  .   |  .   |  O   |  .   |  O   |  .   |  O   |      |
+| 2019/10/29 [2015ICPC沈阳](https://vjudge.net/contest/338917#overview) |  3   |  .   |  O   |  .   |  O   |  O   |  O   |  .   |  Ø   |  O   |  .   |  O   |  .   |  O   |      |
+| 2019/10/30 [2015ICPC长春](https://vjudge.net/contest/339189#overview) |  1   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  Ø   |  O   |  .   |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
