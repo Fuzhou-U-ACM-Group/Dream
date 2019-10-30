@@ -1,5 +1,4 @@
 // 这里是覆盖次数大于 1 次的 
-// 这份代码没 down 函数，感觉有问题
 struct Seg {
 	static const int N = ::N << 2;
 	int la[N], len[2][N];
