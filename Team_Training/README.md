@@ -54,7 +54,7 @@
 | 2019/10/29 [2015ICPC沈阳](https://vjudge.net/contest/338917#overview) |  3   |  .   |  O   |  .   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  .   |  O   |  Ø   |  O   |      |
 | 2019/10/30 [2015ICPC长春](https://vjudge.net/contest/339189#overview) |  1   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |      |
 | 2019/10/31 [2015ICPC北京](https://vjudge.net/contest/339298#overview) |  3   |  O   |  Ø   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |      |      |      |
-| 2019/11/1 [2019 ICPC Asia Jakarta Regional](https://codeforces.com/contest/1252) |  66  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  O   |  Ø   |      |      |
+| 2019/11/1 [2019 ICPC Asia Jakarta Regional](https://codeforces.com/contest/1252) |  66  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  O   |  .   |  Ø   |  O   |  Ø   |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
