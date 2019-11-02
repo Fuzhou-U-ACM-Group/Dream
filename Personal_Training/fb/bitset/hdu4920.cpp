@@ -31,7 +31,49 @@ int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}ret
 
 const int N = 805;
 int n, x;
-bitset<805> t0, t1, t2, a[N][3], b[N][3];
+
+struct vec3{
+	static const int N = ::N;
+	bitset<N> a[3];
+	vec3() { rep(i, 0, 3) a[i].reset(); }
+	void reset() { rep(i, 0, 3) a[i].reset(); }
+	void set(int p, int x) { x = (x % 3 + 3) % 3; rep(i, 0, 3) if (i == x) a[i].set(p); else a[i].reset(p); }
+	int get(int p) { rep(i, 0, 3) if (a[i][p]) return i; }
+	int getval() { return (a[1].count() + a[2].count() * 2) % 3; }
+	vec3 operator * (const vec3 &c) {
+		vec3 r;
+		r.a[0] = a[0] | c.a[0];
+		r.a[1] = (a[1] & c.a[1]) | (a[2] & c.a[2]);
+		r.a[2] = (a[1] & c.a[2]) | (a[2] & c.a[1]);
+		return r;
+	}
+	vec3 operator + (const vec3 &c) {
+		vec3 r;
+		r.a[0] = (a[0] & c.a[0]) | (a[1] & c.a[2]) | (a[2] & c.a[1]);
+		r.a[1] = (a[0] & c.a[1]) | (a[1] & c.a[0]) | (a[2] & c.a[2]);
+		r.a[2] = (a[0] & c.a[2]) | (a[2] & c.a[0]) | (a[1] & c.a[1]);
+		return r;
+	}
+	vec3 operator - (const vec3 &c) {
+		return (*this) + (c * -1);
+	}
+	vec3 operator * (int x) const{
+		vec3 r = *this;
+		x = (x % 3 + 3) % 3;
+		if (x == 0) { r.a[0].set(); r.a[1].reset(); r.a[2].reset(); }
+		if (x == 2) { swap(r.a[1], r.a[2]); }
+		return r;
+	}
+	vec3 operator + (int x) const{
+		vec3 r = *this;
+		x = (x % 3 + 3) % 3;
+		if (x == 1) { swap(r.a[0], r.a[2]); swap(r.a[1], r.a[2]); }
+		if (x == 2) { swap(r.a[0], r.a[2]); swap(r.a[0], r.a[1]); }
+		return r;
+	}
+};
+
+vec3 a[N], b[N];
 
 int main() {
 	FI(a);
@@ -40,24 +82,17 @@ int main() {
 	//cout << setiosflags(ios::fixed);
 	//cout << setprecision(2);
 	while (cin >> n) {
-		rep(i, 0, n) rep(j, 0, 3) a[i][j].reset(), b[i][j].reset();
+		rep(i, 0, n) a[i].reset(), b[i].reset();
 		rep(i, 0, n)
 			rep(j, 0, n) {
-				cin >> x;
-				x %= 3;
-				a[i][x].set(j);
+				cin >> x; a[i].set(j, x);
 			}
 		rep(i, 0, n)
 			rep(j, 0, n) {
-				cin >> x;
-				x %= 3;
-				b[j][x].set(i);
+				cin >> x; b[j].set(i, x);
 			}
 		rep(i, 0, n) rep(j, 0, n) {
-			//t0 = a[i][0] | b[j][0];
-			t1 = (a[i][1] & b[j][1]) | (a[i][2] & b[j][2]);
-			t2 = (a[i][2] & b[j][1]) | (a[i][1] & b[j][2]);
-			cout << (t1.count() + t2.count() * 2) % 3 << " \n"[j == n - 1];
+			cout << (a[i] * b[j]).getval() << " \n"[j == n - 1];
 		}
 	} 
 	return 0;
