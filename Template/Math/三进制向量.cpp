@@ -1,7 +1,7 @@
 struct vec3{
 	static const int N = ::N;
 	bitset<N> a[3];
-	vec3() { a[0].set(); a[1].reset(); a[2].reset(); }
+	vec3() { a[0].set(); }
 	inline void ini() { a[0].set(); a[1].reset(); a[2].reset(); }
 	inline void set(int p, int x) { x = (x % 3 + 3) % 3; rep(i, 0, 3) if (i == x) a[i].set(p); else a[i].reset(p); }
  	inline int operator [] (int x) { rep(i, 0, 3) if (a[i][x]) return i; }
