@@ -25,10 +25,11 @@ void dfs(int u) {
 	flag ^= t1[u];
 	col[u] = flag ^ t2[u];
 	if (col[u]) a[u] = -a[u];
-	int t00 = -w[col[u]] - a[u];
+	int t00 = -w[t1[u]] - a[u];
 	int t01 = a[u];
-	int t10 = -w[col[u]] + a[u];
+	int t10 = -w[t1[u]] + a[u];
 	int t11 = -a[u];
+	//if (u == 2) dd(a[u]), dd(t00);//dd(flag), dd(col[u]), de(t01);
 	for (auto v : g[u]) {
 		dfs(v);
 		t00 += f[v][1];
@@ -36,12 +37,13 @@ void dfs(int u) {
 		t10 += f[v][0];
 		t11 += f[v][1];
 	}
-	f[u][0] = max(t00, t01);
+	if (u == 0) f[u][0] = t01;else f[u][0] = max(t00, t01);
 	f[u][1] = max(t10, t11);
 	flag ^= t1[u];
 }
 
 int main() {
+	freopen("a.in", "r", stdin);
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	while (cin >> n >> w[0] >> w[1]) {
@@ -51,6 +53,7 @@ int main() {
 		}
 		flag = 0;
 		dfs(0);
+		//de(f[2][0]); 
 		if (f[0][0] < 0) cout << "HAHAHAOMG" << endl;
 		else cout << f[0][0] << endl;
 	}
