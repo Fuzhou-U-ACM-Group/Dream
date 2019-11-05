@@ -30,11 +30,10 @@ vector<pii> solve(vector<pii> tmp, int o) {
 			return ans;
 		}
 		per(i, 0, sz(tmp) - 1) {
+			if (o && tmp.back().fi == 1 && i > 0 && tmp[i-1].fi == tmp[i].fi) swap(tmp[i], tmp[i-1]);
 			tmp[i].fi--;
 			tmp.back().fi--;
-			if (o) ans.pb(mp(tmp.back().se * -1, tmp[i].se * -1)); 
-			else ans.pb(mp(tmp.back().se, tmp[i].se));
-
+			ans.pb(mp(tmp.back().se, tmp[i].se));
 			if (tmp.back().fi == 0) break;
 		}
 		vector<pii> tt;
@@ -45,6 +44,7 @@ vector<pii> solve(vector<pii> tmp, int o) {
 }
 
 int main() {
+	freopen("a.in","r", stdin);
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	while (cin >> n) {
@@ -58,36 +58,10 @@ int main() {
 		if (sz(ans) && ans[0].fi == -1) { cout << "IMPOSSIBLE" << endl; continue;}
 		rep(i, 1, n+1) rep(j, 1, n+1) a[i][j] = 0;
 		for (auto v : ans) a[v.fi][v.se] = a[v.se][v.fi] = 1;  
-		rep(i, 1, n+1) rep(j, 1, n+1) c[i][j] = a[i][j];
-		bool oo = 0;
-		for (auto v : ans) {
-			rep(i, 1, n+1) vis[i] = 0;
-			vis[v.fi] = 1;
-			vis[v.se] = 1;
-			rep(j, 1, n+1) if (a[v.fi][j]) vis[j] = 1;
-			vi tt;
-			rep(i, 1, n+1) if (!vis[i]) tt.pb(i);
-				rep(i, 0, sz(tt)) {
-					rep(j, 1, n+1) if (j != v.fi && j != v.se && a[tt[i]][j]){
-						oo = 1;
-						c[v.fi][v.se] = c[v.se][v.fi] = 0;
-						c[tt[i]][j] = c[j][tt[i]] = 0;
-						c[v.fi][tt[i]] = c[tt[i]][v.fi] = 1;
-						c[v.se][j] = c[j][v.se] = 1;
-						break;
-					}
-					if (oo) break;
-				}
-			
-			if (oo) break;
-		}
-
-
-
 		
 		tmp.clear();
 		rep(i, 1, n+1) {
-			if (du[i]) tmp.pb(mp(du[i], -i));
+			if (du[i]) tmp.pb(mp(du[i], i));
 		}
 		ans1 = solve(tmp, 1);
 		rep(i, 1, n+1) rep(j, 1, n+1) b[i][j] = 0;
@@ -102,10 +76,6 @@ int main() {
 			rep(i, 0, sz(ans)) cout << ans[i].fi << " \n"[i == sz(ans) - 1];
 			rep(i, 0, sz(ans)) cout << ans[i].se << " \n"[i == sz(ans) - 1];
 			cout << n << " " << sz(ans) << endl;
-			if (oo) {
-				ans1.clear();
-				rep(i, 1, n+1) rep(j, i+1, n+1) if (c[i][j]) ans1.pb(mp(i, j));
-			}
 			rep(i, 0, sz(ans1)) cout << ans1[i].fi << " \n"[i == sz(ans1) - 1];
 			rep(i, 0, sz(ans1)) cout << ans1[i].se << " \n"[i == sz(ans1) - 1];
 		}else { 
