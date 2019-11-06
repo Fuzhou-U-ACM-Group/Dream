@@ -50,14 +50,14 @@
 | 2019/10/22 [2019-hdu-multi-10](https://vjudge.net/contest/336966#overview) |  3   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |      |
 | 2019/10/23 [Petrozavodsk Summer-2015. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001464) |  46  |  .   |  .   |  O   |  O   |  O   |  .   |  .   |  .   |  .   |  O   |      |      |      |      |
 |                 2019/10/24 [2019ICPC银川]()                  |  2   |  .   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |
-|            2019/10/27 [2019ICPC南京]() **[现场]**            |  39  |  O   |  O   |  O   |  .   |  .   |  Ø   |  !   |  X   |  Ø   |  O   |  O   |      |      |      |
-| 2019/10/29 [2015ICPC沈阳](https://vjudge.net/contest/338917#overview) |  3   |  .   |  O   |  .   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  .   |  O   |  Ø   |  O   |      |
-| 2019/10/30 [2015ICPC长春](https://vjudge.net/contest/339189#overview) |  1   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  Ø   |      |
+|            2019/10/27 [2019ICPC南京]() **[现场]**            |  39  |  O   |  O   |  O   |  Ø   |  .   |  Ø   |  !   |  X   |  Ø   |  O   |  O   |      |      |      |
+| 2019/10/29 [2015ICPC沈阳](https://vjudge.net/contest/338917#overview)**[done]** |  3   |  !   |  O   |  !   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  !   |  O   |  Ø   |  O   |      |
+| 2019/10/30 [2015ICPC长春](https://vjudge.net/contest/339189#overview)**[done]** |  1   |  O   |  O   |  X   |  X   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  Ø   |      |
 | 2019/10/31 [2015ICPC北京](https://vjudge.net/contest/339298#overview) |  3   |  O   |  Ø   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |      |      |      |
 | 2019/11/1 [2019 ICPC Asia Jakarta Regional](https://codeforces.com/contest/1252) |  66  |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  .   |  Ø   |  O   |  Ø   |      |      |
 | 2019/11/3 [2011 ICPC 成都](https://vjudge.net/contest/340218#overview) |  1   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  O   |      |      |      |      |
-| 2019/11/4 [2013 ICPC 长沙](https://vjudge.net/contest/340491#overview) |  15  |  O   |  !   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
-| 2019/11/5 [2013 ICPC 长春](https://vjudge.net/contest/340701#overview) |  12  |  O   |  O   |  O   |  O   |  .   |  Ø   |  O   |  .   |  O   |  .   |      |      |      |      |
+| 2019/11/4 [2013 ICPC 长沙](https://vjudge.net/contest/340491#overview)**[done]** |  15  |  O   |  !   |  O   |  O   |  !   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
+| 2019/11/5 [2013 ICPC 长春](https://vjudge.net/contest/340701#overview) |  12  |  O   |  O   |  O   |  O   |  .   |  Ø   |  O   |  .   |  O   |  X   |      |      |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
