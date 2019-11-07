@@ -50,7 +50,7 @@ int main() {
 		if (cnt[1] == 0) {
 			int s = 1;
 			rep(i, 2, n+1) if (cnt[i] == 0) s += pw(i - 1);
-			ans[s] = 1;
+			ans[(~s) & (pw(n) - 1)] = 1;
 		}else {
 			cnt[1]--; sum = 0;
 			rep(i, 1, n+1) sum += cnt[i];
@@ -77,7 +77,10 @@ int main() {
 			per(i, 0, n) rep(j, 0, S) if (pw(i) & j) ans[j] -= ans[j ^ pw(i)];
 			//rep(i, 0, S) cout << ans[i] << endl;
 		}
+		//db w = 0;
+		//rep(i, 0, pw(n - 1)) w += ans[(~(i << 1 | 1)) & (pw(n) - 1)];
 		rep(i, 0, pw(n - 1)) cout << ans[(~(i << 1 | 1)) & (pw(n) - 1)] << endl;
+		//de(w);
 	}
 	return 0;
 }
