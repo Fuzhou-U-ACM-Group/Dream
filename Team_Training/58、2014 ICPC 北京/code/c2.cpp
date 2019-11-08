@@ -34,11 +34,11 @@ struct P {
 		scanf("%d%d", &x, &y); dir = 0; 
 		int nx = x + 1, ny = y + 1;
 		if(nx > n || ny > m) {
-			if(nx > n) dir ^= 1;
-			if(ny > m) dir = 3 - dir;
+			if(x == 0 || x == n) dir ^= 1;
+			if(y == 0 || y == m) dir = 3 - dir;
 		}
 	}
-	inline ll id() { return (dir + 1) * tmp * tmp + (x + 1) * tmp + y + 1; }
+	inline ll id() { return dir * tmp * tmp + x * tmp + y; }
 	int tim() {
 		int ans = 101010;
 		if(dir == 0 || dir == 3) ans = min(ans, n - x);
@@ -52,9 +52,8 @@ struct P {
 		int nx = x + t * dx[dir];
 		int ny = y + t * dy[dir];
 		int ndir = dir;
-		int tx = nx + dx[dir], ty = ny + dy[dir];
-		if(tx < 0 || tx > n) ndir ^= 1;
-		if(ty < 0 || ty > m) ndir = 3 - ndir;
+		if(nx == 0 || nx == n) ndir ^= 1;
+		if(ny == 0 || ny == m) ndir = 3 - ndir;
 		return P(nx, ny, ndir);
 	}
 	P operator - (const P &c) const { return P(x - c.x, y - c.y); }
@@ -70,9 +69,11 @@ ll dot(P a, P b) { return 1ll * a.x * b.x + 1ll * a.y * b.y; }
 
 map<__int128, bool> vis;
 bool check(db x, db y, L l) {
-	l.a.x *= 2; l.a.y *= 2;
-	l.b.x *= 2; l.b.y *= 2;
-	P p(x * 2 + 0.5, y * 2 + 0.5);
+	l.a.x *= 2;
+	l.a.y *= 2;
+	l.b.x *= 2;
+	l.b.y *= 2;
+	P p(x * 2, y * 2);
 	return det(p - l.a, l.b - l.a) == 0 && dot(p - l.a, p - l.b) <= 0;
 }
 bool check(L l1, L l2) {
@@ -88,9 +89,9 @@ bool check(L l1, L l2) {
 	return 0;
 }
 bool check0(P a, P b) {
-	int t = min(abs(a.x - b.x), abs(a.y - b.y));
-	if(a.x + dx[a.dir] * t == b.x && a.y + dy[a.dir] * t == b.y && abs(a.dir - b.dir) == 2) return 1;
-	return 0;
+    int t = min(abs(a.x - b.x), abs(a.y - b.y));
+    if(a.x + dx[a.dir] * t == b.x && a.y + dy[a.dir] * t == b.y && abs(a.dir - b.dir) == 2) return 1;
+    return 0;
 }
 void solve() {
 	scanf("%d%d", &n, &m);
@@ -98,6 +99,7 @@ void solve() {
 	vis.clear();
 	while(1) {
 		__int128 ha = a.id() * ttmp + b.id();
+	//	a.print(); b.print();
 		if(vis.count(ha)) {
 			printf("Collision will not happen.\n");
 			return ;
@@ -114,6 +116,7 @@ void solve() {
 		P nb = b.go(t);
 		if(check(L(a, na), L(b, nb))) return ;
 		a = na, b = nb;
+	//	cout << endl;
 	}
 }
 
@@ -125,4 +128,3 @@ int main() {
 	}
 	return 0;
 }
-
