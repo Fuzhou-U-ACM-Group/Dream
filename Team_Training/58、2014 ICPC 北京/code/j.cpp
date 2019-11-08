@@ -1,3 +1,6 @@
+#pragma GCC optimize(3)
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("sse2")
 #include<bits/stdc++.h>
 using namespace std;
 #define fi first
@@ -19,97 +22,89 @@ typedef pair<int, int> pii;
 
 const int P = 1e9 + 7, N = 205;
 
-int f[N][N], vf[N][N];
-int g[N][N], vg[N][N];
-int h[N][N], vh[N][N];
+int f[N][N], vf[N][N]; // 根能选且选 
+int g[N][N], vg[N][N]; // 根能选不选 
+int h[N][N], vh[N][N]; // 根不能选 
 
 vi gg[N];
 
-int c[1005][1005], siz[N], u, v, T, n;
+int C[220][220], siz[N], u, v, T, n;
 
-int add(int a, int b) {
+inline int add(int a, int b) {
 	if ((a += b) >= P) a -= P;
-	return a < 0 ? a + P : a;
+	return a;
 }
 
-int mul(int a, int b) {
+inline int mul(int a, int b) {
 	return 1ll * a * b % P;
 }
 
-void upd(int &x, int y) {
+inline void upd(int &x, int y) {
 	x = add(x, y);
 }
 
-int C(int n, int m) {
-	if (m > n || m < 0) return 0;
-	return c[n][m];
-}
-
-int solve(int a, int b, int c, int o, int n, int m) {
-	if (o == 1) c = n + m - c + 1;
-	//de(res);
-	int res = 0;
-	rep(d, c+1, n+m+1) {
-		int t = C(d - c - 1, a + b - c - 1);
-		t = mul(t, C(n + m - d, m - b));
-		res = add(res, t);
-	}
-	res = mul(res, C(c-1, a-1));
+inline int solve(int a, int b, int c, int o, int n, int m) {
+	if (o == 1) a = n + 1 - a, b = m + 1 - b, c = n + m - c + 1;
+	assert(n + m <= 200);
+	int res = 0, t1 = a + b - c - 1; 
+	if (c - 1 < a - 1 || t1 < 0) return 0;
+	rep(d, max(a + b, c+1) , n+b+1) res = add(res, mul(C[d - c - 1][t1], C[n + m - d][m - b]));
+	res = mul(res, C[c-1][a-1]);
 	return res;
 }
 
-void dfs(int u, int fa) {
-	int ftmp[N], vftmp[N];
-	int gtmp[N], vgtmp[N];
-	int htmp[N], vhtmp[N];
-			memset(ftmp, 0, sizeof(ftmp));
-			memset(vftmp, 0, sizeof(ftmp));
-			memset(gtmp, 0, sizeof(ftmp));
-			memset(vgtmp, 0, sizeof(ftmp));
-			memset(htmp, 0, sizeof(ftmp));
-			memset(vhtmp, 0, sizeof(ftmp));
+int ftmp[N], vftmp[N];
+int gtmp[N], vgtmp[N];
+int htmp[N], vhtmp[N];
 
+void dfs(int u, int fa) {
 	vf[u][1] = f[u][1] = 1;
 	vg[u][1] = 0; g[u][1] = 1;
 	vh[u][1] = h[u][1] = 0;
 	siz[u] = 1;
+	for (auto v : gg[u]) if (v != fa) dfs(v, u); 
 	for (auto v : gg[u]) if (v != fa) {
-		dfs(v, u);
 		int n = siz[u], m = siz[v];
-		rep(a, 1, n+1)
-			rep(b, 1, m+1) 
+		rep(a, 1, n+1) {
+			rep(b, 1, m+1) {
 				rep(c, 1, n+m+1) {
 					int w1 = solve(a, b, c, 0, n, m);
 					int w2 = solve(a, b, c, 1, n, m);
 					int w = add(w1, w2);
-					upd(ftmp[c], mul(mul(f[u][a], h[v][b]), w));
+					if (w) {
+					upd(ftmp[c], mul(mul(f[u][a], h[v][b]), w));  
 					upd(vftmp[c], mul(mul(vf[u][a], h[v][b]), w));
 					upd(vftmp[c], mul(mul(vh[v][b], f[u][a]), w));
 
 					upd(gtmp[c], mul(mul(g[u][a], h[v][b]), w));
 					upd(vgtmp[c], mul(mul(vg[u][a], h[v][b]), w));
 					upd(vgtmp[c], mul(mul(vh[v][b], g[u][a]), w));
-
+					
 					upd(htmp[c], mul(mul(h[u][a], h[v][b]), w));
 					upd(vhtmp[c], mul(mul(vh[u][a], h[v][b]), w));
 					upd(vhtmp[c], mul(mul(vh[v][b], h[u][a]), w));
-
+					
+					upd(htmp[c], mul(mul(h[u][a], f[v][b]), w));
+					upd(vhtmp[c], mul(mul(vh[u][a], f[v][b]), w));
+					upd(vhtmp[c], mul(mul(h[u][a], vf[v][b]), w));
+					}
+					if (w1) {
 					upd(ftmp[c], mul(mul(f[u][a], g[v][b]), w1));
 					upd(vftmp[c], mul(mul(vf[u][a], g[v][b]), w1));
 					upd(vftmp[c], mul(mul(f[u][a], vg[v][b]), w1));
 
-					upd(htmp[c], mul(mul(h[u][a], f[v][b]), w2));
-					upd(vhtmp[c], mul(mul(vh[u][a], f[v][b]), w2));
-					upd(vhtmp[c], mul(mul(h[u][a], vf[v][b]), w2));
-
-					upd(htmp[c], mul(mul(g[u][a], f[v][b]), w2));
-					upd(vhtmp[c], mul(mul(vg[u][a], f[v][b]), w2));
-					upd(vhtmp[c], mul(mul(g[u][a], vf[v][b]), w2));
-
 					upd(gtmp[c], mul(mul(g[u][a], f[v][b]), w1));
 					upd(vgtmp[c], mul(mul(vg[u][a], f[v][b]), w1));
 					upd(vgtmp[c], mul(mul(g[u][a], vf[v][b]), w1));
-				}
+					}
+					if (w2) {
+					upd(htmp[c], mul(mul(g[u][a], f[v][b]), w2));
+					upd(vhtmp[c], mul(mul(vg[u][a], f[v][b]), w2));
+					upd(vhtmp[c], mul(mul(g[u][a], vf[v][b]), w2));
+					}
+				}	
+			}
+		}
 		siz[u] += siz[v];
 		n += m;
 		rep(i, 1, n+1) {
@@ -118,25 +113,24 @@ void dfs(int u, int fa) {
 			g[u][i] = gtmp[i]; gtmp[i] = 0;
 			vg[u][i] = vgtmp[i]; vgtmp[i] = 0;
 			h[u][i] = htmp[i]; htmp[i] = 0;
-			//if (h[u][i] == 0) assert(vh[u][i] == 0);
 			vh[u][i] = vhtmp[i]; vhtmp[i] = 0;
 		}
 	}	
 }
 
 int main() {
+	freopen("a.in", "r", stdin);
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
-	cin >> T;
-	n = 500;
-	c[0][0] = 1;
+	cin >> T; 
+	n = 205;
+	C[0][0] = 1;
 	rep(i, 1, n+1) {
-		c[i][0] = 1;
-		rep(j, 1, i+1) c[i][j] = add(c[i-1][j], c[i-1][j-1]);
+		C[i][0] = 1;
+		rep(j, 1, i+1) C[i][j] = add(C[i-1][j], C[i-1][j-1]);
 	}
-	de(solve(1, 1, 2, 0, 1, 1));
 	rep(cas, 0, T) {
-		cin >> n;
+		cin >> n; 
 		rep(i, 1, n+1) gg[i].clear();
 		memset(f, 0, sizeof(f));
 		memset(g, 0, sizeof(f));
@@ -151,9 +145,6 @@ int main() {
 		}
 		dfs(1, 0);
 		int ans = 0;
-		rep(i, 1, 4) {
-			dd(i), dd(f[1][i]), dd(g[1][i]), de(h[1][i]);
-		}
 		rep(i, 1, n+1) ans = add(ans, vf[1][i]), ans = add(ans, vh[1][i]);
 		cout << "Case #" << cas + 1 << ": " << ans << endl;
 	}
