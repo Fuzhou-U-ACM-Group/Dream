@@ -64,23 +64,13 @@ int main() {
 					}
 					rep(k, 0, sum+1) f[k] = g[k]; 
 				}
-				//de(sum);
 				rep(k, 0, sum+1) f[k] = f[k] * jc[k] * jc[sum - k], ans[i] += f[k];
-				//return 0;
 				ans[i] /= jc[sum + 1] / (cnt[1] + 1);
 			} 
 			rep(i, 0, S) if (i & 1) ans[i] = ans[i - 1];
-			//rep(i, 0, S) cout << ans[i] << endl;
-			//rep(i, 0, pw(n - 1)) cout << ans[(~(i << 1 | 1)) & (pw(n) - 1)] << endl;
-			
-			//de(233);
 			per(i, 0, n) rep(j, 0, S) if (pw(i) & j) ans[j] -= ans[j ^ pw(i)];
-			//rep(i, 0, S) cout << ans[i] << endl;
 		}
-		//db w = 0;
-		//rep(i, 0, pw(n - 1)) w += ans[(~(i << 1 | 1)) & (pw(n) - 1)];
 		rep(i, 0, pw(n - 1)) cout << ans[(~(i << 1 | 1)) & (pw(n) - 1)] << endl;
-		//de(w);
 	}
 	return 0;
 }
