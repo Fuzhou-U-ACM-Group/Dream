@@ -42,25 +42,25 @@ inline int Inv(int a, int P) {
 	return x < 0 ? x + P : x;
 }
 
-constexpr int wb = sizeof(uint) * 8;
+template<class T1, class T2>
+struct FastD {
+  	const static int wb = sizeof(T1) * 8;
+  	int len; T1 m, x;
+  	FastD() = default;
+  	FastD(T1 n): m(n) {
+    	if (n == 1) x = 1, len = 0;
+    	else {
+    		if (wb == 32) len = 31 - __builtin_clz(n - 1) + wb;
+    		else len = 63 - __builtin_clzll(n - 1) + wb;
+      		x = ((T2(1) << len) + n - 1) / n;
+    	}
+  	}
+  	friend T1 operator / (const T1 &n, const FastD &d) { return T2(n) * d.x >> d.len; }
+  	friend T1 operator % (const T1 &n, const FastD &d) { return n - n / d * d.m; }
+};
 
-uint mod, inv, r2;
-
-uint mul_inv(uint n, int e = 6, uint x = 1) {
-	return !e ? x : mul_inv(n, e - 1, x * (2 - x * n));
-}
-
-void set_mod(uint m) {mod = m, inv = mul_inv(mod); r2 = -ull(mod) % mod;}
-
-uint reduce(ull x) {
-	uint y = uint(x >> wb) - uint((ull(uint(x) * inv) * mod) >> wb);
-	return int(y) < 0 ? y + mod : y;
-}
-
-uint init(uint w) {
-	return reduce(ull(w) * r2);
-}
-
+using FastDiv32 = FastD<ull, __int128>;
+FastDiv32 PP;
 
 struct HT{
 	static const int P = 7333333, N = 1e6;
@@ -84,25 +84,16 @@ struct BSGS {
 		if(x % P == 0) return -1;
 		ll res = z % P, sa, t = 1, sq = sqrt(P); 
 		M.init();
-		uint xx = init(x);
-		res = init(res);
-		t = init(t);
 		rep(i, 0, sq + 1) {
-			//if(M.count(t)) break;
-			//if (t == z) return i;
 			if (M.F(t) != -1) break;
 			M.I(t, i);  
-			t = reduce((ull)t * xx);
-			//t = t * x % P;
+			t = t * x % P;
 		}
 		t = P / sq, sa = Inv(kpow(x, sq, P), P);
-		uint saa = init(sa);
 		rep(i, 0, t + 1) {
 			int tt = M.F(res);
 			if(tt != -1) return i * sq + tt; else 
-				//res = reduce(res * sa);
-				res = reduce((ull)res * saa);
-				//res = res * sa % P;
+				res = res * sa % P;
 		}
 		return -1;
 	}
@@ -129,15 +120,11 @@ int main() {
 	std::cin.tie(0);
 	cin >> T;	
 	rep(cas, 0, T) {
-		 //if (cas == 0)
 		cin >> n >> x >> a >> b >> P;
 		cin >> q; 
-		//q = 1000;
-		set_mod(P);
+		PP = FastDiv32(P);
 		rep(i, 0, q) {
 			cin >> v;
-			
-			//v = 12345678 ;
 			if (a == 1) {
 				if (b == 0) {
 					if (x == v) ans = 0;else ans = -1;
