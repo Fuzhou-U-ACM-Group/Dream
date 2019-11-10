@@ -1,3 +1,5 @@
+// 【点到直线投影（垂足）】
+P proj(L l, P p) { return l.a + (l.b - l.a) * (dot(p - l.a, l.b - l.a) / (l.b - l.a).len2()); }
 // 【直线交点】
 P isLL(L l1, L l2) {
 	db s1 = det(l2.b - l2.a, l1.a - l2.a);
