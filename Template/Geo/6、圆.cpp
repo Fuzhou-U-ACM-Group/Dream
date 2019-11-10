@@ -31,6 +31,36 @@ vector<P> tanCC(const C &c1, const C &c2) {
 	}
 	return res;
 }
+// 【外公切线】
+vector<L> extanCC(C c1, C c2) {
+	vector<L> ret;
+	if(sign(c1.r - c2.r) == 0) {
+		P dir = c2.o - c1.o;
+		dir = (dir * (c1.r / dir.len())).rot90();
+		ret.pb(L(c1.o + dir, c2.o + dir));
+		ret.pb(L(c1.o - dir, c2.o - dir));
+	} else {
+		P p = (c1.o * -c2.r + c2.o * c1.r) / (c1.r - c2.r);
+		P p1, p2, q1, q2;
+		if(tanCP(c1, p, p1, p2) && tanCP(c2, p, q1, q2)) {
+			if(c1.r < c2.r) swap(p1, p2), swap(q1, q2);
+			ret.pb(L(p1, q1));
+			ret.pb(L(p2, q2));
+		}
+	}
+	return ret;
+}
+// 【内公切线】
+vector<L> intanCC(C c1, C c2) {
+	vector<L> ret;
+	P p = (c1.o * c2.r + c2.o * c1.r) / (c1.r + c2.r);
+	P p1, p2, q1, q2;
+	if(tanCP(c1, p, p1, p2) && tanCP(c2, p, q1, q2)) {
+		ret.pb(L(p1, q1));
+		ret.pb(L(p2, q2));
+	}
+	return ret;
+}
 // 【直线和圆求交】
 bool isCL(O a, L l, P &p1, P &p2) {
   db x = dot(l.a - a.o, l.b - l.a);
