@@ -60,8 +60,8 @@
 | 2019/11/5 [2013 ICPC 长春](https://vjudge.net/contest/340701#overview) **[done]** |  12  |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  !   |  O   |  X   |      |      |      |      |
 | 2019/11/7 [2014 ICPC 鞍山](https://vjudge.net/contest/341176) |  2   |  Ø   |  O   |  O   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |
 | 2019/11/8 [2014 ICPC 北京](https://vjudge.net/contest/341400#overview) **[done]** |  4   |  O   |  O   |  Ø   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
-| 2019/11/10 [2013 ICPC 杭州](https://vjudge.net/contest/342064#overview) |  4   |  O   |  O   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |      |      |      |
-| 2019/11/11 [2014 ICPC 西安](https://codeforces.com/gym/100548) |  1   |  O   |  Ø   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |      |
+| 2019/11/10 [2013 ICPC 杭州](https://vjudge.net/contest/342064#overview) |  4   |  O   |  O   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
+| 2019/11/11 [2014 ICPC 西安](https://codeforces.com/gym/100548) **[done]** |  1   |  O   |  Ø   |  O   |  !   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
