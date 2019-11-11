@@ -1,33 +1,24 @@
 // [0,p) , 0(even) and 1(odd) is virtual , init!!
-struct Palindromic_Tree {
-	static const int N = ::N , M = 26;
-	int ne[N][M] , fail[N] , len[N] , S[N] , last , n , p, cnt[N], las[N];
-	int newnode(int l){
-		fill(ne[p] , ne[p] + M , 0);
-		len[p] = l;
-		las[p] = n;
-		cnt[p] = 0;
-		return p++;
+struct PAM {
+	static const int N = ::N, M = 26;
+	int s[N], len[N], ne[N][M], fail[N], cnt[N], dep[N], id[N], no[N], last, n, p;
+	inline int newnode(int l) { fill_n(ne[p], M, 0); cnt[p] = dep[p] = 0; len[p] = l; return p++; }
+	inline void init() { newnode(p = 0), newnode(s[0] = -1), fail[last = n = 0] = 1; }
+	inline int getfail(int x) { 
+		while(s[n - len[x] - 1] != s[n]) x = fail[x]; 
+		return x; 
 	}
-	void ini(){
-		p = 0;newnode(0);newnode(-1);
-		S[n = last = 0] = -1;
-		fail[0] = 1;
-	}
-	int get_fail(int x){
-		while(S[n - len[x] - 1] != S[n]) x = fail[x];
-		return x;
-	}
-	void add(int c){
-		S[++n] = c;
-		int cur = get_fail(last);
-		if(!ne[cur][c]){
+	inline void add(int c) {
+		s[++n] = c;
+		int cur = getfail(last);
+		if(!ne[cur][c]) {
 			int now = newnode(len[cur] + 2);
-			fail[now] = ne[get_fail(fail[cur])][c];
+			fail[now] = ne[getfail(fail[cur])][c];
 			ne[cur][c] = now;
+			dep[now] = dep[fail[now]] + 1;
 		}
-		last = ne[cur][c];
-		cnt[last]++;
+		last = ne[cur][c], cnt[last]++; 
+		id[n] = last, no[last] = n; 
 	}
-	void build() { for(int i = p - 1; ~i; --i) cnt[fail[i]] += cnt[i]; }
-}pam;
+	inline void build() { per(i, 0, p) cnt[fail[i]] += cnt[i]; }
+};
