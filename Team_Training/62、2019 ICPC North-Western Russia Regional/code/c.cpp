@@ -17,26 +17,46 @@ typedef double db;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-const int N = 111;
+const int N = 111, M = 40404;
 
-int n, m, ct;
+int n, m, st, L;
 char s[N][N];
-vector<pii> ans;
+vector<pii> g[M], ans;
+bool vis[M];
 
-void solve() {
+pii Get(int u) { return mp(u / (m + 1), u % (m + 1)); }
+int id(int x, int y) { return x * (m + 1) + y; }
+void add(int u, int v, int o) {
+	st = u; ++L;
+	g[u].pb(mp(v, o * L));
+	g[v].pb(mp(u, o * L));
+}
+void dfs(int u, int o) {
+	for(auto v : g[u]) if(!vis[abs(v.se)] && v.se * o > 0) {
+		vis[abs(v.se)] = 1;
+		dfs(v.fi, -o);
+		ans.pb(Get(v.fi));
+	}
 }
 
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
-	cin >> n >> m;
+	cin >> m >> n;
 	rep(i, 0, n) {
 		cin >> s[i];
-		rep(j, 0, m) if(s[i][j] == 'X') ++ct;
+		rep(j, 0, m) if(s[i][j] == 'X') {
+			add(id(i, j), id(i + 1, j + 1), 1);
+			add(id(i + 1, j), id(i, j + 1), 1);
+			add(id(i, j), id(i + 1, j), -1);
+			add(id(i, j + 1), id(i + 1, j + 1), -1);
+		}
 	}
-	solve();
-	assert(sz(ans) == ct * 4 - 1);
+	dfs(st, 1); ans.pb(Get(st));
+	reverse(all(ans));
+	ans.pop_back();
 	cout << sz(ans) - 1 << endl;
-	for(auto u : ans) cout << u.fi << " " << u.se << endl;
+	assert(sz(ans) == L);
+	for(auto u : ans) cout << u.se << " " << u.fi << endl;
 	return 0;
 }
