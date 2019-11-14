@@ -1,16 +1,9 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+// x^2+y^2<=n 整点个数 包括负数  n<=1e18
 using i64 = int64_t;
 int T;
-
 i64 solve_fast(i64 N) {
-	auto inside = [N] (i64 x, i64 y) {
-		return x * x + y * y <= N;
-	};
-	auto cut = [] (i64 x, i64 y, int dx1, int dy1) {
-		return dx1 * x >= dy1 * y;
-	};
+	auto inside = [N] (i64 x, i64 y) { return x * x + y * y <= N; };
+	auto cut = [] (i64 x, i64 y, int dx1, int dy1) { return dx1 * x >= dy1 * y; };
 
 	const i64 v = sqrtl(N / 2), w = sqrtl(N);
 	i64 x = v;
@@ -26,8 +19,7 @@ i64 solve_fast(i64 N) {
 		while (inside(x + dx1, y - dy1)) {
 			x += dx1;
 			y -= dy1;
-			ret += i64(dx1) * (y - 1)
-			       + ((i64(dx1 + 1) * (dy1 + 1)) >> 1) - dy1;
+			ret += i64(dx1) * (y - 1) + ((i64(dx1 + 1) * (dy1 + 1)) >> 1) - dy1;
 		}
 
 		int dx2 = dx1, dy2 = dy1;
@@ -53,12 +45,8 @@ i64 solve_fast(i64 N) {
 	ret = ret * 4 + 4 * i64(w) + 1;
 	return ret;
 }
-
 int main() {
 	int n; cin>>n;
 	printf("%llu\n", solve_fast(n));
-	
     return 0;
 }
-
-// x^2+y^2<=n 整点个数 包括负数  n<=1e18

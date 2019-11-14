@@ -1,17 +1,20 @@
 #  现场赛模板清点
 
+## 常用模板
+
+- [ ] GummyBear新
+- [ ] GummyBear旧
+- [ ] GummyBear临时
+- [ ] afterCCPC
+- [ ] A计划
+
 ## 队员模板
 
-- [ ] GummyBear
-      - [ ] 新
-      - [ ] 旧
-- [ ] GummyBear临时
 - [ ] 笔记
 - [ ] A计划
 
 ## 其他模板
 
-- [ ] CheatSheet   
 - [ ] 上交模板
 - [ ] zp的模板
 - [ ] 2018-fzu-final-template
@@ -19,13 +22,17 @@
 - [ ] mcginn的模板
 - [ ] andWho的模板
 - [ ] 小峰的模板
+- [ ] 山大几何
+- [ ] kuangbin几何
 - [ ] template-pku-Check it Out
 - [ ] template-nju
 - [ ] template-thu-Shinnippori
 - [ ] fzu集训队资料
+- [ ] claris的模板
 
 ## 论文
 
+- [ ] CheatSheet 
 - [ ] 基于连通性状态压缩动态规划问题
 - [ ] Dancing Links 中文版
 - [ ] 后缀数组——处理字符串的有力工具
@@ -37,12 +44,11 @@
 - [ ] 网络流的一些建模方法——姜志豪
 - [ ] 最小割模型在信息学竞赛中的应用——胡伯涛
 - [ ] 网络流建模汇总——Edelweiss
+- [ ] 浅谈数据结构题的几个非经典解法
+- [ ] 2019国家集训队论文
 
-## 其他
+## 书
 
 - [ ] 字典
 - [ ] 具体数学
 - [ ] 组合数学
-- [ ] 山大几何
-- [ ] kuangbin
-- [ ] 杭电17年
