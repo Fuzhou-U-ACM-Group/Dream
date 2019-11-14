@@ -52,9 +52,6 @@ ll solve(int _n) {
 }
 int T, nn;
 int main() {
-	FI(a);
-	ios::sync_with_stdio(0);
-	cin.tie(0);
 	init();
 	cin >> T;
 	rep(cas, 0, T) {

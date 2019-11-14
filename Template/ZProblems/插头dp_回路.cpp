@@ -74,8 +74,6 @@ ll solve() {
   return ans;
 }
 int main() {
-  std::ios::sync_with_stdio(0);
-  std::cin.tie(0);
   rep(i, 0, 22) t[i] = i + i;
   int T; cin >> T;
   rep(i, 1, T + 1) cout << "Case " << i << ": " << solve() << endl;

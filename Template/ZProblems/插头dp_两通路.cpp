@@ -88,8 +88,6 @@ int solve() {
   return ans;
 }
 int main() {
-  std::ios::sync_with_stdio(0);
-  std::cin.tie(0);
   rep(i, 0, 22) t[i] = i + i + i;
   while(cin >> n >> m) {
     if(!n && !m) break;

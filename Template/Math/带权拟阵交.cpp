@@ -1,10 +1,7 @@
 const int N = 85, INF = pw(30);
-int c[N], k[N], col[N], u[N], v[N], w[N], sum, ans;
-int T, n, m, tot, tot2;
-
+int c[N], k[N], col[N], u[N], v[N], w[N], sum, ans, T, n, m, tot, tot2;
 struct GM {
-	vi g[N];
-	bool vis[N], exist[N];
+	vi g[N]; bool vis[N], exist[N];
 	void dfs(int u) {
 		vis[u] = 1;
 		for(auto v : g[u]) if (!vis[v]) dfs(v);
@@ -13,16 +10,12 @@ struct GM {
 		rep(i, 1, n+2) g[i].clear(), vis[i] = 0;
 		memset(exist, 1, sizeof(exist));
 		for(auto x : vec) exist[x] = 0;
-		rep(i, 1, tot+1) if (exist[i]) {
-			g[u[i]].pb(v[i]);
-			g[v[i]].pb(u[i]);
-		}
+		rep(i, 1, tot+1) if (exist[i]) g[u[i]].pb(v[i]), g[v[i]].pb(u[i]);
 		dfs(1);
 		rep(i, 1, n+2) if(!vis[i]) return 0;
 		return 1;
 	}
 };
-
 struct CM {
 	int cnt[125];
 	bool test(vi &vec) {
@@ -32,16 +25,10 @@ struct CM {
 		return 1;
 	}
 };
-
-
 template <class MT1, class MT2>
 struct MI {
-	int n, S, T;
+	int n, S, T, pre[N], d[N], cost[N]; bool inq[N], has[N]; vi g[N]; queue<int> q;
 	MI(int n) : n(n) {}
-	int pre[N], d[N], cost[N];
-	bool inq[N], has[N];
-	vi g[N];
-	queue<int> q;
 	void clear() {
 		rep(i, 1, n+3) {
 			inq[i] = pre[i] = 0;
@@ -50,16 +37,13 @@ struct MI {
 		}
 		while(!q.empty()) q.pop();
 	}
-	
 	vi getcur() {
 		vi ret;
 		rep(i, 1, n+1) if(has[i]) ret.pb(i);
 		return ret;
 	}
-
 	pair<vi, ll> run() {
-		ll ans = 0;
-		MT1 mt1; MT2 mt2;
+		ll ans = 0; MT1 mt1; MT2 mt2;
 		memset(has, 0, sizeof(has));
 		S = n + 1, T = n + 2, cost[S] = cost[T] = 0;
 		while (1) {
@@ -102,9 +86,7 @@ struct MI {
 		}
 	}
 };
-
 //hdu 6636 Milk Candy
-
 int main() {
 	cin >> T;
 	rep(cas, 0, T) {
@@ -130,4 +112,3 @@ int main() {
 	}
 	return 0;
 }
-

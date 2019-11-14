@@ -8,7 +8,8 @@ void init(int n) {
 	rep(i, 2, n+1) {
 		for(int j = 1; fv[j] <= i; j++) {
 			f[i] = add(f[i], j & 1 ? f[i - fv[j]] : -f[i - fv[j]]);
-			if (fv[j] + j <= i) f[i] = add(f[i], j & 1 ? f[i - fv[j] - j] : -f[i - fv[j] - j]);
+			if (fv[j] + j <= i) 
+				f[i] = add(f[i], j & 1 ? f[i - fv[j] - j] : -f[i - fv[j] - j]);
 		}
 	}
 }

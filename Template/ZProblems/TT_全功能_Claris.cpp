@@ -17,8 +17,7 @@ struct data {
 };
 inline data operator+(const data&a, const tag&b) { return a.size ? data(a.sum*b.a + a.size*b.b, atag(a.minv, b), atag(a.maxv, b), a.size) : a; }
 //son:0-1： 重链儿子 ，2-3 ：AAA 树儿子
-int f[N], son[N][4], a[N], tot, rt, rub, ru[N]; bool rev[N], in[N];
-int val[N];
+int f[N], son[N][4], a[N], tot, rt, rub, ru[N], val[N]; bool rev[N], in[N];
 data csum[N], tsum[N], asum[N];
 tag ctag[N], ttag[N];
 inline bool isroot(int x, int t) {

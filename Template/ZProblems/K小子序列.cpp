@@ -1,10 +1,5 @@
-#include<bits/stdc++.h> 
 #define M 1001000
-using namespace std;
- 
-int n; long long k;
-int a[M];
- 
+int n, a[M]; long long k;
 struct Segtree{
 	Segtree *ls, *rs;
 	long long sum, pos;
@@ -25,45 +20,32 @@ struct Segtree{
 	friend int Find(Segtree *p, int l, int r){
 		int mid = l + r >> 1;
 		if(l == r)return p->pos;
-		if(k <= p->ls->sum)
-		    return Find(p->ls, l, mid);
+		if(k <= p->ls->sum) return Find(p->ls, l, mid);
 		else{
 			k -= p->ls->sum;
 			return Find(p->rs, mid+1, r);
 		}
 	}
 };
-
-// Çó×ÖµäÐòµÚ k Ð¡µÄ×ÓÐòÁÐ 
-
+// æ±‚å­—å…¸åºç¬¬ k å°çš„å­åºåˆ— 
 Segtree *tree[M];
- 
 int st[M], top;
- 
 int main(){
 	cin >> n >> k; 
 	int mx = 0;
-	for(int i = 1; i <= n; i ++)
-		scanf("%d", &a[i]), mx = max(mx, a[i]);
-		
+	for(int i = 1; i <= n; i ++) scanf("%d", &a[i]), mx = max(mx, a[i]);
 	tree[n+1] = new Segtree(0x0, 0x0, 0, 0);
 	tree[n+1]->ls = tree[n+1]->rs = tree[n+1];
-	
 	for(int i = n+1; i >= 0; i --)
 	    tree[i-1] = Insert(tree[i], 0, mx, a[i], i == n+1 ? 1 : tree[i]->sum, i);
-	    
-	if(k > tree[0]->sum)
-	    return puts("-1"), 0;
-	    
+	if(k > tree[0]->sum) return puts("-1"), 0;
 	int now = 0;
 	while(true){
 		now = Find(tree[now], 0, mx);
 		if(now == n+1)break;
 		st[++ top] = a[now];
 	}
-	
 	printf("%d\n", top);
-	for(int i = 1; i <= top; i ++)
-	    printf("%d ", st[i]);
+	for(int i = 1; i <= top; i ++) printf("%d ", st[i]);
 	return 0;
 }

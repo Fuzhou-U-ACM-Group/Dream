@@ -1,9 +1,5 @@
 const int N = 5005;
-
-int col[N];
-ll val[N], x;
-int n, m, tot, tot2, k;
-
+int col[N], n, m, tot, tot2, k; ll val[N], x;
 struct LM { // 线性拟阵 
     ll base[63];
     LM() { memset(base, 0, sizeof(base)); }
@@ -24,21 +20,16 @@ struct LM { // 线性拟阵
         return 0;
     }
 };
-
 struct CM { // 高维均匀拟阵 
     int cnt[125];
     CM() { memset(cnt,0,sizeof(cnt)); }
     void add(int x) { cnt[x]++; }
     bool test(int x) { return cnt[x] == 0; }
 };
-
 template <class MT1, class MT2>
 struct MI {
-    int n;
+    int n, pre[N], id[N]; bool vis[N], sink[N], has[N]; queue<int> q;
     MI(int n) : n(n) {}
-    int pre[N], id[N];
-    bool vis[N], sink[N], has[N];
-    queue<int> q;
     void clear() {
     	rep(i, 1, n+1) vis[i] = sink[i] = pre[i] = 0;
         while (!q.empty()) q.pop();
@@ -48,9 +39,7 @@ struct MI {
         rep(i, 1, n+1) if (has[i]) ret.pb(i), id[i] = sz(ret) - 1;
         return ret;
     }
-    void push(int v, int p) {
-        vis[v] = 1, pre[v] = p, q.push(v);
-    }
+    void push(int v, int p) { vis[v] = 1, pre[v] = p, q.push(v); }
     vi run() {
         MT1 mt1;  MT2 mt2;
         memset(has, 0, sizeof(has));
@@ -94,7 +83,6 @@ struct MI {
 
 //Pick Your Own Nim
 //In real cases, Linear Matroid Need Optimization to Pass
-
 int main() {
     cin >> n;
     rep(i, 0, n) cin >> x, val[++tot] = x, col[tot] = ++tot2;

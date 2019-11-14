@@ -105,8 +105,6 @@ int solve() {
   return A.a[i][0];
 }
 int main() {
-  std::ios::sync_with_stdio(0);
-  std::cin.tie(0);
   rep(i, 0, 22) t[i] = i + i;
   memset(hm[0].hd, -1, sizeof(hm[0].hd));
   memset(hm[1].hd, -1, sizeof(hm[0].hd));

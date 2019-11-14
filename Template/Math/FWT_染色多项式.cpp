@@ -24,12 +24,9 @@ struct Poly{
 		}
 	}
 };
-
 const int P = 1e9 + 7, M = 20;  int L;
-
 inline int mul(int x, int y) { return (ll)x * y % P; }
 inline int add(int x, int y) { if ((x += y) >= P) x -= P; return x < 0 ? x + P : x; }
-
 struct vec {
 	int a[M];
 	inline int& operator [] (int x) { return a[x]; }
@@ -45,7 +42,6 @@ struct vec {
 		return *this = c;
 	}
 };
-
 struct Cal {
 	vec a[1 << M], b[1 << M];
 	void fwt(vec a[], int len, int o = 1) {  // o=-1 UFWT
@@ -68,13 +64,10 @@ struct Cal {
         }
 	}
 };
-
 Cal T;
 Poly<int> PP; 
-
 const int N = 50;
 int a[N], mask[1 << M], col[N], ret[N], n, m, u, v, X[N], Y[N];
-
 void solve(int a[], int n) {
     mask[0] = 1; int L = 1 << n;
     rep(i, 1, L) {
@@ -85,7 +78,6 @@ void solve(int a[], int n) {
     rep(i, 0, n+1) X[i] = i, Y[i] = col[i];
     PP.solve(n, X, Y, ret);
 }
-
 int main() {
 	cin >> n >> m;
 	rep(i, 0, m) {
@@ -96,9 +88,7 @@ int main() {
 	solve(a, n);
 	return 0;
 } 
-
 /*
-
 Graph: link 
 5 6
 0 2
@@ -113,7 +103,6 @@ Color Ways
 
 Chromatic Poly
 x (x - 1)^2 (x - 2)^2 = {0, 4, -12, 13, -6, 1}
-
 
 Graph: link 
 6 9
@@ -132,5 +121,4 @@ Color Ways
 
 Chromatic Poly
 {0, -16, 48, -56, 32, -9, 1}
-
 */
