@@ -1,42 +1,3 @@
-//#pragma GCC optimize(3)
-//#pragma GCC optimize("unroll-loops")
-//#pragma GCC target("sse2")
-#include<bits/stdc++.h>
-using namespace std;
-#define fi first
-#define se second
-#define mp make_pair
-#define pb push_back
-#define rep(i, a, b) for(int i=(a); i<(b); i++)
-#define per(i, a, b) for(int i=(b)-1; i>=(a); i--)
-#define sz(a) (int)a.size()
-#define de(a) cout << #a << " = " << a << endl
-#define dd(a) cout << #a << " = " << a << " "
-#define all(a) (a).begin(), (a).end()
-#define pw(x) (1ll<<(x))
-#define lb(x) ((x) & -(x))
-#define endl "\n"
-#define FI(x) freopen(#x".in","r",stdin)
-#define FO(x) freopen(#x".out","w",stdout)
-typedef double db;
-typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<int, int> pii;
-typedef vector<int> vi;
-//typedef uniform_int_distribution<ll> RR;
-//mt19937 gen(998244353);
-//ll rnd(ll l, ll r) { RR dis(l, r); return dis(gen); }
-const int P = 1e9 + 7;
-int add(int a, int b) {if((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
-int mul(int a, int b) {return 1ll * a * b % P;}
-int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
-//----
-
-const int N = 1e5 + 7;
-ll n, m, u, v, wl, wr;
-
-// [0,n) init!! 
-// double need eps  
 template<class T>
 struct Dinic{
     const static int N = 10101 , M = N * 50;
@@ -89,39 +50,22 @@ struct Dinic{
 		ss = n - 2; tt = ss + 1;
 		rep(i, 0, n) if (a[i] < 0) link(i, tt, -a[i]); else link(ss, i, a[i]), need += a[i]; 
 	} 
-	/*  o = 0 无源汇可行流  	
-		o = 1 有源汇最大流
-		o = -1 有源汇最小流 
+	/*  o = 0 鏃犳簮姹囧彲琛屾祦  	
+		o = 1 鏈夋簮姹囨渶澶ф祦
+		o = -1 鏈夋簮姹囨渶灏忔祦 
+		la 鏈夋簮姹囬澶栧鍔犵殑 t->s 鐨勮竟缂栧彿 
 	*/
 	int run(int o) { 
 		build();
 		T flow = run(ss, tt); 
 		if (flow != need) return -1;
+		if (o != 0) {
+			flow = cap[::la ^ 1];
+			cap[::la] = cap[::la ^ 1] = 0;
+			if (o == 1) flow += run(:: s, :: t);
+			else flow -= run(::t, ::s);
+		}	
 		rep(i, 1, m+1) use[i] += cap[id[i]];
-		return 1;
+		return flow;
 	}
 };
-
-Dinic<int> G;
-
-int main() {
-	//FI(a);
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-	//cout << setiosflags(ios::fixed);
-	//cout << setprecision(2);
-	cin >> n >> m;
-	G.ini(n + 10);
-	rep(i, 1, m+1) {
-		cin >> u >> v >> wl >> wr;
-		G.link(u, v, wl, wr);
-	}
-	if (G.run(0) == -1) cout << "NO" << endl;
-	else {
-		cout << "YES" << endl;
-		rep(i, 1, G.m+1) cout << G.use[i] << endl;
-	}
-	return 0;
-}
-
-
