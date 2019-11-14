@@ -63,7 +63,7 @@
 | 2019/11/10 [2013 ICPC 杭州](https://vjudge.net/contest/342064#overview) **[done]** |  4   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/11/11 [2014 ICPC 西安](https://codeforces.com/gym/100548) **[done]** |  1   |  O   |  Ø   |  O   |  !   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |      |
 |                2019/11/12 [2019 ICPC 南昌]()                 |  8   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  .   |  .   |  O   |  Ø   |  O   |  O   |      |
-| 2019/11/13 [2019 ICPC North-Western Russia Regional](https://codeforces.com/gym/102411) |  24  |  O   |  O   |  Ø   |  .   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |      |
+| 2019/11/13 [2019 ICPC North-Western Russia Regional](https://codeforces.com/gym/102411) |  24  |  O   |  O   |  Ø   |  Ø   |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
