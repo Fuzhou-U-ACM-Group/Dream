@@ -1,3 +1,6 @@
+//#pragma GCC optimize(3)
+//#pragma GCC optimize("unroll-loops")
+//#pragma GCC target("sse2")
 #include<bits/stdc++.h>
 using namespace std;
 #define fi first
@@ -29,32 +32,10 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
-const int N = 1e3 + 10;
-int n, u, v, w, du[N];
-vector<pair<pii, int> > ans;
-pair<pii, int> edge[N];
-vector<pii> g[N];
-
-int dfs(int u, int fa) {
-	for (auto v : g[u]) if (v.fi != fa) return dfs(v.fi, u);
-	return u; 
-}
-
-pii get(int u, int v) {
-	vi tmp;
-	int cnt = 0;
-	if (sz(g[u]) == 1) return mp(u, u);
-	for(auto t : g[u]) if (t.fi != v) {
-		tmp.pb(dfs(t.fi, u));
-		cnt++;
-		if (cnt == 2) break;
-	}
-	return mp(tmp[0], tmp[1]);
-}
-
-void print(int u, int v, int w) {
-	if (u != v) ans.pb(mp(mp(u, v), w));
-}
+const int N = 1e6 + 8;
+int n, w;
+ll t, s;
+int a[N], b[N];
 
 int main() {
 	//FI(a);
@@ -62,29 +43,23 @@ int main() {
 	cin.tie(0);
 	//cout << setiosflags(ios::fixed);
 	//cout << setprecision(2);
-	cin >> n;
-	rep(i, 1, n) {
-		cin >> u >> v >> w;
-		edge[i] = mp(mp(u, v), w);
-		g[u].pb(mp(v, w));
-		g[v].pb(mp(u, w));
-		du[u]++; du[v]++; 
-	}
-	rep(i, 1, n+1) if (du[i] == 2) {
-		cout << "NO" << endl;
+	cin >> n >> s;
+	rep(i, 1, n+1) t += i;
+	if(t > s) {
+		cout << -1 << endl;
 		return 0;
 	}
-	rep(i, 1, n) {
-		u = edge[i].fi.fi, v = edge[i].fi.se, w = edge[i].se;
-		pii t1 = get(u, v), t2 = get(v, u);
-		print(t1.fi, t2.fi, w / 2);
-		print(t1.se, t2.se, w / 2);
-		print(t1.fi, t1.se, -w / 2);
-		print(t2.fi, t2.se, -w / 2);
+	rep(i, 1, n+1) a[i] = b[i] = i;
+	int p = n;
+	rep(i, 1, n+1) if (i < p) {
+		while (p - i + t > s) p--;
+		swap(b[i], b[p]);
+		t += p - i; 
+		p--;
 	}
-	cout << "YES" << endl;
-	cout << sz(ans) << endl;
-	for (auto u : ans) cout << u.fi.fi << " " << u.fi.se << " " << u.se << endl;
+	cout << t << endl;
+	rep(i, 1, n+1) cout << a[i] << " \n"[i == n];
+	rep(i, 1, n+1) cout << b[i] << " \n"[i == n];
 	return 0;
 }
 
