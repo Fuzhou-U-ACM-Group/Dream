@@ -29,59 +29,31 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
-void dfs(int u) {
-	vis[u] = 1;
-	for (auto v : g[u]) if (!vis[v.fi]) dfs(v.fi);
+const int N = 1e3 + 10;
+int n, u, v, w, du[N];
+vector<pair<pii, int> > ans;
+pair<pii, int> edge[N];
+vector<pii> g[N];
+
+int dfs(int u, int fa) {
+	for (auto v : g[u]) if (v.fi != fa) return dfs(v.fi, u);
+	return u; 
 }
 
-int reduce(int u) {
-	rep(i, 1, n+1) vis[i] = 0, du[i] = 0;
-	dfs(u, 0);
-	rep(i, 1, n+1) if (vis[i]) for (auto u : g[i]) du[u.fi]++;
-	queue<int> q;
-	rep(i, 1, n+1) if (vis[i] && du[i] == 2) q.push(i);
-	while (!q.empty()) {
-		int u = q.front(); q.pop(); vis[u] = 0;
-		if (g[u][0].se != g[u][1].se) return -1;
-		int x = g[u][0].fi, y = g[u][1].fi;
-		for (auto v : g[x]) if (v.fi == u) {v.fi = y; break;}
-		for (auto v : g[y]) if (v.fi == u) {v.fi = x; break;}
+pii get(int u, int v) {
+	vi tmp;
+	int cnt = 0;
+	if (sz(g[u]) == 1) return mp(u, u);
+	for(auto t : g[u]) if (t.fi != v) {
+		tmp.pb(dfs(t.fi, u));
+		cnt++;
+		if (cnt == 2) break;
 	}
-	rep(i, 1, n+1) if (vis[i] && du[i] > 1) return i;
-	rep(i, 1, n+1) if (vis[i]) return i;
+	return mp(tmp[0], tmp[1]);
 }
 
-void get(int u, vi &t, int fa) {
-	bool ok = 1;
-	for (auto v : g[u]) if (v.fi != fa) {
-		get(v.fi, t, u);
-		ok = 0;
-		if (sz(t) == 2) return;
-	}
-	if (!ok) t.pb(u);
-}
-
-void solve(int rt) {
-	if (rt == -1) {
-		cout << "NO" << endl;
-		exit(0);
-	}
-	if (du[rt] == 0) return;
-	if (du[rt] == 1) {
-		ans.pb(mp(mp(rt, g[rt][0].fi), g[rt][0].se));
-		return;
-	}
-	for (auto v : g[rt]) {
-		vi now, t1, t2, t3;
-		for (auto vv : g[rt]) if (vv.fi != v.fi) {
-			now.pb(vv.fi);
-			if (sz(now) == 2) break;
-		}
-		get(now[0], t1, rt);
-		get(now[1], t2, rt);
-		get(v.fi, t3, rt);
-		ans.pb(mp(mp(t3[0], t3[1]), -x / 2))
-	}
+void print(int u, int v, int w) {
+	if (u != v) ans.pb(mp(mp(u, v), w));
 }
 
 int main() {
@@ -93,11 +65,26 @@ int main() {
 	cin >> n;
 	rep(i, 1, n) {
 		cin >> u >> v >> w;
+		edge[i] = mp(mp(u, v), w);
 		g[u].pb(mp(v, w));
 		g[v].pb(mp(u, w));
+		du[u]++; du[v]++; 
 	}
-	rt = reduce(1);
-	solve(rt);
+	rep(i, 1, n+1) if (du[i] == 2) {
+		cout << "NO" << endl;
+		return 0;
+	}
+	rep(i, 1, n) {
+		u = edge[i].fi.fi, v = edge[i].fi.se, w = edge[i].se;
+		pii t1 = get(u, v), t2 = get(v, u);
+		print(t1.fi, t2.fi, w / 2);
+		print(t1.se, t2.se, w / 2);
+		print(t1.fi, t1.se, -w / 2);
+		print(t2.fi, t2.se, -w / 2);
+	}
+	cout << "YES" << endl;
+	cout << sz(ans) << endl;
+	for (auto u : ans) cout << u.fi.fi << " " << u.fi.se << " " << u.se << endl;
 	return 0;
 }
 
