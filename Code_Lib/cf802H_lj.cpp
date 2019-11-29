@@ -30,45 +30,27 @@ void file_put() {
     freopen("filename.out", "w", stdout);
 }
 
-const int N=200005;
-int B[N][5],n,m=0,k;
+const int N=105;
+int n=100,k,a[N],num[N],s=0,p=0;
 
-void I(int k,int a,int b,int c) {
-    ++m,B[m][0]=k,B[m][1]=a,B[m][2]=b,B[m][3]=c;
-}
-
-void I(int k,int a,int b,int c,int d) {
-    ++m,B[m][0]=k,B[m][1]=a,B[m][2]=b,B[m][3]=c,B[m][4]=d;
-}
-
-void add(int x,int y) {
-    I(3,1,x,y);
-    rep(i,1,n) I(4,x,i,y,i+1);
-    I(3,n,x,y);
-    n+=2;
-}
-
-void print() {
-    printf("%d\n",m);
-    rep(i,1,m+1) {
-       printf("%d ",B[i][0]); 
-       rep(j,1,B[i][0]+1) printf("%d%c",B[i][j]," \n"[j==B[i][0]]); 
-    }
+int C(int n){
+    return n*(n-1)*(n-2)/6;
 }
 
 int main() {
-//    file_put(); 
+//    file_put();
     
     scanf("%d",&k);
-    if (k&1) n=3,I(3,1,2,3),I(3,1,2,3); else {
-        n=4;
-        rep(i,1,5) {
-            int x=(i+1==5)?1:i+1,y=(i-1==0)?4:i-1;
-            I(3,i,x,y);
-        }
+    rep(i,1,n+1) a[i]=C(i);
+    for (int i=n; i && k; i--) {
+        num[i]=k/a[i],k%=a[i];
+        if (!p && num[i]) p=i;
     }
-    while (n<k) add(n+1,n+2);
-    print();
+    rep(i,1,p+1) {
+        printf("a");
+        rep(j,1,num[i]+1) printf("b");
+    }
+    printf(" aaab\n");
     
 	return 0;
 }
