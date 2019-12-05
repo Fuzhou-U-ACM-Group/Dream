@@ -67,7 +67,7 @@
 |           2019/11/17 [2019 ICPC 沈阳]() **[现场]**           |  2   |  O   |  .   |  .   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  O   |  O   |  O   |      |
 |           2019/11/24 [2019 ICPC 上海]() **[现场]**           |  52  |  .   |  O   |  .   |  .   |  O   |  O   |  .   |  O   |  .   |  .   |  O   |  .   |  .   |      |
 |                2019/12/4 [2019 CCPC Final]()                 |  9   |  O   |  .   |  .   |  .   |  O   |  .   |  .   |  .   |  O   |  .   |  O   |  O   |      |      |
-| 2019/12/5 [Petrozavodsk Winter-2019. Petrozavodsk SU Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001538) |  39  |  O   |  O   |  .   |  O   |  O   |  X   |  .   |  O   |  .   |  .   |      |      |      |      |
+| 2019/12/5 [Petrozavodsk Winter-2019. Petrozavodsk SU Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001538) |  39  |  O   |  O   |  .   |  O   |  O   |  X   |  .   |  O   |  Ø   |  .   |      |      |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
