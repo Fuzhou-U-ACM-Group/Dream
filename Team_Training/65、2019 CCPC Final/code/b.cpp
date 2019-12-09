@@ -16,9 +16,13 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef double db;
 typedef vector<int> vi;
-
+ 
+typedef uniform_int_distribution<ll> RR;
+mt19937 gen(998244353);
+ll rd(ll l, ll r) { RR dis(l, r); return dis(gen); } 
+ 
 const int P = 1e9 + 7;
-const int N = 1e4 + 10;
+const int N = 1e5 + 10;
 int T, n, m, u, v, rnd[N], can[N], vis[N], w;
 vector<pii> g[N];
 vi revg[N];
@@ -31,25 +35,26 @@ int kpow(int a, int b) {
 	}
 	return res;
 }
-
+ 
 void dfs(int u) {
 	can[u] = 1;
 	for (auto v : revg[u]) if (can[v] == -1) dfs(v); 
 }
-
+ 
 unordered_map<int, int> M;
-
+ 
 int get(vi &tmp) {
 	int res = 0;
 	for (auto v : tmp) res ^= rnd[v];
 	return res;
 }
-
+ 
 int main() {
+	freopen("a.in", "r", stdin); 
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	srand(time(0));
-	rep(i, 0, 10000) rnd[i] = rand();
+	rep(i, 0, 100000) rnd[i] = rd(1, 1e9);
 	cin >> T;
 	rep(cas, 0, T) {
 		M.clear();
@@ -83,9 +88,9 @@ int main() {
 			M[ha] = sz(ans);
 			t2.clear();
 			int x = pw(30);
-			for (auto v : t1) for (auto u : g[v]) if (can[u.fi]) x = min(x, u.se);
+			for (auto v : t1) for (auto u : g[v]) if (can[u.fi] == 1) x = min(x, u.se);
 			ans.pb(x);
-			for (auto v : t1) for (auto u : g[v]) if (can[u.fi] && u.se == x) {
+			for (auto v : t1) for (auto u : g[v]) if (can[u.fi] == 1 && u.se == x) {
 				if (!vis[u.fi]) vis[u.fi] = 1, t2.pb(u.fi);
 			}
 			t1 = t2;
