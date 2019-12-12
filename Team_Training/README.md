@@ -69,6 +69,7 @@
 |                2019/12/4 [2019 CCPC Final]()                 |  9   |  O   |  .   |  .   |  .   |  O   |  .   |  .   |  .   |  O   |  .   |  O   |  O   |      |      |
 | 2019/12/5 [Petrozavodsk Winter-2019. Petrozavodsk SU Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001538) |  39  |  O   |  O   |  .   |  O   |  O   |  X   |  .   |  O   |  Ø   |  .   |      |      |      |      |
 | 2019/12/11 [2019 ICPC 香港](https://codeforces.com/gym/102452) |  1   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  .   |      |      |      |
+| 2019/12/12 [2019 NERC, Northern Eurasia Finals](https://codeforces.com/contest/1267) |  78  |  O   |  O   |  .   |  O   |  O   |  .   |  .   |  .   |  .   |  O   |  O   |  O   |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
