@@ -70,6 +70,8 @@
 | 2019/12/5 [Petrozavodsk Winter-2019. Petrozavodsk SU Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001538) |  39  |  O   |  O   |  .   |  O   |  O   |  X   |  .   |  O   |  Ø   |  .   |      |      |      |      |
 | 2019/12/11 [2019 ICPC 香港](https://codeforces.com/gym/102452) |  1   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  .   |      |      |      |
 | 2019/12/12 [2019 NERC, Northern Eurasia Finals](https://codeforces.com/contest/1267) |  78  |  O   |  O   |  .   |  O   |  O   |  .   |  .   |  .   |  .   |  O   |  O   |  O   |      |      |
+|                2019/12/15 [2019 EC-Finals]()                 |  43  |  O   |  .   |  O   |  .   |  O   |  .   |  .   |  O   |  .   |  .   |  .   |  .   |  O   |      |
+| 2019/12/21 [2019 bytedance camp 网络赛](http://opentrains.mipt.ru/~ejudge/team.cgi?contest_id=631_mwcontests246_^-4B@Y2#) |  31  |  O   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |  .   |  O   |  O   |  O   |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 X 理论AC`
 
