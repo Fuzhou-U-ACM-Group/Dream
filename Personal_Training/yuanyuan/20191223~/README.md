@@ -2,12 +2,11 @@
 
 周一到周五每天一场 cf ，避开队友做过的题。
 
-|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |
-| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-|                      2019/12/23 咕咕咕                       |      |      |      |      |      |      |      |
-| 2019/12/24 [Educational Codeforces Round 78](https://codeforces.com/contest/1278) **[done]** | 258  |  O   |  O   |  O   |  O   |  Ø   |  T   |
-|                      2019/12/25 咕咕咕                       |      |      |      |      |      |      |      |
-| 2019/12/26 [Codeforces Round #610 (Div. 2)](https://codeforces.com/contest/1282) **[done]** |  32  |  O   |  O   |  O   |  O   |  O   |      |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   | G    |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :----: |
+| 2019/12/24 [Educational Codeforces Round 78](https://codeforces.com/contest/1278) **[done]** | 258  |  O   |  O   |  O   |  O   |  Ø   |  T   |      |
+| 2019/12/26 [Codeforces Round #610 (Div. 2)](https://codeforces.com/contest/1282) **[done]** |  32  |  O   |  O   |  O   |  O   |  O   |      |      |
+|  2020/1/4 [Hello 2020](https://codeforces.com/contest/1284)  | 173  |  O   |  O   |  O   |  O   |  O   |      |      |
 
 `. 尚未通过 O 当场通过 Ø 赛后通过 ! 放弃补题 T 队友补过`
 
