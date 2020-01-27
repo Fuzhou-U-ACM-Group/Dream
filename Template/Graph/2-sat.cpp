@@ -70,7 +70,7 @@ struct TwoSat {
 		ans[tot++] = u;
 		col[u] = 1; col[u ^ 1] = -1;
 		for (auto v : g[u]) if (!dfs(v)) return 0;
-		return 0;
+		return 1;
 	}
 	bool solve2() { // 构造字典序最小解
 		for (int i = 0; i < n; i += 2) if (!col[i]) {
